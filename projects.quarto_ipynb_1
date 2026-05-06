@@ -1,0 +1,90 @@
+{
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "---\n",
+        "title: \"Projects\"\n",
+        "---\n",
+        "\n",
+        "## USD/TWD Exchange Rate Forecast Model\n",
+        "\n",
+        "::: {.card}\n",
+        "A medium-horizon forecasting framework for USD/TWD combining macro fundamentals and market microstructure signals.\n",
+        ":::\n",
+        "\n",
+        "### Objective\n",
+        "\n",
+        "- Forecast 1-week to 1-month USD/TWD direction and volatility.\n",
+        "- Provide explainable factor attribution for each forecast.\n",
+        "\n",
+        "### Data Inputs\n",
+        "\n",
+        "- Taiwan and US rate differentials.\n",
+        "- DXY, risk sentiment, and regional FX basket.\n",
+        "- Taiwan export orders, PMI surprises, and foreign equity flow.\n",
+        "\n",
+        "### Modeling Stack\n",
+        "\n",
+        "1. Baseline: regularized linear model (Elastic Net).\n",
+        "2. Nonlinear layer: gradient boosting for interaction terms.\n",
+        "3. Regime switch: hidden Markov model for low/high-volatility states.\n",
+        "\n",
+        "### Signal Equation\n",
+        "\n",
+        "A stylized prediction equation:\n",
+        "\n",
+        "$$\n",
+        "\\hat{\\Delta s}_{t+1} = \\alpha + \\sum_{k=1}^{K} w_k x_{k,t} + g(x_t)\n",
+        "$$\n",
+        "\n",
+        "where $x_{k,t}$ is macro/market feature $k$ and $g(\\cdot)$ captures nonlinear interactions.\n",
+        "\n",
+        "### Minimal Python Prototype"
+      ],
+      "id": "c66dddf8"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "import pandas as pd\n",
+        "from sklearn.linear_model import ElasticNet\n",
+        "\n",
+        "# df should contain columns: y (next-period FX return), and feature columns\n",
+        "features = [\"us_tw_rate_diff\", \"dxy_ret\", \"foreign_flow\", \"risk_sentiment\"]\n",
+        "\n",
+        "def fit_baseline(df: pd.DataFrame):\n",
+        "    model = ElasticNet(alpha=0.01, l1_ratio=0.5, random_state=42)\n",
+        "    model.fit(df[features], df[\"y\"])\n",
+        "    return model"
+      ],
+      "id": "3095e5da",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "### Current Status\n",
+        "\n",
+        "- Backtest period: 2014-present.\n",
+        "- Ongoing improvements: feature stability under policy shock periods.\n",
+        "- Next milestone: online dashboard with forecast distribution and confidence intervals."
+      ],
+      "id": "8e8186f1"
+    }
+  ],
+  "metadata": {
+    "kernelspec": {
+      "name": "python3",
+      "language": "python",
+      "display_name": "Python 3 (ipykernel)",
+      "path": "/Users/mista/coding/website/.venv/share/jupyter/kernels/python3"
+    }
+  },
+  "nbformat": 4,
+  "nbformat_minor": 5
+}

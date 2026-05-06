@@ -1,0 +1,57 @@
+---
+title: "Projects"
+---
+
+## USD/TWD Exchange Rate Forecast Model
+
+::: {.card}
+A medium-horizon forecasting framework for USD/TWD combining macro fundamentals and market microstructure signals.
+:::
+
+### Objective
+
+- Forecast 1-week to 1-month USD/TWD direction and volatility.
+- Provide explainable factor attribution for each forecast.
+
+### Data Inputs
+
+- Taiwan and US rate differentials.
+- DXY, risk sentiment, and regional FX basket.
+- Taiwan export orders, PMI surprises, and foreign equity flow.
+
+### Modeling Stack
+
+1. Baseline: regularized linear model (Elastic Net).
+2. Nonlinear layer: gradient boosting for interaction terms.
+3. Regime switch: hidden Markov model for low/high-volatility states.
+
+### Signal Equation
+
+A stylized prediction equation:
+
+$$
+\hat{\Delta s}_{t+1} = \alpha + \sum_{k=1}^{K} w_k x_{k,t} + g(x_t)
+$$
+
+where $x_{k,t}$ is macro/market feature $k$ and $g(\cdot)$ captures nonlinear interactions.
+
+### Minimal Python Prototype
+
+```{python}
+import pandas as pd
+from sklearn.linear_model import ElasticNet
+
+# df should contain columns: y (next-period FX return), and feature columns
+features = ["us_tw_rate_diff", "dxy_ret", "foreign_flow", "risk_sentiment"]
+
+def fit_baseline(df: pd.DataFrame):
+    model = ElasticNet(alpha=0.01, l1_ratio=0.5, random_state=42)
+    model.fit(df[features], df["y"])
+    return model
+```
+
+### Current Status
+
+- Backtest period: 2014-present.
+- Ongoing improvements: feature stability under policy shock periods.
+- Next milestone: online dashboard with forecast distribution and confidence intervals.
