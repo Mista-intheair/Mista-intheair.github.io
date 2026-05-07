@@ -1,0 +1,170 @@
+[
+  {
+    "objectID": "daily-reports.html",
+    "href": "daily-reports.html",
+    "title": "日報",
+    "section": "",
+    "text": "本區段嵌入您最新的日間金融報告（PDF 格式）。\n將您的報告放置在 assets/reports/daily-report-latest.pdf，報告將在下方顯示。\n\n\n\n\n如果 PDF 無法在您的瀏覽器中顯示，請使用此直接連結：\n\n開啟最新報告\n\n\nEnglish Version | 切換至英文版本"
+  },
+  {
+    "objectID": "en/cv.html",
+    "href": "en/cv.html",
+    "title": "CV",
+    "section": "",
+    "text": "Email: your.email@example.com | GitHub: github.com/your-username | Location: Taiwan\n\n\n\nResearch analyst specializing in Global Macro and Equity Research, with emphasis on rates, FX, valuation, and systematic market monitoring.\n\n\n\n\n\n\n2022-2024\n\n\nThesis: Macro Liquidity Regimes and Equity Factor Rotation.\n\n\n\n\n\n2018-2022\n\n\nMinor in Data Science.\n\n\n\n\n\n\n\n\n2024\n\n\nBuilt a daily macro dashboard tracking rates, FX, and sector dispersion.\nProduced thematic notes on Taiwan export cycle and earnings revisions.\n\n\n\n\n\n2023\n\n\nLed labs on time-series modeling and factor regression diagnostics.\n\n\n\n\n\n\nUSD/TWD forecasting model with regime-aware features.\nEquity style rotation monitor based on macro surprise indexes.\n\n\n\n\n\nLanguages: Python, SQL, R, Markdown, LaTeX.\nModeling: Time-series forecasting, panel regression, tree ensembles.\nTools: Git, Quarto, Jupyter, Bloomberg terminal workflow.\n切換至中文版本 | Switch to Chinese"
+  },
+  {
+    "objectID": "en/cv.html#profile",
+    "href": "en/cv.html#profile",
+    "title": "CV",
+    "section": "",
+    "text": "Research analyst specializing in Global Macro and Equity Research, with emphasis on rates, FX, valuation, and systematic market monitoring."
+  },
+  {
+    "objectID": "en/cv.html#education",
+    "href": "en/cv.html#education",
+    "title": "CV",
+    "section": "",
+    "text": "2022-2024\n\n\nThesis: Macro Liquidity Regimes and Equity Factor Rotation.\n\n\n\n\n\n2018-2022\n\n\nMinor in Data Science."
+  },
+  {
+    "objectID": "en/cv.html#experience",
+    "href": "en/cv.html#experience",
+    "title": "CV",
+    "section": "",
+    "text": "2024\n\n\nBuilt a daily macro dashboard tracking rates, FX, and sector dispersion.\nProduced thematic notes on Taiwan export cycle and earnings revisions.\n\n\n\n\n\n2023\n\n\nLed labs on time-series modeling and factor regression diagnostics."
+  },
+  {
+    "objectID": "en/cv.html#selected-projects",
+    "href": "en/cv.html#selected-projects",
+    "title": "CV",
+    "section": "",
+    "text": "USD/TWD forecasting model with regime-aware features.\nEquity style rotation monitor based on macro surprise indexes."
+  },
+  {
+    "objectID": "en/cv.html#skills",
+    "href": "en/cv.html#skills",
+    "title": "CV",
+    "section": "",
+    "text": "Languages: Python, SQL, R, Markdown, LaTeX.\nModeling: Time-series forecasting, panel regression, tree ensembles.\nTools: Git, Quarto, Jupyter, Bloomberg terminal workflow."
+  },
+  {
+    "objectID": "en/projects.html",
+    "href": "en/projects.html",
+    "title": "Projects",
+    "section": "",
+    "text": "A medium-horizon forecasting framework for USD/TWD combining macro fundamentals and market microstructure signals.\n\n\n\n\nForecast 1-week to 1-month USD/TWD direction and volatility.\nProvide explainable factor attribution for each forecast.\n\n\n\n\n\nTaiwan and US rate differentials.\nDXY, risk sentiment, and regional FX basket.\nTaiwan export orders, PMI surprises, and foreign equity flow.\n\n\n\n\n\nBaseline: regularized linear model (Elastic Net).\nNonlinear layer: gradient boosting for interaction terms.\nRegime switch: hidden Markov model for low/high-volatility states.\n\n\n\n\nA stylized prediction equation:\n\\[\n\\hat{\\Delta s}_{t+1} = \\alpha + \\sum_{k=1}^{K} w_k x_{k,t} + g(x_t)\n\\]\nwhere \\(x_{k,t}\\) is macro/market feature \\(k\\) and \\(g(\\cdot)\\) captures nonlinear interactions.\n\n\n\n\nimport pandas as pd\nfrom sklearn.linear_model import ElasticNet\n\n# df should contain columns: y (next-period FX return), and feature columns\nfeatures = [\"us_tw_rate_diff\", \"dxy_ret\", \"foreign_flow\", \"risk_sentiment\"]\n\ndef fit_baseline(df: pd.DataFrame):\n    model = ElasticNet(alpha=0.01, l1_ratio=0.5, random_state=42)\n    model.fit(df[features], df[\"y\"])\n    return model\n\n\n\n\n\nBacktest period: 2014-present.\nOngoing improvements: feature stability under policy shock periods.\nNext milestone: online dashboard with forecast distribution and confidence intervals.\n\n\n切換至中文版本 | Switch to Chinese"
+  },
+  {
+    "objectID": "en/projects.html#usdtwd-exchange-rate-forecast-model",
+    "href": "en/projects.html#usdtwd-exchange-rate-forecast-model",
+    "title": "Projects",
+    "section": "",
+    "text": "A medium-horizon forecasting framework for USD/TWD combining macro fundamentals and market microstructure signals.\n\n\n\n\nForecast 1-week to 1-month USD/TWD direction and volatility.\nProvide explainable factor attribution for each forecast.\n\n\n\n\n\nTaiwan and US rate differentials.\nDXY, risk sentiment, and regional FX basket.\nTaiwan export orders, PMI surprises, and foreign equity flow.\n\n\n\n\n\nBaseline: regularized linear model (Elastic Net).\nNonlinear layer: gradient boosting for interaction terms.\nRegime switch: hidden Markov model for low/high-volatility states.\n\n\n\n\nA stylized prediction equation:\n\\[\n\\hat{\\Delta s}_{t+1} = \\alpha + \\sum_{k=1}^{K} w_k x_{k,t} + g(x_t)\n\\]\nwhere \\(x_{k,t}\\) is macro/market feature \\(k\\) and \\(g(\\cdot)\\) captures nonlinear interactions.\n\n\n\n\nimport pandas as pd\nfrom sklearn.linear_model import ElasticNet\n\n# df should contain columns: y (next-period FX return), and feature columns\nfeatures = [\"us_tw_rate_diff\", \"dxy_ret\", \"foreign_flow\", \"risk_sentiment\"]\n\ndef fit_baseline(df: pd.DataFrame):\n    model = ElasticNet(alpha=0.01, l1_ratio=0.5, random_state=42)\n    model.fit(df[features], df[\"y\"])\n    return model\n\n\n\n\n\nBacktest period: 2014-present.\nOngoing improvements: feature stability under policy shock periods.\nNext milestone: online dashboard with forecast distribution and confidence intervals.\n\n\n切換至中文版本 | Switch to Chinese"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "首頁",
+    "section": "",
+    "text": "專注於全球宏觀與股票研究的分析師。\n以數據驅動的敘事方式探討宏觀週期、利率、外匯與跨資產估值。\n\n全球宏觀 股票研究 利率與匯率 系統性信號"
+  },
+  {
+    "objectID": "index.html#研究領域",
+    "href": "index.html#研究領域",
+    "title": "首頁",
+    "section": "研究領域",
+    "text": "研究領域\n\n\n宏觀制度識別與情景分析。\n政策與流動性轉變下的股票風格輪動。\n台灣市場與美元/台幣匯率動態。"
+  },
+  {
+    "objectID": "index.html#示例markdown-python-latex",
+    "href": "index.html#示例markdown-python-latex",
+    "title": "首頁",
+    "section": "示例：Markdown + Python + LaTeX",
+    "text": "示例：Markdown + Python + LaTeX\n簡單因子模型下的預期年化收益為：\n\\[\nE[R_i] = R_f + \\beta_i (E[R_m] - R_f)\n\\]\n\nimport numpy as np\n\nrisk_free = 0.015\nbeta = 1.2\nmarket_premium = 0.06\nexpected_return = risk_free + beta * market_premium\nexpected_return\n\n0.087\n\n\n\nEnglish Version | 切換至英文版本"
+  },
+  {
+    "objectID": "projects.html",
+    "href": "projects.html",
+    "title": "研究專案",
+    "section": "",
+    "text": "結合宏觀基本面與市場微觀結構信號的中期預測框架。\n\n\n\n\n預測 1 週至 1 個月的美元/台幣方向與波動率。\n為每個預測提供可解釋的因子歸因。\n\n\n\n\n\n台灣與美國利率差異。\nDXY、風險情緒與區域外匯籃子。\n台灣出口訂單、PMI 驚喜與外資股票流。\n\n\n\n\n\n基線模型：正則化線性模型（Elastic Net）。\n非線性層：梯度提升機處理交互項。\n制度轉換：隱藏馬可夫模型處理低/高波動率狀態。\n\n\n\n\n預測方程式：\n\\[\n\\hat{\\Delta s}_{t+1} = \\alpha + \\sum_{k=1}^{K} w_k x_{k,t} + g(x_t)\n\\]\n其中 \\(x_{k,t}\\) 是宏觀/市場特徵 \\(k\\)，\\(g(\\cdot)\\) 捕捉非線性交互。\n\n\n\n\nimport pandas as pd\nfrom sklearn.linear_model import ElasticNet\n\n# df 應包含 y（下期匯率回報）和特徵列\nfeatures = [\"us_tw_rate_diff\", \"dxy_ret\", \"foreign_flow\", \"risk_sentiment\"]\n\ndef fit_baseline(df: pd.DataFrame):\n    model = ElasticNet(alpha=0.01, l1_ratio=0.5, random_state=42)\n    model.fit(df[features], df[\"y\"])\n    return model\n\n\n\n\n\n回測期間：2014 年至今。\n持續改進：政策衝擊期間特徵穩定性。\n下一里程碑：線上儀表板展示預測分佈與信心區間。\n\n\nEnglish Version | 切換至英文版本"
+  },
+  {
+    "objectID": "projects.html#美元台幣匯率預測模型",
+    "href": "projects.html#美元台幣匯率預測模型",
+    "title": "研究專案",
+    "section": "",
+    "text": "結合宏觀基本面與市場微觀結構信號的中期預測框架。\n\n\n\n\n預測 1 週至 1 個月的美元/台幣方向與波動率。\n為每個預測提供可解釋的因子歸因。\n\n\n\n\n\n台灣與美國利率差異。\nDXY、風險情緒與區域外匯籃子。\n台灣出口訂單、PMI 驚喜與外資股票流。\n\n\n\n\n\n基線模型：正則化線性模型（Elastic Net）。\n非線性層：梯度提升機處理交互項。\n制度轉換：隱藏馬可夫模型處理低/高波動率狀態。\n\n\n\n\n預測方程式：\n\\[\n\\hat{\\Delta s}_{t+1} = \\alpha + \\sum_{k=1}^{K} w_k x_{k,t} + g(x_t)\n\\]\n其中 \\(x_{k,t}\\) 是宏觀/市場特徵 \\(k\\)，\\(g(\\cdot)\\) 捕捉非線性交互。\n\n\n\n\nimport pandas as pd\nfrom sklearn.linear_model import ElasticNet\n\n# df 應包含 y（下期匯率回報）和特徵列\nfeatures = [\"us_tw_rate_diff\", \"dxy_ret\", \"foreign_flow\", \"risk_sentiment\"]\n\ndef fit_baseline(df: pd.DataFrame):\n    model = ElasticNet(alpha=0.01, l1_ratio=0.5, random_state=42)\n    model.fit(df[features], df[\"y\"])\n    return model\n\n\n\n\n\n回測期間：2014 年至今。\n持續改進：政策衝擊期間特徵穩定性。\n下一里程碑：線上儀表板展示預測分佈與信心區間。\n\n\nEnglish Version | 切換至英文版本"
+  },
+  {
+    "objectID": "cv.html",
+    "href": "cv.html",
+    "title": "個人履歷",
+    "section": "",
+    "text": "電郵: your.email@example.com | GitHub: github.com/your-username | 地點: 台灣\n\n\n\n專注於全球宏觀與股票研究的分析師，強調利率、外匯、估值與系統性市場監測。\n\n\n\n\n\n\n2022-2024\n\n\n論文：宏觀流動性制度與股票因子輪動。\n\n\n\n\n\n2018-2022\n\n\n副修：資料科學。\n\n\n\n\n\n\n\n\n2024\n\n\n構建日間宏觀儀表板，追蹤利率、外匯與部門分散。\n撰寫台灣出口週期與盈利調整的主題報告。\n\n\n\n\n\n2023\n\n\n主持時間序列建模與因子迴歸診斷實驗室。\n\n\n\n\n\n\n具制度感知特徵的美元/台幣預測模型。\n基於宏觀驚喜指數的股票風格輪動監測。\n\n\n\n\n\n程式語言：Python、SQL、R、Markdown、LaTeX。\n建模：時間序列預測、面板迴歸、樹集合。\n工具：Git、Quarto、Jupyter、彭博終端工作流。\nEnglish Version | 切換至英文版本"
+  },
+  {
+    "objectID": "cv.html#簡介",
+    "href": "cv.html#簡介",
+    "title": "個人履歷",
+    "section": "",
+    "text": "專注於全球宏觀與股票研究的分析師，強調利率、外匯、估值與系統性市場監測。"
+  },
+  {
+    "objectID": "cv.html#教育背景",
+    "href": "cv.html#教育背景",
+    "title": "個人履歷",
+    "section": "",
+    "text": "2022-2024\n\n\n論文：宏觀流動性制度與股票因子輪動。\n\n\n\n\n\n2018-2022\n\n\n副修：資料科學。"
+  },
+  {
+    "objectID": "cv.html#工作經歷",
+    "href": "cv.html#工作經歷",
+    "title": "個人履歷",
+    "section": "",
+    "text": "2024\n\n\n構建日間宏觀儀表板，追蹤利率、外匯與部門分散。\n撰寫台灣出口週期與盈利調整的主題報告。\n\n\n\n\n\n2023\n\n\n主持時間序列建模與因子迴歸診斷實驗室。"
+  },
+  {
+    "objectID": "cv.html#精選項目",
+    "href": "cv.html#精選項目",
+    "title": "個人履歷",
+    "section": "",
+    "text": "具制度感知特徵的美元/台幣預測模型。\n基於宏觀驚喜指數的股票風格輪動監測。"
+  },
+  {
+    "objectID": "cv.html#技能",
+    "href": "cv.html#技能",
+    "title": "個人履歷",
+    "section": "",
+    "text": "程式語言：Python、SQL、R、Markdown、LaTeX。\n建模：時間序列預測、面板迴歸、樹集合。\n工具：Git、Quarto、Jupyter、彭博終端工作流。"
+  },
+  {
+    "objectID": "en/index.html",
+    "href": "en/index.html",
+    "title": "Home",
+    "section": "",
+    "text": "Global Macro and Equity Research focused analyst.\nI build data-informed narratives around macro cycles, rates, FX, and cross-asset valuation.\n\nGlobal Macro Equity Research Rates & FX Systematic Signals"
+  },
+  {
+    "objectID": "en/index.html#research-focus",
+    "href": "en/index.html#research-focus",
+    "title": "Home",
+    "section": "Research Focus",
+    "text": "Research Focus\n\n\nMacro regime detection and scenario mapping.\nEquity style rotation under policy and liquidity shifts.\nTaiwan market and USD/TWD exchange-rate dynamics."
+  },
+  {
+    "objectID": "en/index.html#example-markdown-python-latex",
+    "href": "en/index.html#example-markdown-python-latex",
+    "title": "Home",
+    "section": "Example: Markdown + Python + LaTeX",
+    "text": "Example: Markdown + Python + LaTeX\nThe expected annualized return under a simple factor model is:\n\\[\nE[R_i] = R_f + \\beta_i (E[R_m] - R_f)\n\\]\n\nimport numpy as np\n\nrisk_free = 0.015\nbeta = 1.2\nmarket_premium = 0.06\nexpected_return = risk_free + beta * market_premium\nexpected_return\n\n0.087\n\n\n\n切換至中文版本 | Switch to Chinese"
+  },
+  {
+    "objectID": "en/daily-reports.html",
+    "href": "en/daily-reports.html",
+    "title": "Daily Reports",
+    "section": "",
+    "text": "This section embeds your latest daily financial report in PDF format.\nPlace your file at assets/reports/daily-report-latest.pdf and it will render below.\n\n\n\n\nIf the PDF does not display in your browser, use this direct link:\n\nOpen latest report\n\n\n切換至中文版本 | Switch to Chinese"
+  }
+]
