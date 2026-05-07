@@ -56,4 +56,4 @@ Research analyst specializing in Global Macro and Equity Research, with emphasis
 
 ---
 
-**[English Version](en/cv.html)** | **[切換至英文版本](en/cv.html)**
+**[切換至中文版本](../cv.html)** | **[Switch to Chinese](../cv.html)**

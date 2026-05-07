@@ -8,7 +8,7 @@ Place your file at `assets/reports/daily-report-latest.pdf` and it will render b
 
 ::: {.pdf-frame}
 <iframe
-  src="assets/reports/daily-report-latest.pdf"
+  src="../assets/reports/daily-report-latest.pdf"
   width="100%"
   height="900"
   style="border: none;"
@@ -18,8 +18,8 @@ Place your file at `assets/reports/daily-report-latest.pdf` and it will render b
 
 If the PDF does not display in your browser, use this direct link:
 
-- [Open latest report](assets/reports/daily-report-latest.pdf)
+- [Open latest report](../assets/reports/daily-report-latest.pdf)
 
 ---
 
-**[English Version](en/daily-reports.html)** | **[切換至英文版本](en/daily-reports.html)**
+**[切換至中文版本](../daily-reports.html)** | **[Switch to Chinese](../daily-reports.html)**

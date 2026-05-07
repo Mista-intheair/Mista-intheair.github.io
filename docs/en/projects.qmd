@@ -58,4 +58,4 @@ def fit_baseline(df: pd.DataFrame):
 
 ---
 
-**[English Version](en/projects.html)** | **[切換至英文版本](en/projects.html)**
+**[切換至中文版本](../projects.html)** | **[Switch to Chinese](../projects.html)**

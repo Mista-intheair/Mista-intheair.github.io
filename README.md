@@ -17,19 +17,51 @@ This project is a personal website with four sections:
 ## Local preview
 
 1. Install Quarto: https://quarto.org/docs/get-started/
-2. In this folder, run:
+2. In this folder, run with environment variable to use the project venv:
 
 ```bash
+QUARTO_PYTHON=.venv/bin/python quarto preview
+```
+
+Or activate the venv first:
+```bash
+source .venv/bin/activate
 quarto preview
 ```
 
-## Build static site
+## Build static site (both Chinese and English)
+
+For convenience, use the build script which renders both versions:
 
 ```bash
-quarto render
+./build.sh
 ```
 
-The rendered site is generated into `docs/`.
+Or manually build each version:
+
+**Chinese version (中文):**
+```bash
+QUARTO_PYTHON=.venv/bin/python quarto render
+```
+
+**English version (English):**
+```bash
+cd en
+QUARTO_PYTHON=../.venv/bin/python quarto render
+cd ..
+```
+
+Both versions render into `docs/`:
+- Chinese: `docs/index.html`
+- English: `docs/en/index.html`
+
+## Multi-language support
+
+This site supports both Chinese and English:
+- **Chinese (中文):** Root directory pages (index.qmd, etc.)
+- **English:** `en/` subdirectory with mirror structure
+- **Language switcher:** Use the 🌍 globe icon in the navbar to switch languages
+- **Direct page links:** Each page has a footer link to the alternate language version
 
 ## GitHub Pages setup
 

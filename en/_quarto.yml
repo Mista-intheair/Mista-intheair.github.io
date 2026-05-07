@@ -1,8 +1,6 @@
 project:
   type: website
-  output-dir: docs
-  resources:
-    - en/
+  output-dir: ../docs/en
 
 website:
   title: "Mista | Research Notes"
@@ -17,12 +15,6 @@ website:
       - href: cv.qmd
         text: CV
     right:
-      - text: "🌍"
-        menu:
-          - text: "中文 (Chinese)"
-            href: index.html
-          - text: "English"
-            href: en/index.html
       - icon: github
         href: https://github.com/your-username
 
@@ -37,7 +29,7 @@ format:
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Serif:wght@400;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-    css: styles.scss
+    css: ../styles.scss
 
 execute:
   echo: true

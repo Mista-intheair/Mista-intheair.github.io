@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Home – Mista | Research Notes</title>
+<title>Projects – Mista | Research Notes</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -139,7 +139,7 @@ window.Quarto = {
 };
 </script>
 
-<link rel="stylesheet" href="styles.scss">
+<link rel="stylesheet" href="../styles.scss">
 </head>
 
 <body class="nav-fixed quarto-light">
@@ -160,7 +160,7 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page"> 
+    <a class="nav-link" href="./index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
@@ -168,7 +168,7 @@ window.Quarto = {
 <span class="menu-text">Daily Reports</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./projects.html"> 
+    <a class="nav-link active" href="./projects.html" aria-current="page"> 
 <span class="menu-text">Projects</span></a>
   </li>  
   <li class="nav-item">
@@ -177,21 +177,6 @@ window.Quarto = {
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
-  <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">🌍</span>
-    </a>
-    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-">    
-        <li>
-    <a class="dropdown-item" href="./index.html">
- <span class="dropdown-text">中文 (Chinese)</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="./en/index.html">
- <span class="dropdown-text">English</span></a>
-  </li>  
-    </ul>
-  </li>
   <li class="nav-item compact">
     <a class="nav-link" href="https://github.com/your-username"> <i class="bi bi-github" role="img">
 </i> 
@@ -213,9 +198,15 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#mista" id="toc-mista" class="nav-link active" data-scroll-target="#mista">Mista</a></li>
-  <li><a href="#research-focus" id="toc-research-focus" class="nav-link" data-scroll-target="#research-focus">Research Focus</a></li>
-  <li><a href="#example-markdown-python-latex" id="toc-example-markdown-python-latex" class="nav-link" data-scroll-target="#example-markdown-python-latex">Example: Markdown + Python + LaTeX</a></li>
+  <li><a href="#usdtwd-exchange-rate-forecast-model" id="toc-usdtwd-exchange-rate-forecast-model" class="nav-link active" data-scroll-target="#usdtwd-exchange-rate-forecast-model">USD/TWD Exchange Rate Forecast Model</a>
+  <ul class="collapse">
+  <li><a href="#objective" id="toc-objective" class="nav-link" data-scroll-target="#objective">Objective</a></li>
+  <li><a href="#data-inputs" id="toc-data-inputs" class="nav-link" data-scroll-target="#data-inputs">Data Inputs</a></li>
+  <li><a href="#modeling-stack" id="toc-modeling-stack" class="nav-link" data-scroll-target="#modeling-stack">Modeling Stack</a></li>
+  <li><a href="#signal-equation" id="toc-signal-equation" class="nav-link" data-scroll-target="#signal-equation">Signal Equation</a></li>
+  <li><a href="#minimal-python-prototype" id="toc-minimal-python-prototype" class="nav-link" data-scroll-target="#minimal-python-prototype">Minimal Python Prototype</a></li>
+  <li><a href="#current-status" id="toc-current-status" class="nav-link" data-scroll-target="#current-status">Current Status</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -224,7 +215,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Home</h1>
+<h1 class="title">Projects</h1>
 </div>
 
 
@@ -241,46 +232,69 @@ window.Quarto = {
 </header>
 
 
-<section id="mista" class="level1 hero">
-<h1>Mista</h1>
-<p>Global Macro and Equity Research focused analyst.</p>
-<p>I build data-informed narratives around macro cycles, rates, FX, and cross-asset valuation.</p>
-<div class="badge-line">
-<p><span>Global Macro</span> <span>Equity Research</span> <span>Rates &amp; FX</span> <span>Systematic Signals</span></p>
-</div>
-</section>
-<section id="research-focus" class="level2">
-<h2 class="anchored" data-anchor-id="research-focus">Research Focus</h2>
+<section id="usdtwd-exchange-rate-forecast-model" class="level2">
+<h2 class="anchored" data-anchor-id="usdtwd-exchange-rate-forecast-model">USD/TWD Exchange Rate Forecast Model</h2>
 <div class="card">
+<p>A medium-horizon forecasting framework for USD/TWD combining macro fundamentals and market microstructure signals.</p>
+</div>
+<section id="objective" class="level3">
+<h3 class="anchored" data-anchor-id="objective">Objective</h3>
 <ul>
-<li>Macro regime detection and scenario mapping.</li>
-<li>Equity style rotation under policy and liquidity shifts.</li>
-<li>Taiwan market and USD/TWD exchange-rate dynamics.</li>
+<li>Forecast 1-week to 1-month USD/TWD direction and volatility.</li>
+<li>Provide explainable factor attribution for each forecast.</li>
 </ul>
+</section>
+<section id="data-inputs" class="level3">
+<h3 class="anchored" data-anchor-id="data-inputs">Data Inputs</h3>
+<ul>
+<li>Taiwan and US rate differentials.</li>
+<li>DXY, risk sentiment, and regional FX basket.</li>
+<li>Taiwan export orders, PMI surprises, and foreign equity flow.</li>
+</ul>
+</section>
+<section id="modeling-stack" class="level3">
+<h3 class="anchored" data-anchor-id="modeling-stack">Modeling Stack</h3>
+<ol type="1">
+<li>Baseline: regularized linear model (Elastic Net).</li>
+<li>Nonlinear layer: gradient boosting for interaction terms.</li>
+<li>Regime switch: hidden Markov model for low/high-volatility states.</li>
+</ol>
+</section>
+<section id="signal-equation" class="level3">
+<h3 class="anchored" data-anchor-id="signal-equation">Signal Equation</h3>
+<p>A stylized prediction equation:</p>
+<p><span class="math display">\[
+\hat{\Delta s}_{t+1} = \alpha + \sum_{k=1}^{K} w_k x_{k,t} + g(x_t)
+\]</span></p>
+<p>where <span class="math inline">\(x_{k,t}\)</span> is macro/market feature <span class="math inline">\(k\)</span> and <span class="math inline">\(g(\cdot)\)</span> captures nonlinear interactions.</p>
+</section>
+<section id="minimal-python-prototype" class="level3">
+<h3 class="anchored" data-anchor-id="minimal-python-prototype">Minimal Python Prototype</h3>
+<div id="1e88b08f" class="cell" data-execution_count="1">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.linear_model <span class="im">import</span> ElasticNet</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># df should contain columns: y (next-period FX return), and feature columns</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>features <span class="op">=</span> [<span class="st">"us_tw_rate_diff"</span>, <span class="st">"dxy_ret"</span>, <span class="st">"foreign_flow"</span>, <span class="st">"risk_sentiment"</span>]</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> fit_baseline(df: pd.DataFrame):</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    model <span class="op">=</span> ElasticNet(alpha<span class="op">=</span><span class="fl">0.01</span>, l1_ratio<span class="op">=</span><span class="fl">0.5</span>, random_state<span class="op">=</span><span class="dv">42</span>)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    model.fit(df[features], df[<span class="st">"y"</span>])</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> model</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
-<section id="example-markdown-python-latex" class="level2">
-<h2 class="anchored" data-anchor-id="example-markdown-python-latex">Example: Markdown + Python + LaTeX</h2>
-<p>The expected annualized return under a simple factor model is:</p>
-<p><span class="math display">\[
-E[R_i] = R_f + \beta_i (E[R_m] - R_f)
-\]</span></p>
-<div id="1267a60c" class="cell" data-execution_count="1">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>risk_free <span class="op">=</span> <span class="fl">0.015</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>beta <span class="op">=</span> <span class="fl">1.2</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>market_premium <span class="op">=</span> <span class="fl">0.06</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>expected_return <span class="op">=</span> risk_free <span class="op">+</span> beta <span class="op">*</span> market_premium</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>expected_return</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="1">
-<pre><code>0.087</code></pre>
-</div>
-</div>
+<section id="current-status" class="level3">
+<h3 class="anchored" data-anchor-id="current-status">Current Status</h3>
+<ul>
+<li>Backtest period: 2014-present.</li>
+<li>Ongoing improvements: feature stability under policy shock periods.</li>
+<li>Next milestone: online dashboard with forecast distribution and confidence intervals.</li>
+</ul>
 <hr>
-<p><strong><a href="en/index.html">English Version</a></strong> | <strong><a href="en/index.html">切換至英文版本</a></strong></p>
+<p><strong><a href="../projects.html">切換至中文版本</a></strong> | <strong><a href="../projects.html">Switch to Chinese</a></strong></p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
