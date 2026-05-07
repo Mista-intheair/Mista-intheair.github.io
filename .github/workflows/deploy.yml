@@ -37,8 +37,15 @@ jobs:
       - name: Setup Quarto
         uses: quarto-dev/quarto-actions/setup@v2
 
-      - name: Render site
-        uses: quarto-dev/quarto-actions/render@v2
+      - name: Render both Chinese and English versions
+        run: |
+          echo "Building Chinese version..."
+          quarto render
+          echo "Building English version..."
+          cd en
+          quarto render
+          cd ..
+          echo "Both versions built successfully"
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
