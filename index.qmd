@@ -1,33 +1,33 @@
 ---
-title: "Home"
+title: "首頁"
 ---
 
 ::: {.hero}
 # Mista
 
-Global Macro and Equity Research focused analyst.
+專注於全球宏觀與股票研究的分析師。
 
-I build data-informed narratives around macro cycles, rates, FX, and cross-asset valuation.
+以數據驅動的敘事方式探討宏觀週期、利率、外匯與跨資產估值。
 
 <div class="badge-line">
-<span>Global Macro</span>
-<span>Equity Research</span>
-<span>Rates & FX</span>
-<span>Systematic Signals</span>
+<span>全球宏觀</span>
+<span>股票研究</span>
+<span>利率與匯率</span>
+<span>系統性信號</span>
 </div>
 :::
 
-## Research Focus
+## 研究領域
 
 ::: {.card}
-- Macro regime detection and scenario mapping.
-- Equity style rotation under policy and liquidity shifts.
-- Taiwan market and USD/TWD exchange-rate dynamics.
+- 宏觀制度識別與情景分析。
+- 政策與流動性轉變下的股票風格輪動。
+- 台灣市場與美元/台幣匯率動態。
 :::
 
-## Example: Markdown + Python + LaTeX
+## 示例：Markdown + Python + LaTeX
 
-The expected annualized return under a simple factor model is:
+簡單因子模型下的預期年化收益為：
 
 $$
 E[R_i] = R_f + \beta_i (E[R_m] - R_f)

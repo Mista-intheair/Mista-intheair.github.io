@@ -1,10 +1,10 @@
 ---
-title: "Daily Reports"
+title: "日報"
 ---
 
-This section embeds your latest daily financial report in PDF format.
+本區段嵌入您最新的日間金融報告（PDF 格式）。
 
-Place your file at `assets/reports/daily-report-latest.pdf` and it will render below.
+將您的報告放置在 `assets/reports/daily-report-latest.pdf`，報告將在下方顯示。
 
 ::: {.pdf-frame}
 <iframe
@@ -16,9 +16,9 @@ Place your file at `assets/reports/daily-report-latest.pdf` and it will render b
 </iframe>
 :::
 
-If the PDF does not display in your browser, use this direct link:
+如果 PDF 無法在您的瀏覽器中顯示，請使用此直接連結：
 
-- [Open latest report](assets/reports/daily-report-latest.pdf)
+- [開啟最新報告](assets/reports/daily-report-latest.pdf)
 
 ---
 

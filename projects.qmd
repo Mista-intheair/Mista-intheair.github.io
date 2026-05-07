@@ -1,47 +1,47 @@
 ---
-title: "Projects"
+title: "研究專案"
 ---
 
-## USD/TWD Exchange Rate Forecast Model
+## 美元/台幣匯率預測模型
 
 ::: {.card}
-A medium-horizon forecasting framework for USD/TWD combining macro fundamentals and market microstructure signals.
+結合宏觀基本面與市場微觀結構信號的中期預測框架。
 :::
 
-### Objective
+### 目標
 
-- Forecast 1-week to 1-month USD/TWD direction and volatility.
-- Provide explainable factor attribution for each forecast.
+- 預測 1 週至 1 個月的美元/台幣方向與波動率。
+- 為每個預測提供可解釋的因子歸因。
 
-### Data Inputs
+### 數據輸入
 
-- Taiwan and US rate differentials.
-- DXY, risk sentiment, and regional FX basket.
-- Taiwan export orders, PMI surprises, and foreign equity flow.
+- 台灣與美國利率差異。
+- DXY、風險情緒與區域外匯籃子。
+- 台灣出口訂單、PMI 驚喜與外資股票流。
 
-### Modeling Stack
+### 建模技術棧
 
-1. Baseline: regularized linear model (Elastic Net).
-2. Nonlinear layer: gradient boosting for interaction terms.
-3. Regime switch: hidden Markov model for low/high-volatility states.
+1. 基線模型：正則化線性模型（Elastic Net）。
+2. 非線性層：梯度提升機處理交互項。
+3. 制度轉換：隱藏馬可夫模型處理低/高波動率狀態。
 
-### Signal Equation
+### 信號方程
 
-A stylized prediction equation:
+預測方程式：
 
 $$
 \hat{\Delta s}_{t+1} = \alpha + \sum_{k=1}^{K} w_k x_{k,t} + g(x_t)
 $$
 
-where $x_{k,t}$ is macro/market feature $k$ and $g(\cdot)$ captures nonlinear interactions.
+其中 $x_{k,t}$ 是宏觀/市場特徵 $k$，$g(\cdot)$ 捕捉非線性交互。
 
-### Minimal Python Prototype
+### Python 原型代碼
 
 ```{python}
 import pandas as pd
 from sklearn.linear_model import ElasticNet
 
-# df should contain columns: y (next-period FX return), and feature columns
+# df 應包含 y（下期匯率回報）和特徵列
 features = ["us_tw_rate_diff", "dxy_ret", "foreign_flow", "risk_sentiment"]
 
 def fit_baseline(df: pd.DataFrame):
@@ -50,11 +50,11 @@ def fit_baseline(df: pd.DataFrame):
     return model
 ```
 
-### Current Status
+### 目前狀態
 
-- Backtest period: 2014-present.
-- Ongoing improvements: feature stability under policy shock periods.
-- Next milestone: online dashboard with forecast distribution and confidence intervals.
+- 回測期間：2014 年至今。
+- 持續改進：政策衝擊期間特徵穩定性。
+- 下一里程碑：線上儀表板展示預測分佈與信心區間。
 
 ---
 
