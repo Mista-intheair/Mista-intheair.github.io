@@ -1,13 +1,11 @@
 ---
 title: "Daily Reports"
-execute:
-  echo: false
 ---
 
 ```{python}
+#| echo: false
 import os
 from pathlib import Path
-from datetime import datetime
 
 # Get reports directory
 reports_dir = Path("../assets/reports")
@@ -19,51 +17,68 @@ date_dirs = sorted([d for d in reports_dir.iterdir()
 
 # Find latest report
 latest_date = None
-latest_dir = None
 if date_dirs:
-    latest_dir = date_dirs[0]
-    latest_date = latest_dir.name
+    latest_date = date_dirs[0].name
 ```
 
 ## Latest Report
 
 ```{python}
+#| echo: false
+#| output: asis
 if latest_date:
+    en_pdf = f"../assets/reports/{latest_date}/financial_report_en.pdf"
     print(f"**Report Date: {latest_date}**\n")
-    
-    # Check if file exists
-    en_pdf_path = latest_dir / "financial_report_en.pdf"
-    if en_pdf_path.exists():
-        # Output iframe HTML directly
-        print(f'<iframe src="../assets/reports/{latest_date}/financial_report_en.pdf" width="100%" height="900" style="border: none;" title="Latest Financial Daily Report PDF"></iframe>')
-        print(f"\n- [📥 Open Latest Report](../assets/reports/{latest_date}/financial_report_en.pdf)")
-    else:
-        print(f"❌ PDF file not found: {en_pdf_path}")
 else:
     print("No latest report available")
+```
+
+```{=html}
+<style>
+.pdf-viewer {
+  width: 100%;
+  height: 900px;
+  border: 1px solid #ddd;
+  margin: 20px 0;
+}
+</style>
+```
+
+```{python}
+#| echo: false
+#| output: asis
+if latest_date:
+    en_pdf = f"../assets/reports/{latest_date}/financial_report_en.pdf"
+    print(f'''<object data="{en_pdf}" type="application/pdf" class="pdf-viewer">
+      <iframe src="{en_pdf}" class="pdf-viewer"></iframe>
+    </object>
+    
+- [📥 Download Latest Report]({en_pdf})''')
 ```
 
 ---
 
 ## Past Reports
 
-All available reports can be downloaded below:
-
 ```{python}
+#| echo: false
+#| output: asis
 if date_dirs:
     print("| Date | Chinese | English |")
     print("|------|---------|---------|")
-    for date_dir in date_dirs[:30]:  # Show latest 30 reports
+    for date_dir in date_dirs[:30]:
         date = date_dir.name
         zh_exists = (date_dir / "financial_report_zh.pdf").exists()
         en_exists = (date_dir / "financial_report_en.pdf").exists()
         
-        zh_link = f"[📥](../assets/reports/{date}/financial_report_zh.pdf)" if zh_exists else "—"
-        en_link = f"[📥](../assets/reports/{date}/financial_report_en.pdf)" if en_exists else "—"
+        zh_link = f"[📥 Download](../{date}/financial_report_zh.pdf)" if zh_exists else "—"
+        en_link = f"[📥 Download](../{date}/financial_report_en.pdf)" if en_exists else "—"
+        
+        # Fix path for table
+        zh_link = zh_link.replace("../", "../assets/reports/")
+        en_link = en_link.replace("../", "../assets/reports/")
         
         print(f"| {date} | {zh_link} | {en_link} |")
-else:
-    print("No reports available yet")
 ```
 
 ---

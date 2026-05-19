@@ -1,73 +1,88 @@
 ---
 title: "日報"
-execute:
-  echo: false
 ---
 
 ```{python}
+#| echo: false
 import os
 from pathlib import Path
-from datetime import datetime
 
-# 獲取報告目錄
+# Get reports directory
 reports_dir = Path("assets/reports")
 
-# 獲取所有日期文件夾 (格式: YYYY-MM-DD)
+# Get all date folders (format: YYYY-MM-DD)
 date_dirs = sorted([d for d in reports_dir.iterdir() 
                    if d.is_dir() and len(d.name) == 10 and d.name[4] == '-' and d.name[7] == '-'],
                   reverse=True)
 
-# 查找最新的報告
+# Find latest report
 latest_date = None
-latest_dir = None
 if date_dirs:
-    latest_dir = date_dirs[0]
-    latest_date = latest_dir.name
+    latest_date = date_dirs[0].name
 ```
 
 ## 最新報告
 
 ```{python}
+#| echo: false
+#| output: asis
 if latest_date:
+    zh_pdf = f"assets/reports/{latest_date}/financial_report_zh.pdf"
     print(f"**報告日期：{latest_date}**\n")
-    
-    # 檢查文件是否存在
-    zh_pdf_path = latest_dir / "financial_report_zh.pdf"
-    if zh_pdf_path.exists():
-        # 直接輸出 iframe HTML
-        print(f'<iframe src="assets/reports/{latest_date}/financial_report_zh.pdf" width="100%" height="900" style="border: none;" title="最新財務日報 PDF"></iframe>')
-        print(f"\n- [📥 開啟最新報告](assets/reports/{latest_date}/financial_report_zh.pdf)")
-    else:
-        print(f"❌ 找不到 PDF 文件：{zh_pdf_path}")
 else:
     print("暫無最新報告")
+```
+
+```{=html}
+<style>
+.pdf-viewer {
+  width: 100%;
+  height: 900px;
+  border: 1px solid #ddd;
+  margin: 20px 0;
+}
+</style>
+```
+
+```{python}
+#| echo: false
+#| output: asis
+if latest_date:
+    zh_pdf = f"assets/reports/{latest_date}/financial_report_zh.pdf"
+    print(f'''<object data="{zh_pdf}" type="application/pdf" class="pdf-viewer">
+      <iframe src="{zh_pdf}" class="pdf-viewer"></iframe>
+    </object>
+    
+- [📥 下載最新報告]({zh_pdf})''')
 ```
 
 ---
 
 ## 過往報告
 
-所有可用的報告可在下方下載：
-
 ```{python}
+#| echo: false
+#| output: asis
 if date_dirs:
     print("| 日期 | 中文版 | 英文版 |")
     print("|------|--------|--------|")
-    for date_dir in date_dirs[:30]:  # 顯示最新 30 個報告
+    for date_dir in date_dirs[:30]:
         date = date_dir.name
         zh_exists = (date_dir / "financial_report_zh.pdf").exists()
         en_exists = (date_dir / "financial_report_en.pdf").exists()
         
-        zh_link = f"[📥](assets/reports/{date}/financial_report_zh.pdf)" if zh_exists else "—"
-        en_link = f"[📥](assets/reports/{date}/financial_report_en.pdf)" if en_exists else "—"
+        zh_link = f"[📥 下載]({date}/financial_report_zh.pdf)" if zh_exists else "—"
+        en_link = f"[📥 下載]({date}/financial_report_en.pdf)" if en_exists else "—"
+        
+        # Fix path for table
+        zh_link = zh_link.replace("{date}", f"assets/reports/{date}")
+        en_link = en_link.replace("{date}", f"assets/reports/{date}")
         
         print(f"| {date} | {zh_link} | {en_link} |")
-else:
-    print("暫無報告記錄")
 ```
 
 ---
 
-如果 PDF 無法在您的瀏覽器中顯示，請使用上方的下載連結。
+如果 PDF 無法在您的瀏覽器中顯示，請使用上方的下載鏈接。
 
 **[English Version](en/daily-reports.html)** | **[切換至英文版本](en/daily-reports.html)**
