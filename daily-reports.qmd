@@ -71,12 +71,8 @@ if date_dirs:
         zh_exists = (date_dir / "financial_report_zh.pdf").exists()
         en_exists = (date_dir / "financial_report_en.pdf").exists()
         
-        zh_link = f"[📥 下載]({date}/financial_report_zh.pdf)" if zh_exists else "—"
-        en_link = f"[📥 下載]({date}/financial_report_en.pdf)" if en_exists else "—"
-        
-        # Fix path for table
-        zh_link = zh_link.replace("{date}", f"assets/reports/{date}")
-        en_link = en_link.replace("{date}", f"assets/reports/{date}")
+        zh_link = f"[📥 下載](assets/reports/{date}/financial_report_zh.pdf)" if zh_exists else "—"
+        en_link = f"[📥 下載](assets/reports/{date}/financial_report_en.pdf)" if en_exists else "—"
         
         print(f"| {date} | {zh_link} | {en_link} |")
 ```
