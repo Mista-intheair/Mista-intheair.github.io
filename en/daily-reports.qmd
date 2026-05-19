@@ -19,33 +19,28 @@ date_dirs = sorted([d for d in reports_dir.iterdir()
 
 # Find latest report
 latest_date = None
+latest_dir = None
 if date_dirs:
     latest_dir = date_dirs[0]
     latest_date = latest_dir.name
-    en_pdf = latest_dir / "financial_report_en.pdf"
 ```
 
 ## Latest Report
 
 ```{python}
-if latest_date and (latest_dir / "financial_report_en.pdf").exists():
-    print(f"**Report Date: {latest_date}**")
+if latest_date:
+    print(f"**Report Date: {latest_date}**\n")
+    
+    # Check if file exists
+    en_pdf_path = latest_dir / "financial_report_en.pdf"
+    if en_pdf_path.exists():
+        # Output iframe HTML directly
+        print(f'<iframe src="../assets/reports/{latest_date}/financial_report_en.pdf" width="100%" height="900" style="border: none;" title="Latest Financial Daily Report PDF"></iframe>')
+        print(f"\n- [📥 Open Latest Report](../assets/reports/{latest_date}/financial_report_en.pdf)")
+    else:
+        print(f"❌ PDF file not found: {en_pdf_path}")
 else:
     print("No latest report available")
-```
-
-::: {.pdf-frame}
-```{python}
-if latest_date and (latest_dir / "financial_report_en.pdf").exists():
-    print(f'<iframe src="../assets/reports/{latest_date}/financial_report_en.pdf" width="100%" height="900" style="border: none;" title="Latest Financial Daily Report PDF"></iframe>')
-else:
-    print('<p style="color: #666;">Report is not ready yet, please check back later...</p>')
-```
-:::
-
-```{python}
-if latest_date and (latest_dir / "financial_report_en.pdf").exists():
-    print(f'- [Open latest report](../assets/reports/{latest_date}/financial_report_en.pdf)')
 ```
 
 ---
@@ -63,8 +58,8 @@ if date_dirs:
         zh_exists = (date_dir / "financial_report_zh.pdf").exists()
         en_exists = (date_dir / "financial_report_en.pdf").exists()
         
-        zh_link = f"[Download](../assets/reports/{date}/financial_report_zh.pdf)" if zh_exists else "—"
-        en_link = f"[Download](../assets/reports/{date}/financial_report_en.pdf)" if en_exists else "—"
+        zh_link = f"[📥](../assets/reports/{date}/financial_report_zh.pdf)" if zh_exists else "—"
+        en_link = f"[📥](../assets/reports/{date}/financial_report_en.pdf)" if en_exists else "—"
         
         print(f"| {date} | {zh_link} | {en_link} |")
 else:

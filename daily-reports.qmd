@@ -19,34 +19,28 @@ date_dirs = sorted([d for d in reports_dir.iterdir()
 
 # 查找最新的報告
 latest_date = None
+latest_dir = None
 if date_dirs:
     latest_dir = date_dirs[0]
     latest_date = latest_dir.name
-    zh_pdf = latest_dir / "financial_report_zh.pdf"
-    en_pdf = latest_dir / "financial_report_en.pdf"
 ```
 
 ## 最新報告
 
 ```{python}
-if latest_date and (latest_dir / "financial_report_zh.pdf").exists():
-    print(f"**報告日期：{latest_date}**")
+if latest_date:
+    print(f"**報告日期：{latest_date}**\n")
+    
+    # 檢查文件是否存在
+    zh_pdf_path = latest_dir / "financial_report_zh.pdf"
+    if zh_pdf_path.exists():
+        # 直接輸出 iframe HTML
+        print(f'<iframe src="assets/reports/{latest_date}/financial_report_zh.pdf" width="100%" height="900" style="border: none;" title="最新財務日報 PDF"></iframe>')
+        print(f"\n- [📥 開啟最新報告](assets/reports/{latest_date}/financial_report_zh.pdf)")
+    else:
+        print(f"❌ 找不到 PDF 文件：{zh_pdf_path}")
 else:
     print("暫無最新報告")
-```
-
-::: {.pdf-frame}
-```{python}
-if latest_date and (latest_dir / "financial_report_zh.pdf").exists():
-    print(f'<iframe src="assets/reports/{latest_date}/financial_report_zh.pdf" width="100%" height="900" style="border: none;" title="最新財務日報 PDF"></iframe>')
-else:
-    print('<p style="color: #666;">報告未就緒，請稍候...</p>')
-```
-:::
-
-```{python}
-if latest_date and (latest_dir / "financial_report_zh.pdf").exists():
-    print(f'- [開啟最新報告](assets/reports/{latest_date}/financial_report_zh.pdf)')
 ```
 
 ---
@@ -64,8 +58,8 @@ if date_dirs:
         zh_exists = (date_dir / "financial_report_zh.pdf").exists()
         en_exists = (date_dir / "financial_report_en.pdf").exists()
         
-        zh_link = f"[下載](assets/reports/{date}/financial_report_zh.pdf)" if zh_exists else "—"
-        en_link = f"[下載](assets/reports/{date}/financial_report_en.pdf)" if en_exists else "—"
+        zh_link = f"[📥](assets/reports/{date}/financial_report_zh.pdf)" if zh_exists else "—"
+        en_link = f"[📥](assets/reports/{date}/financial_report_en.pdf)" if en_exists else "—"
         
         print(f"| {date} | {zh_link} | {en_link} |")
 else:
