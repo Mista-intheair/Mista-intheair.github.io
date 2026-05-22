@@ -3,108 +3,108 @@ title: "MISTA"
 ---
 
 ::: {.hero}
-# Hello, I'm MISTA.
+# 您好，我是 MISTA。
 
 <div class="subtitle">
-Researcher | Focusing on Macro Economics, Forex Forecasting, and Automated Data Pipelines.
+研究員 | 專注於總體經濟、外匯預測與自動化數據管道
 </div>
 
 <div class="cta-buttons">
-<a href="#featured-projects" class="btn-cta btn-primary">[ View Portfolio ]</a>
-<a href="cv.html" class="btn-cta btn-secondary">[ Download CV ]</a>
+<a href="#featured-projects" class="btn-cta btn-primary">[ 瀏覽精選專案 ]</a>
+<a href="cv.html" class="btn-cta btn-secondary">[ 下載履歷 ]</a>
 </div>
 
 <div class="badge-line">
-<span>Macroeconomics</span>
-<span>Forex Forecasting</span>
-<span>Quantitative Analysis</span>
-<span>Data Automation</span>
+<span>總體經濟</span>
+<span>外匯預測</span>
+<span>量化分析</span>
+<span>數據自動化</span>
 </div>
 :::
 
-## About Me
+## 關於我
 
-I am an economist and data engineer with expertise in macroeconomic analysis, forex market dynamics, and automated financial reporting. My work combines deep economic theory with practical quantitative skills.
+我是一位經濟學家與數據工程師，具備總體經濟分析、外匯市場動態與自動化金融報告的深厚專業知識。我的工作融合深層經濟理論與實踐量化技能。
 
-**Research Foundation**: Rooted in macroeconomic theory and policy analysis, with focus on yield curves, monetary transmission, and cross-asset valuations during different economic cycles.
+**研究背景**：根植於總體經濟理論與政策分析，專注於收益率曲線、貨幣傳導機制與不同經濟週期下的跨資產估值。
 
-**Quantitative Expertise**: Proficient in Python and R for financial modeling—including IRR calculations, duration analysis, and factor model construction. I specialize in building robust data pipelines that transform raw market data into actionable insights.
+**量化專業**：熟練運用 Python 與 R 進行金融建模——包括 IRR 計算、Duration 分析與因子模型構建。我專精於構建健壯的數據管道，將原始市場數據轉化為可操作的洞察。
 
-**Development Mindset**: Practitioner of modern AI-assisted development (Vibe Coding), capable of rapidly prototyping research ideas into production-grade analytical systems. I leverage automation to maximize research velocity.
+**開發思維**：現代 AI 輔助開發（Vibe Coding）的實踐者，能夠快速將研究想法轉化為生產級別的分析系統。我善用自動化來最大化研究效率。
 
 ---
 
-## Featured Projects {#featured-projects}
+## 精選專案 {#featured-projects}
 
 ::: {.project-grid}
 
 ::: {.project-card}
-### 📊 Forex Prediction & Automation
+### 📊 外匯預測與自動化系統
 
-**Problem** → **Method** → **Result**
+**問題 → 方法 → 結果**
 
-Develop a data-driven system to predict and track forex movements for TWD and JPY pairs using macroeconomic indicators and central bank data.
+開發一個數據驅動的系統，使用總體經濟指標和中央銀行數據來預測和追踪新台幣與日圓匯率波動。
 
-**Technical Highlights:**
-- Integrated data from Federal Reserve FRED API and central bank sources
-- Built automated ETL pipelines using Python for daily data collection and validation
-- Generated machine-readable daily reports with charts and statistical analysis
-- Deployed on GitHub Pages for real-time monitoring of forex trends
+**技術亮點：**
+- 整合美國聯邦準備局 FRED API 與中央銀行數據源
+- 使用 Python 構建自動化 ETL 管道，進行每日數據收集與驗證
+- 生成包含圖表與統計分析的機器可讀日報告
+- 部署於 GitHub Pages，實時監控外匯趨勢
 
-**Impact:** Reduced manual analysis time by ~90% through end-to-end automation. System generates forecasts and reports autonomously every trading day.
+**影響：** 透過端對端自動化減少 ~90% 的手動分析時間。系統每個交易日自主生成預測與報告。
 
-<div class="tech-tags">
-<span class="tech-tag">Python</span>
-<span class="tech-tag">yfinance</span>
-<span class="tech-tag">Pandas</span>
-<span class="tech-tag">ETL</span>
-<span class="tech-tag">GitHub Pages</span>
+<div class=\"tech-tags\">
+<span class=\"tech-tag\">Python</span>
+<span class=\"tech-tag\">yfinance</span>
+<span class=\"tech-tag\">Pandas</span>
+<span class=\"tech-tag\">ETL</span>
+<span class=\"tech-tag\">GitHub Pages</span>
 </div>
 :::
 
 ::: {.project-card}
-### 💰 Quantitative Investment Models
+### 💰 量化投資與資產定價模型
 
-**Problem** → **Method** → **Result**
+**問題 → 方法 → 結果**
 
-Construct rigorous asset pricing models for large-cap equities (semiconductors, mega-cap tech) with deep valuation analysis.
+為大型科技股（半導體龍頭、全球市值前段班企業）構建嚴謹的資產定價模型，進行深度估值分析。
 
-**Technical Highlights:**
-- Implemented Duration and IRR calculations for bond-equity relative value assessment
-- Built factor models for stock price decomposition and momentum analysis
-- Developed strategy backtesting framework with Monte Carlo simulations
-- Analyzed multi-year financial statements to derive intrinsic valuations
+**技術亮點：**
+- 實施 Duration 與 IRR 計算進行債券股票相對價值評估
+- 構建因子模型進行股價分解與動量分析
+- 開發策略回測框架，含蒙地卡羅模擬
+- 分析多年期財務報表推導內在估值
 
-**Impact:** Provides data-backed asset allocation signals with quantifiable risk metrics. Enables principled entry/exit decisions for systematic traders.
+**影響：** 提供有數據支持的資產配置信號，包含可量化的風險指標。為系統性交易員提供有原則的進出場決策。
 
-<div class="tech-tags">
-<span class="tech-tag">R</span>
-<span class="tech-tag">Python</span>
-<span class="tech-tag">Financial Modeling</span>
-<span class="tech-tag">Backtesting</span>
+<div class=\"tech-tags\">
+<span class=\"tech-tag\">R</span>
+<span class=\"tech-tag\">Python</span>
+<span class=\"tech-tag\">金融建模</span>
+<span class=\"tech-tag\">回測</span>
 </div>
 :::
 
 ::: {.project-card}
-### 📈 Daily Financial Report System
+### 📈 每日財務報告系統
 
-**Problem** → **Method** → **Result**
+**問題 → 方法 → 結果**
 
-Create an automated professional reporting system that tracks 16 global market assets daily with beautiful visualizations and multi-language PDFs.
+創建一個自動化的專業報告系統，每日追踪 16 項全球市場資產，提供精美視覺化與多語言 PDF。
 
-**Technical Highlights:**
-- Designed dual-subplot chart layouts with price trends, date markers, and gain/loss coloring
-- Implemented LaTeX-based PDF generation with proper internationalization (EN/ZH)
-- Added professional watermarking and author branding to all reports
-- Built date-versioned storage system for historical report archival and access
+**技術亮點：**
+- 設計雙子圖布局，含價格趨勢、日期標記與漲跌著色
+- 實現基於 LaTeX 的 PDF 生成，具備國際化支持（英文/中文）
+- 添加專業水印和作者品牌至所有報告
+- 構建日期版本化存儲系統，用於歷史報告存檔與存取
 
-**Impact:** Generates polished, publication-ready reports daily with zero manual intervention. Enables stakeholders to track global markets with professional presentation.
+**影響：** 每日生成精拋光、出版就緒的報告，零手動介入。讓利益關係人以專業呈現追踪全球市場。
 
-<div class="tech-tags">
-<span class="tech-tag">Python</span>
-<span class="tech-tag">Matplotlib</span>
-<span class="tech-tag">LaTeX</span>
-<span class="tech-tag">Quarto</span>
+<div class=\"tech-tags\">
+<span class=\"tech-tag\">Python</span>
+<span class=\"tech-tag\">Matplotlib</span>
+<span class=\"tech-tag\">LaTeX</span>
+<span class=\"tech-tag\">Quarto</span>
 </div>
 :::
 
@@ -112,53 +112,53 @@ Create an automated professional reporting system that tracks 16 global market a
 
 ---
 
-## Skills & Toolchain
+## 技能與工具箱
 
 ::: {.skills-container}
 
 ::: {.skill-category}
-#### Quantitative & Programming
+#### 量化與編程
 - Python (Pandas, NumPy, Matplotlib, scikit-learn)
-- R (financial modeling, statistical analysis)
-- VBA (Excel automation)
+- R (金融建模、統計分析)
+- VBA (Excel 自動化)
 - Git / GitHub
-- LaTeX (technical writing, report generation)
+- LaTeX (技術文檔、報告生成)
 :::
 
 ::: {.skill-category}
-#### Finance & Research
-- Macroeconomic Analysis
-- Forex & Currency Markets
-- Fixed Income & Bond Analysis
-- Financial Statement Analysis
-- Portfolio Optimization
+#### 金融與研究
+- 總體經濟分析
+- 外匯與貨幣市場
+- 固定收益與債券分析
+- 財務報表分析
+- 投資組合優化
 :::
 
 ::: {.skill-category}
-#### Automation & Engineering
-- Automated Report Generation
-- Data ETL & Pipeline Design
-- Web Scraping & APIs
-- Static Site Generation (Quarto)
-- Continuous Deployment (GitHub Pages)
+#### 自動化與工程
+- 自動化報告生成
+- 數據 ETL 與管道設計
+- 網頁爬蟲與 API
+- 靜態站點生成 (Quarto)
+- 持續部署 (GitHub Pages)
 :::
 
 :::
 
 ---
 
-## Contact & Links
+## 聯絡資訊與社群
 
-Reach out via email or explore my work on GitHub:
+透過電子郵件與我聯繫或在 GitHub 上探索我的工作：
 
 ::: {.contact-links}
-📧 **Email:** [mista.intheair@gmail.com](mailto:mista.intheair@gmail.com)
+📧 **電子郵件：** [mista.intheair@gmail.com](mailto:mista.intheair@gmail.com)
 
-🔗 **GitHub:** [github.com/Mista-intheair](https://github.com/Mista-intheair)
+🔗 **GitHub：** [github.com/Mista-intheair](https://github.com/Mista-intheair)
 
-📊 **Daily Reports:** [View Latest Reports](daily-reports.html)
+📊 **每日報告：** [查看最新報告](daily-reports.html)
 :::
 
 ---
 
-**[English Version](en/index.html)** | **[中文版本](index.html)**
+**[英文版本](en/index.html)** | **[中文首頁](index.html)**

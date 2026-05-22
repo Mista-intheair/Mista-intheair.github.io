@@ -9,13 +9,13 @@ website:
   navbar:
     left:
       - href: index.qmd
-        text: Home
+        text: 首頁
       - href: daily-reports.qmd
-        text: Daily Reports
+        text: 每日報告
       - href: projects.qmd
-        text: Projects
+        text: 專案
       - href: cv.qmd
-        text: CV
+        text: 履歷
     right:
       - text: "🌍"
         menu:
