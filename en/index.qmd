@@ -3,46 +3,162 @@ title: "Home"
 ---
 
 ::: {.hero}
-# Mista
+# Hello, I'm MISTA.
 
-Global Macro and Equity Research focused analyst.
+<div class="subtitle">
+Researcher | Focusing on Macro Economics, Forex Forecasting, and Automated Data Pipelines.
+</div>
 
-I build data-informed narratives around macro cycles, rates, FX, and cross-asset valuation.
+<div class="cta-buttons">
+<a href="#featured-projects" class="btn-cta btn-primary">[ View Portfolio ]</a>
+<a href="cv.html" class="btn-cta btn-secondary">[ Download CV ]</a>
+</div>
 
 <div class="badge-line">
-<span>Global Macro</span>
-<span>Equity Research</span>
-<span>Rates & FX</span>
-<span>Systematic Signals</span>
+<span>Macroeconomics</span>
+<span>Forex Forecasting</span>
+<span>Quantitative Analysis</span>
+<span>Data Automation</span>
 </div>
 :::
 
-## Research Focus
+## About Me
 
-::: {.card}
-- Macro regime detection and scenario mapping.
-- Equity style rotation under policy and liquidity shifts.
-- Taiwan market and USD/TWD exchange-rate dynamics.
-:::
+I am an economist and data engineer with expertise in macroeconomic analysis, forex market dynamics, and automated financial reporting. My work combines deep economic theory with practical quantitative skills.
 
-## Example: Markdown + Python + LaTeX
+**Research Foundation**: Rooted in macroeconomic theory and policy analysis, with focus on yield curves, monetary transmission, and cross-asset valuations during different economic cycles.
 
-The expected annualized return under a simple factor model is:
+**Quantitative Expertise**: Proficient in Python and R for financial modeling—including IRR calculations, duration analysis, and factor model construction. I specialize in building robust data pipelines that transform raw market data into actionable insights.
 
-$$
-E[R_i] = R_f + \beta_i (E[R_m] - R_f)
-$$
-
-```{python}
-import numpy as np
-
-risk_free = 0.015
-beta = 1.2
-market_premium = 0.06
-expected_return = risk_free + beta * market_premium
-expected_return
-```
+**Development Mindset**: Practitioner of modern AI-assisted development (Vibe Coding), capable of rapidly prototyping research ideas into production-grade analytical systems. I leverage automation to maximize research velocity.
 
 ---
 
-**[切換至中文版本](../index.html)** | **[Switch to Chinese](../index.html)**
+## Featured Projects {#featured-projects}
+
+::: {.project-grid}
+
+::: {.project-card}
+### 📊 Forex Prediction & Automation
+
+**Problem** → **Method** → **Result**
+
+Develop a data-driven system to predict and track forex movements for TWD and JPY pairs using macroeconomic indicators and central bank data.
+
+**Technical Highlights:**
+- Integrated data from Federal Reserve FRED API and central bank sources
+- Built automated ETL pipelines using Python for daily data collection and validation
+- Generated machine-readable daily reports with charts and statistical analysis
+- Deployed on GitHub Pages for real-time monitoring of forex trends
+
+**Impact:** Reduced manual analysis time by ~90% through end-to-end automation. System generates forecasts and reports autonomously every trading day.
+
+<div class="tech-tags">
+<span class="tech-tag">Python</span>
+<span class="tech-tag">yfinance</span>
+<span class="tech-tag">Pandas</span>
+<span class="tech-tag">ETL</span>
+<span class="tech-tag">GitHub Pages</span>
+</div>
+:::
+
+::: {.project-card}
+### 💰 Quantitative Investment Models
+
+**Problem** → **Method** → **Result**
+
+Construct rigorous asset pricing models for large-cap equities (semiconductors, mega-cap tech) with deep valuation analysis.
+
+**Technical Highlights:**
+- Implemented Duration and IRR calculations for bond-equity relative value assessment
+- Built factor models for stock price decomposition and momentum analysis
+- Developed strategy backtesting framework with Monte Carlo simulations
+- Analyzed multi-year financial statements to derive intrinsic valuations
+
+**Impact:** Provides data-backed asset allocation signals with quantifiable risk metrics. Enables principled entry/exit decisions for systematic traders.
+
+<div class="tech-tags">
+<span class="tech-tag">R</span>
+<span class="tech-tag">Python</span>
+<span class="tech-tag">Financial Modeling</span>
+<span class="tech-tag">Backtesting</span>
+</div>
+:::
+
+::: {.project-card}
+### 📈 Daily Financial Report System
+
+**Problem** → **Method** → **Result**
+
+Create an automated professional reporting system that tracks 16 global market assets daily with beautiful visualizations and multi-language PDFs.
+
+**Technical Highlights:**
+- Designed dual-subplot chart layouts with price trends, date markers, and gain/loss coloring
+- Implemented LaTeX-based PDF generation with proper internationalization (EN/ZH)
+- Added professional watermarking and author branding to all reports
+- Built date-versioned storage system for historical report archival and access
+
+**Impact:** Generates polished, publication-ready reports daily with zero manual intervention. Enables stakeholders to track global markets with professional presentation.
+
+<div class="tech-tags">
+<span class="tech-tag">Python</span>
+<span class="tech-tag">Matplotlib</span>
+<span class="tech-tag">LaTeX</span>
+<span class="tech-tag">Quarto</span>
+</div>
+:::
+
+:::
+
+---
+
+## Skills & Toolchain
+
+::: {.skills-container}
+
+::: {.skill-category}
+#### Quantitative & Programming
+- Python (Pandas, NumPy, Matplotlib, scikit-learn)
+- R (financial modeling, statistical analysis)
+- VBA (Excel automation)
+- Git / GitHub
+- LaTeX (technical writing, report generation)
+:::
+
+::: {.skill-category}
+#### Finance & Research
+- Macroeconomic Analysis
+- Forex & Currency Markets
+- Fixed Income & Bond Analysis
+- Financial Statement Analysis
+- Portfolio Optimization
+:::
+
+::: {.skill-category}
+#### Automation & Engineering
+- Automated Report Generation
+- Data ETL & Pipeline Design
+- Web Scraping & APIs
+- Static Site Generation (Quarto)
+- Continuous Deployment (GitHub Pages)
+:::
+
+:::
+
+---
+
+## Contact & Links
+
+Reach out via email or explore my work on GitHub:
+
+::: {.contact-links}
+📧 **Email:** [mista.intheair@gmail.com](mailto:mista.intheair@gmail.com)
+
+🔗 **GitHub:** [github.com/Mista-intheair](https://github.com/Mista-intheair)
+
+📊 **Daily Reports:** [View Latest Reports](daily-reports.html)
+:::
+
+---
+
+**[Switch to Chinese](../index.html)** | **[切換至中文版本](../index.html)**

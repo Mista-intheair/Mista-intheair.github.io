@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>首頁 – Mista | Research Notes</title>
+<title>MISTA – Mista | Research Notes</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -22,41 +22,6 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
-}
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -127,35 +92,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   })(window, document, "clarity", "script", "wtxzzi8pvm");
 </script>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 <link rel="stylesheet" href="styles.scss">
 </head>
@@ -231,9 +167,11 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#mista" id="toc-mista" class="nav-link active" data-scroll-target="#mista">Mista</a></li>
-  <li><a href="#研究領域" id="toc-研究領域" class="nav-link" data-scroll-target="#研究領域">研究領域</a></li>
-  <li><a href="#示例markdown-python-latex" id="toc-示例markdown-python-latex" class="nav-link" data-scroll-target="#示例markdown-python-latex">示例：Markdown + Python + LaTeX</a></li>
+  <li><a href="#hello-im-mista." id="toc-hello-im-mista." class="nav-link active" data-scroll-target="#hello-im-mista.">Hello, I’m MISTA.</a></li>
+  <li><a href="#about-me" id="toc-about-me" class="nav-link" data-scroll-target="#about-me">About Me</a></li>
+  <li><a href="#featured-projects" id="toc-featured-projects" class="nav-link" data-scroll-target="#featured-projects">Featured Projects</a></li>
+  <li><a href="#skills-toolchain" id="toc-skills-toolchain" class="nav-link" data-scroll-target="#skills-toolchain">Skills &amp; Toolchain</a></li>
+  <li><a href="#contact-links" id="toc-contact-links" class="nav-link" data-scroll-target="#contact-links">Contact &amp; Links</a></li>
   </ul>
 </nav>
     </div>
@@ -242,7 +180,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">首頁</h1>
+<h1 class="title">MISTA</h1>
 </div>
 
 
@@ -259,44 +197,108 @@ window.Quarto = {
 </header>
 
 
-<section id="mista" class="level1 hero">
-<h1>Mista</h1>
-<p>專注於全球宏觀與股票研究的分析師。</p>
-<p>以數據驅動的敘事方式探討宏觀週期、利率、外匯與跨資產估值。</p>
+<section id="hello-im-mista." class="level1 hero">
+<h1>Hello, I’m MISTA.</h1>
+<div class="subtitle">
+<p>Researcher | Focusing on Macro Economics, Forex Forecasting, and Automated Data Pipelines.</p>
+</div>
+<div class="cta-buttons">
+<p><a href="#featured-projects" class="btn-cta btn-primary">[ View Portfolio ]</a> <a href="cv.html" class="btn-cta btn-secondary">[ Download CV ]</a></p>
+</div>
 <div class="badge-line">
-<p><span>全球宏觀</span> <span>股票研究</span> <span>利率與匯率</span> <span>系統性信號</span></p>
+<p><span>Macroeconomics</span> <span>Forex Forecasting</span> <span>Quantitative Analysis</span> <span>Data Automation</span></p>
 </div>
 </section>
-<section id="研究領域" class="level2">
-<h2 class="anchored" data-anchor-id="研究領域">研究領域</h2>
-<div class="card">
-<ul>
-<li>宏觀制度識別與情景分析。</li>
-<li>政策與流動性轉變下的股票風格輪動。</li>
-<li>台灣市場與美元/台幣匯率動態。</li>
-</ul>
+<section id="about-me" class="level2">
+<h2 class="anchored" data-anchor-id="about-me">About Me</h2>
+<p>I am an economist and data engineer with expertise in macroeconomic analysis, forex market dynamics, and automated financial reporting. My work combines deep economic theory with practical quantitative skills.</p>
+<p><strong>Research Foundation</strong>: Rooted in macroeconomic theory and policy analysis, with focus on yield curves, monetary transmission, and cross-asset valuations during different economic cycles.</p>
+<p><strong>Quantitative Expertise</strong>: Proficient in Python and R for financial modeling—including IRR calculations, duration analysis, and factor model construction. I specialize in building robust data pipelines that transform raw market data into actionable insights.</p>
+<p><strong>Development Mindset</strong>: Practitioner of modern AI-assisted development (Vibe Coding), capable of rapidly prototyping research ideas into production-grade analytical systems. I leverage automation to maximize research velocity.</p>
+<hr>
+</section>
+<section id="featured-projects" class="level2">
+<h2 class="anchored" data-anchor-id="featured-projects">Featured Projects</h2>
+<div class="project-grid">
+<section id="forex-prediction-automation" class="level3 project-card">
+<h3 class="anchored" data-anchor-id="forex-prediction-automation">📊 Forex Prediction &amp; Automation</h3>
+<p><strong>Problem</strong> → <strong>Method</strong> → <strong>Result</strong></p>
+<p>Develop a data-driven system to predict and track forex movements for TWD and JPY pairs using macroeconomic indicators and central bank data.</p>
+<p><strong>Technical Highlights:</strong> - Integrated data from Federal Reserve FRED API and central bank sources - Built automated ETL pipelines using Python for daily data collection and validation - Generated machine-readable daily reports with charts and statistical analysis - Deployed on GitHub Pages for real-time monitoring of forex trends</p>
+<p><strong>Impact:</strong> Reduced manual analysis time by ~90% through end-to-end automation. System generates forecasts and reports autonomously every trading day.</p>
+<div class="tech-tags">
+<p><span class="tech-tag">Python</span> <span class="tech-tag">yfinance</span> <span class="tech-tag">Pandas</span> <span class="tech-tag">ETL</span> <span class="tech-tag">GitHub Pages</span></p>
 </div>
 </section>
-<section id="示例markdown-python-latex" class="level2">
-<h2 class="anchored" data-anchor-id="示例markdown-python-latex">示例：Markdown + Python + LaTeX</h2>
-<p>簡單因子模型下的預期年化收益為：</p>
-<p><span class="math display">\[
-E[R_i] = R_f + \beta_i (E[R_m] - R_f)
-\]</span></p>
-<div id="994fa8df" class="cell" data-execution_count="1">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>risk_free <span class="op">=</span> <span class="fl">0.015</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>beta <span class="op">=</span> <span class="fl">1.2</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>market_premium <span class="op">=</span> <span class="fl">0.06</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>expected_return <span class="op">=</span> risk_free <span class="op">+</span> beta <span class="op">*</span> market_premium</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>expected_return</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="1">
-<pre><code>0.087</code></pre>
+<section id="quantitative-investment-models" class="level3 project-card">
+<h3 class="anchored" data-anchor-id="quantitative-investment-models">💰 Quantitative Investment Models</h3>
+<p><strong>Problem</strong> → <strong>Method</strong> → <strong>Result</strong></p>
+<p>Construct rigorous asset pricing models for large-cap equities (semiconductors, mega-cap tech) with deep valuation analysis.</p>
+<p><strong>Technical Highlights:</strong> - Implemented Duration and IRR calculations for bond-equity relative value assessment - Built factor models for stock price decomposition and momentum analysis - Developed strategy backtesting framework with Monte Carlo simulations - Analyzed multi-year financial statements to derive intrinsic valuations</p>
+<p><strong>Impact:</strong> Provides data-backed asset allocation signals with quantifiable risk metrics. Enables principled entry/exit decisions for systematic traders.</p>
+<div class="tech-tags">
+<p><span class="tech-tag">R</span> <span class="tech-tag">Python</span> <span class="tech-tag">Financial Modeling</span> <span class="tech-tag">Backtesting</span></p>
 </div>
+</section>
+<section id="daily-financial-report-system" class="level3 project-card">
+<h3 class="anchored" data-anchor-id="daily-financial-report-system">📈 Daily Financial Report System</h3>
+<p><strong>Problem</strong> → <strong>Method</strong> → <strong>Result</strong></p>
+<p>Create an automated professional reporting system that tracks 16 global market assets daily with beautiful visualizations and multi-language PDFs.</p>
+<p><strong>Technical Highlights:</strong> - Designed dual-subplot chart layouts with price trends, date markers, and gain/loss coloring - Implemented LaTeX-based PDF generation with proper internationalization (EN/ZH) - Added professional watermarking and author branding to all reports - Built date-versioned storage system for historical report archival and access</p>
+<p><strong>Impact:</strong> Generates polished, publication-ready reports daily with zero manual intervention. Enables stakeholders to track global markets with professional presentation.</p>
+<div class="tech-tags">
+<p><span class="tech-tag">Python</span> <span class="tech-tag">Matplotlib</span> <span class="tech-tag">LaTeX</span> <span class="tech-tag">Quarto</span></p>
+</div>
+</section>
 </div>
 <hr>
-<p><strong><a href="en/index.html">English Version</a></strong> | <strong><a href="en/index.html">切換至英文版本</a></strong></p>
+</section>
+<section id="skills-toolchain" class="level2">
+<h2 class="anchored" data-anchor-id="skills-toolchain">Skills &amp; Toolchain</h2>
+<div class="skills-container">
+<section id="quantitative-programming" class="level4 skill-category">
+<h4 class="anchored" data-anchor-id="quantitative-programming">Quantitative &amp; Programming</h4>
+<ul>
+<li>Python (Pandas, NumPy, Matplotlib, scikit-learn)</li>
+<li>R (financial modeling, statistical analysis)</li>
+<li>VBA (Excel automation)</li>
+<li>Git / GitHub</li>
+<li>LaTeX (technical writing, report generation)</li>
+</ul>
+</section>
+<section id="finance-research" class="level4 skill-category">
+<h4 class="anchored" data-anchor-id="finance-research">Finance &amp; Research</h4>
+<ul>
+<li>Macroeconomic Analysis</li>
+<li>Forex &amp; Currency Markets</li>
+<li>Fixed Income &amp; Bond Analysis</li>
+<li>Financial Statement Analysis</li>
+<li>Portfolio Optimization</li>
+</ul>
+</section>
+<section id="automation-engineering" class="level4 skill-category">
+<h4 class="anchored" data-anchor-id="automation-engineering">Automation &amp; Engineering</h4>
+<ul>
+<li>Automated Report Generation</li>
+<li>Data ETL &amp; Pipeline Design</li>
+<li>Web Scraping &amp; APIs</li>
+<li>Static Site Generation (Quarto)</li>
+<li>Continuous Deployment (GitHub Pages)</li>
+</ul>
+</section>
+</div>
+<hr>
+</section>
+<section id="contact-links" class="level2">
+<h2 class="anchored" data-anchor-id="contact-links">Contact &amp; Links</h2>
+<p>Reach out via email or explore my work on GitHub:</p>
+<div class="contact-links">
+<p>📧 <strong>Email:</strong> <a href="mailto:mista.intheair@gmail.com">mista.intheair@gmail.com</a></p>
+<p>🔗 <strong>GitHub:</strong> <a href="https://github.com/Mista-intheair">github.com/Mista-intheair</a></p>
+<p>📊 <strong>Daily Reports:</strong> <a href="daily-reports.html">View Latest Reports</a></p>
+</div>
+<hr>
+<p><strong><a href="en/index.html">English Version</a></strong> | <strong><a href="index.html">中文版本</a></strong></p>
 
 
 </section>

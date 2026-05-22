@@ -79,23 +79,37 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "首頁",
+    "title": "MISTA",
     "section": "",
-    "text": "專注於全球宏觀與股票研究的分析師。\n以數據驅動的敘事方式探討宏觀週期、利率、外匯與跨資產估值。\n\n全球宏觀 股票研究 利率與匯率 系統性信號"
+    "text": "Researcher | Focusing on Macro Economics, Forex Forecasting, and Automated Data Pipelines.\n\n\n[ View Portfolio ] [ Download CV ]\n\n\nMacroeconomics Forex Forecasting Quantitative Analysis Data Automation"
   },
   {
-    "objectID": "index.html#研究領域",
-    "href": "index.html#研究領域",
-    "title": "首頁",
-    "section": "研究領域",
-    "text": "研究領域\n\n\n宏觀制度識別與情景分析。\n政策與流動性轉變下的股票風格輪動。\n台灣市場與美元/台幣匯率動態。"
+    "objectID": "index.html#about-me",
+    "href": "index.html#about-me",
+    "title": "MISTA",
+    "section": "About Me",
+    "text": "About Me\nI am an economist and data engineer with expertise in macroeconomic analysis, forex market dynamics, and automated financial reporting. My work combines deep economic theory with practical quantitative skills.\nResearch Foundation: Rooted in macroeconomic theory and policy analysis, with focus on yield curves, monetary transmission, and cross-asset valuations during different economic cycles.\nQuantitative Expertise: Proficient in Python and R for financial modeling—including IRR calculations, duration analysis, and factor model construction. I specialize in building robust data pipelines that transform raw market data into actionable insights.\nDevelopment Mindset: Practitioner of modern AI-assisted development (Vibe Coding), capable of rapidly prototyping research ideas into production-grade analytical systems. I leverage automation to maximize research velocity."
   },
   {
-    "objectID": "index.html#示例markdown-python-latex",
-    "href": "index.html#示例markdown-python-latex",
-    "title": "首頁",
-    "section": "示例：Markdown + Python + LaTeX",
-    "text": "示例：Markdown + Python + LaTeX\n簡單因子模型下的預期年化收益為：\n\\[\nE[R_i] = R_f + \\beta_i (E[R_m] - R_f)\n\\]\n\nimport numpy as np\n\nrisk_free = 0.015\nbeta = 1.2\nmarket_premium = 0.06\nexpected_return = risk_free + beta * market_premium\nexpected_return\n\n0.087\n\n\n\nEnglish Version | 切換至英文版本"
+    "objectID": "index.html#featured-projects",
+    "href": "index.html#featured-projects",
+    "title": "MISTA",
+    "section": "Featured Projects",
+    "text": "Featured Projects\n\n\n📊 Forex Prediction & Automation\nProblem → Method → Result\nDevelop a data-driven system to predict and track forex movements for TWD and JPY pairs using macroeconomic indicators and central bank data.\nTechnical Highlights: - Integrated data from Federal Reserve FRED API and central bank sources - Built automated ETL pipelines using Python for daily data collection and validation - Generated machine-readable daily reports with charts and statistical analysis - Deployed on GitHub Pages for real-time monitoring of forex trends\nImpact: Reduced manual analysis time by ~90% through end-to-end automation. System generates forecasts and reports autonomously every trading day.\n\nPython yfinance Pandas ETL GitHub Pages\n\n\n\n💰 Quantitative Investment Models\nProblem → Method → Result\nConstruct rigorous asset pricing models for large-cap equities (semiconductors, mega-cap tech) with deep valuation analysis.\nTechnical Highlights: - Implemented Duration and IRR calculations for bond-equity relative value assessment - Built factor models for stock price decomposition and momentum analysis - Developed strategy backtesting framework with Monte Carlo simulations - Analyzed multi-year financial statements to derive intrinsic valuations\nImpact: Provides data-backed asset allocation signals with quantifiable risk metrics. Enables principled entry/exit decisions for systematic traders.\n\nR Python Financial Modeling Backtesting\n\n\n\n📈 Daily Financial Report System\nProblem → Method → Result\nCreate an automated professional reporting system that tracks 16 global market assets daily with beautiful visualizations and multi-language PDFs.\nTechnical Highlights: - Designed dual-subplot chart layouts with price trends, date markers, and gain/loss coloring - Implemented LaTeX-based PDF generation with proper internationalization (EN/ZH) - Added professional watermarking and author branding to all reports - Built date-versioned storage system for historical report archival and access\nImpact: Generates polished, publication-ready reports daily with zero manual intervention. Enables stakeholders to track global markets with professional presentation.\n\nPython Matplotlib LaTeX Quarto"
+  },
+  {
+    "objectID": "index.html#skills-toolchain",
+    "href": "index.html#skills-toolchain",
+    "title": "MISTA",
+    "section": "Skills & Toolchain",
+    "text": "Skills & Toolchain\n\n\nQuantitative & Programming\n\nPython (Pandas, NumPy, Matplotlib, scikit-learn)\nR (financial modeling, statistical analysis)\nVBA (Excel automation)\nGit / GitHub\nLaTeX (technical writing, report generation)\n\n\n\nFinance & Research\n\nMacroeconomic Analysis\nForex & Currency Markets\nFixed Income & Bond Analysis\nFinancial Statement Analysis\nPortfolio Optimization\n\n\n\nAutomation & Engineering\n\nAutomated Report Generation\nData ETL & Pipeline Design\nWeb Scraping & APIs\nStatic Site Generation (Quarto)\nContinuous Deployment (GitHub Pages)"
+  },
+  {
+    "objectID": "index.html#contact-links",
+    "href": "index.html#contact-links",
+    "title": "MISTA",
+    "section": "Contact & Links",
+    "text": "Contact & Links\nReach out via email or explore my work on GitHub:\n\n📧 Email: mista.intheair@gmail.com\n🔗 GitHub: github.com/Mista-intheair\n📊 Daily Reports: View Latest Reports\n\n\nEnglish Version | 中文版本"
   },
   {
     "objectID": "projects.html",
@@ -158,21 +172,35 @@
     "href": "en/index.html",
     "title": "Home",
     "section": "",
-    "text": "Global Macro and Equity Research focused analyst.\nI build data-informed narratives around macro cycles, rates, FX, and cross-asset valuation.\n\nGlobal Macro Equity Research Rates & FX Systematic Signals"
+    "text": "Researcher | Focusing on Macro Economics, Forex Forecasting, and Automated Data Pipelines.\n\n\n[ View Portfolio ] [ Download CV ]\n\n\nMacroeconomics Forex Forecasting Quantitative Analysis Data Automation"
   },
   {
-    "objectID": "en/index.html#research-focus",
-    "href": "en/index.html#research-focus",
+    "objectID": "en/index.html#about-me",
+    "href": "en/index.html#about-me",
     "title": "Home",
-    "section": "Research Focus",
-    "text": "Research Focus\n\n\nMacro regime detection and scenario mapping.\nEquity style rotation under policy and liquidity shifts.\nTaiwan market and USD/TWD exchange-rate dynamics."
+    "section": "About Me",
+    "text": "About Me\nI am an economist and data engineer with expertise in macroeconomic analysis, forex market dynamics, and automated financial reporting. My work combines deep economic theory with practical quantitative skills.\nResearch Foundation: Rooted in macroeconomic theory and policy analysis, with focus on yield curves, monetary transmission, and cross-asset valuations during different economic cycles.\nQuantitative Expertise: Proficient in Python and R for financial modeling—including IRR calculations, duration analysis, and factor model construction. I specialize in building robust data pipelines that transform raw market data into actionable insights.\nDevelopment Mindset: Practitioner of modern AI-assisted development (Vibe Coding), capable of rapidly prototyping research ideas into production-grade analytical systems. I leverage automation to maximize research velocity."
   },
   {
-    "objectID": "en/index.html#example-markdown-python-latex",
-    "href": "en/index.html#example-markdown-python-latex",
+    "objectID": "en/index.html#featured-projects",
+    "href": "en/index.html#featured-projects",
     "title": "Home",
-    "section": "Example: Markdown + Python + LaTeX",
-    "text": "Example: Markdown + Python + LaTeX\nThe expected annualized return under a simple factor model is:\n\\[\nE[R_i] = R_f + \\beta_i (E[R_m] - R_f)\n\\]\n\nimport numpy as np\n\nrisk_free = 0.015\nbeta = 1.2\nmarket_premium = 0.06\nexpected_return = risk_free + beta * market_premium\nexpected_return\n\n0.087\n\n\n\n切換至中文版本 | Switch to Chinese"
+    "section": "Featured Projects",
+    "text": "Featured Projects\n\n\n📊 Forex Prediction & Automation\nProblem → Method → Result\nDevelop a data-driven system to predict and track forex movements for TWD and JPY pairs using macroeconomic indicators and central bank data.\nTechnical Highlights: - Integrated data from Federal Reserve FRED API and central bank sources - Built automated ETL pipelines using Python for daily data collection and validation - Generated machine-readable daily reports with charts and statistical analysis - Deployed on GitHub Pages for real-time monitoring of forex trends\nImpact: Reduced manual analysis time by ~90% through end-to-end automation. System generates forecasts and reports autonomously every trading day.\n\nPython yfinance Pandas ETL GitHub Pages\n\n\n\n💰 Quantitative Investment Models\nProblem → Method → Result\nConstruct rigorous asset pricing models for large-cap equities (semiconductors, mega-cap tech) with deep valuation analysis.\nTechnical Highlights: - Implemented Duration and IRR calculations for bond-equity relative value assessment - Built factor models for stock price decomposition and momentum analysis - Developed strategy backtesting framework with Monte Carlo simulations - Analyzed multi-year financial statements to derive intrinsic valuations\nImpact: Provides data-backed asset allocation signals with quantifiable risk metrics. Enables principled entry/exit decisions for systematic traders.\n\nR Python Financial Modeling Backtesting\n\n\n\n📈 Daily Financial Report System\nProblem → Method → Result\nCreate an automated professional reporting system that tracks 16 global market assets daily with beautiful visualizations and multi-language PDFs.\nTechnical Highlights: - Designed dual-subplot chart layouts with price trends, date markers, and gain/loss coloring - Implemented LaTeX-based PDF generation with proper internationalization (EN/ZH) - Added professional watermarking and author branding to all reports - Built date-versioned storage system for historical report archival and access\nImpact: Generates polished, publication-ready reports daily with zero manual intervention. Enables stakeholders to track global markets with professional presentation.\n\nPython Matplotlib LaTeX Quarto"
+  },
+  {
+    "objectID": "en/index.html#skills-toolchain",
+    "href": "en/index.html#skills-toolchain",
+    "title": "Home",
+    "section": "Skills & Toolchain",
+    "text": "Skills & Toolchain\n\n\nQuantitative & Programming\n\nPython (Pandas, NumPy, Matplotlib, scikit-learn)\nR (financial modeling, statistical analysis)\nVBA (Excel automation)\nGit / GitHub\nLaTeX (technical writing, report generation)\n\n\n\nFinance & Research\n\nMacroeconomic Analysis\nForex & Currency Markets\nFixed Income & Bond Analysis\nFinancial Statement Analysis\nPortfolio Optimization\n\n\n\nAutomation & Engineering\n\nAutomated Report Generation\nData ETL & Pipeline Design\nWeb Scraping & APIs\nStatic Site Generation (Quarto)\nContinuous Deployment (GitHub Pages)"
+  },
+  {
+    "objectID": "en/index.html#contact-links",
+    "href": "en/index.html#contact-links",
+    "title": "Home",
+    "section": "Contact & Links",
+    "text": "Contact & Links\nReach out via email or explore my work on GitHub:\n\n📧 Email: mista.intheair@gmail.com\n🔗 GitHub: github.com/Mista-intheair\n📊 Daily Reports: View Latest Reports\n\n\nSwitch to Chinese | 切換至中文版本"
   },
   {
     "objectID": "en/daily-reports.html",
