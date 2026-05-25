@@ -123,42 +123,35 @@
     "href": "cv.html",
     "title": "個人履歷",
     "section": "",
-    "text": "電郵: your.email@example.com | GitHub: github.com/your-username | 地點: 台灣\n\n\n\n專注於全球宏觀與股票研究的分析師，強調利率、外匯、估值與系統性市場監測。\n\n\n\n\n\n\n2022-2024\n\n\n論文：宏觀流動性制度與股票因子輪動。\n\n\n\n\n\n2018-2022\n\n\n副修：資料科學。\n\n\n\n\n\n\n\n\n2024\n\n\n構建日間宏觀儀表板，追蹤利率、外匯與部門分散。\n撰寫台灣出口週期與盈利調整的主題報告。\n\n\n\n\n\n2023\n\n\n主持時間序列建模與因子迴歸診斷實驗室。\n\n\n\n\n\n\n具制度感知特徵的美元/台幣預測模型。\n基於宏觀驚喜指數的股票風格輪動監測。\n\n\n\n\n\n程式語言：Python、SQL、R、Markdown、LaTeX。\n建模：時間序列預測、面板迴歸、樹集合。\n工具：Git、Quarto、Jupyter、彭博終端工作流。\nEnglish Version | 切換至英文版本"
+    "text": "電郵: mista.intheair@gmail.com | GitHub: github.com/Mista-intheair | 地點: 台北\n\n\n\n專注於全球總體與股票研究的研究者，強調利率、外匯、估值與系統性市場監測。\n\n\n\n\n\n\n2022-2024\n\n\n論文：使用機器學習方法分析最低工資對台灣勞工的影響 （The Impacts of Minimum Wage on Workers in Taiwan using Machine Learning Methods）\n\n\n\n\n\n\n\n\n\n具制度感知特徵的美元/台幣預測模型。\n基於總體經濟驚喜指數的股票風格輪動監測。\n\n\n\n\n\n程式語言：Python、SQL、R、Markdown、LaTeX。\n建模：時間序列預測、面板迴歸、機器學習。\n工具：Git、Quarto、Jupyter、彭博終端工作流。\nEnglish Version | 切換至英文版本"
   },
   {
     "objectID": "cv.html#簡介",
     "href": "cv.html#簡介",
     "title": "個人履歷",
     "section": "",
-    "text": "專注於全球宏觀與股票研究的分析師，強調利率、外匯、估值與系統性市場監測。"
+    "text": "專注於全球總體與股票研究的研究者，強調利率、外匯、估值與系統性市場監測。"
   },
   {
     "objectID": "cv.html#教育背景",
     "href": "cv.html#教育背景",
     "title": "個人履歷",
     "section": "",
-    "text": "2022-2024\n\n\n論文：宏觀流動性制度與股票因子輪動。\n\n\n\n\n\n2018-2022\n\n\n副修：資料科學。"
-  },
-  {
-    "objectID": "cv.html#工作經歷",
-    "href": "cv.html#工作經歷",
-    "title": "個人履歷",
-    "section": "",
-    "text": "2024\n\n\n構建日間宏觀儀表板，追蹤利率、外匯與部門分散。\n撰寫台灣出口週期與盈利調整的主題報告。\n\n\n\n\n\n2023\n\n\n主持時間序列建模與因子迴歸診斷實驗室。"
+    "text": "2022-2024\n\n\n論文：使用機器學習方法分析最低工資對台灣勞工的影響 （The Impacts of Minimum Wage on Workers in Taiwan using Machine Learning Methods）"
   },
   {
     "objectID": "cv.html#精選項目",
     "href": "cv.html#精選項目",
     "title": "個人履歷",
     "section": "",
-    "text": "具制度感知特徵的美元/台幣預測模型。\n基於宏觀驚喜指數的股票風格輪動監測。"
+    "text": "具制度感知特徵的美元/台幣預測模型。\n基於總體經濟驚喜指數的股票風格輪動監測。"
   },
   {
     "objectID": "cv.html#技能",
     "href": "cv.html#技能",
     "title": "個人履歷",
     "section": "",
-    "text": "程式語言：Python、SQL、R、Markdown、LaTeX。\n建模：時間序列預測、面板迴歸、樹集合。\n工具：Git、Quarto、Jupyter、彭博終端工作流。"
+    "text": "程式語言：Python、SQL、R、Markdown、LaTeX。\n建模：時間序列預測、面板迴歸、機器學習。\n工具：Git、Quarto、Jupyter、彭博終端工作流。"
   },
   {
     "objectID": "en/index.html",

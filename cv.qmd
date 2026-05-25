@@ -6,51 +6,34 @@ title: "個人履歷"
 # Mista
 
 <div class="cv-meta">
-電郵: your.email@example.com | GitHub: github.com/your-username | 地點: 台灣
+電郵: mista.intheair@gmail.com | GitHub: github.com/Mista-intheair | 地點: 台北
 </div>
 
 ## 簡介
 
-專注於全球宏觀與股票研究的分析師，強調利率、外匯、估值與系統性市場監測。
+專注於全球總體與股票研究的研究者，強調利率、外匯、估值與系統性市場監測。
 
 ## 教育背景
 
-### 財務碩士，範例大學
+### 經濟學碩士，新竹
 
 <div class="cv-meta">2022-2024</div>
 
-- 論文：宏觀流動性制度與股票因子輪動。
+- 論文：使用機器學習方法分析最低工資對台灣勞工的影響 
+（The Impacts of Minimum Wage on Workers in Taiwan using Machine Learning Methods）
 
-### 經濟學學士，範例大學
+### 經濟學學士，上海
 
-<div class="cv-meta">2018-2022</div>
-
-- 副修：資料科學。
-
-## 工作經歷
-
-### 研究實習生，範例證券
-
-<div class="cv-meta">2024</div>
-
-- 構建日間宏觀儀表板，追蹤利率、外匯與部門分散。
-- 撰寫台灣出口週期與盈利調整的主題報告。
-
-### 教學助理，財務計量經濟學
-
-<div class="cv-meta">2023</div>
-
-- 主持時間序列建模與因子迴歸診斷實驗室。
 
 ## 精選項目
 
 - 具制度感知特徵的美元/台幣預測模型。
-- 基於宏觀驚喜指數的股票風格輪動監測。
+- 基於總體經濟驚喜指數的股票風格輪動監測。
 
 ## 技能
 
 - 程式語言：Python、SQL、R、Markdown、LaTeX。
-- 建模：時間序列預測、面板迴歸、樹集合。
+- 建模：時間序列預測、面板迴歸、機器學習。
 - 工具：Git、Quarto、Jupyter、彭博終端工作流。
 :::
 
