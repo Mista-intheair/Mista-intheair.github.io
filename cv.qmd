@@ -20,10 +20,12 @@ title: "個人履歷"
 <div class="cv-meta">2022-2024</div>
 
 - 論文：使用機器學習方法分析最低工資對台灣勞工的影響 
-（The Impacts of Minimum Wage on Workers in Taiwan using Machine Learning Methods）
 
 ### 經濟學學士，上海
 
+<div class="cv-meta">2022-2024</div>
+
+- 論文：市場化轉讓礦權如何改變礦業環境市場
 
 ## 精選項目
 
@@ -34,7 +36,7 @@ title: "個人履歷"
 
 - 程式語言：Python、SQL、R、Markdown、LaTeX。
 - 建模：時間序列預測、面板迴歸、機器學習。
-- 工具：Git、Quarto、Jupyter、彭博終端工作流。
+- 工具：Git、Quarto、Jupyter。
 :::
 
 ---

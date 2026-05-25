@@ -123,7 +123,7 @@
     "href": "cv.html",
     "title": "個人履歷",
     "section": "",
-    "text": "電郵: mista.intheair@gmail.com | GitHub: github.com/Mista-intheair | 地點: 台北\n\n\n\n專注於全球總體與股票研究的研究者，強調利率、外匯、估值與系統性市場監測。\n\n\n\n\n\n\n2022-2024\n\n\n論文：使用機器學習方法分析最低工資對台灣勞工的影響 （The Impacts of Minimum Wage on Workers in Taiwan using Machine Learning Methods）\n\n\n\n\n\n\n\n\n\n具制度感知特徵的美元/台幣預測模型。\n基於總體經濟驚喜指數的股票風格輪動監測。\n\n\n\n\n\n程式語言：Python、SQL、R、Markdown、LaTeX。\n建模：時間序列預測、面板迴歸、機器學習。\n工具：Git、Quarto、Jupyter、彭博終端工作流。\nEnglish Version | 切換至英文版本"
+    "text": "電郵: mista.intheair@gmail.com | GitHub: github.com/Mista-intheair | 地點: 台北\n\n\n\n專注於全球總體與股票研究的研究者，強調利率、外匯、估值與系統性市場監測。\n\n\n\n\n\n\n2022-2024\n\n\n論文：使用機器學習方法分析最低工資對台灣勞工的影響\n\n\n\n\n\n2022-2024\n\n\n論文：市場化轉讓礦權如何改變礦業環境市場\n\n\n\n\n\n\n具制度感知特徵的美元/台幣預測模型。\n基於總體經濟驚喜指數的股票風格輪動監測。\n\n\n\n\n\n程式語言：Python、SQL、R、Markdown、LaTeX。\n建模：時間序列預測、面板迴歸、機器學習。\n工具：Git、Quarto、Jupyter。\nEnglish Version | 切換至英文版本"
   },
   {
     "objectID": "cv.html#簡介",
@@ -137,7 +137,7 @@
     "href": "cv.html#教育背景",
     "title": "個人履歷",
     "section": "",
-    "text": "2022-2024\n\n\n論文：使用機器學習方法分析最低工資對台灣勞工的影響 （The Impacts of Minimum Wage on Workers in Taiwan using Machine Learning Methods）"
+    "text": "2022-2024\n\n\n論文：使用機器學習方法分析最低工資對台灣勞工的影響\n\n\n\n\n\n2022-2024\n\n\n論文：市場化轉讓礦權如何改變礦業環境市場"
   },
   {
     "objectID": "cv.html#精選項目",
@@ -151,7 +151,7 @@
     "href": "cv.html#技能",
     "title": "個人履歷",
     "section": "",
-    "text": "程式語言：Python、SQL、R、Markdown、LaTeX。\n建模：時間序列預測、面板迴歸、機器學習。\n工具：Git、Quarto、Jupyter、彭博終端工作流。"
+    "text": "程式語言：Python、SQL、R、Markdown、LaTeX。\n建模：時間序列預測、面板迴歸、機器學習。\n工具：Git、Quarto、Jupyter。"
   },
   {
     "objectID": "en/index.html",
