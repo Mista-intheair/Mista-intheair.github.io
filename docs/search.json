@@ -25,28 +25,21 @@
     "href": "en/cv.html",
     "title": "CV",
     "section": "",
-    "text": "Email: your.email@example.com | GitHub: github.com/your-username | Location: Taiwan\n\n\n\nResearch analyst specializing in Global Macro and Equity Research, with emphasis on rates, FX, valuation, and systematic market monitoring.\n\n\n\n\n\n\n2022-2024\n\n\nThesis: Macro Liquidity Regimes and Equity Factor Rotation.\n\n\n\n\n\n2018-2022\n\n\nMinor in Data Science.\n\n\n\n\n\n\n\n\n2024\n\n\nBuilt a daily macro dashboard tracking rates, FX, and sector dispersion.\nProduced thematic notes on Taiwan export cycle and earnings revisions.\n\n\n\n\n\n2023\n\n\nLed labs on time-series modeling and factor regression diagnostics.\n\n\n\n\n\n\nUSD/TWD forecasting model with regime-aware features.\nEquity style rotation monitor based on macro surprise indexes.\n\n\n\n\n\nLanguages: Python, SQL, R, Markdown, LaTeX.\nModeling: Time-series forecasting, panel regression, tree ensembles.\nTools: Git, Quarto, Jupyter, Bloomberg terminal workflow.\n切換至中文版本 | Switch to Chinese"
+    "text": "Email: mista.intheair@gmail.com | GitHub: github.com/Mista-intheair | Location: Taipei\n\n\n\nResearcher specializing in Global Macro and Equity Research, with emphasis on rates, FX, valuation, and systematic market monitoring.\n\n\n\n\n\n\n2022-2024\n\n\nThesis: The Impacts of Minimum Wage on Workers in Taiwan using Machine Learning Methods.\n\n\n\n\n\n\n\n\n\nUSD/TWD forecasting model with regime-aware features.\nEquity style rotation monitor based on macro surprise indexes.\n\n\n\n\n\nProgramming Languages: Python, SQL, R, Markdown, LaTeX.\nModeling: Time-series forecasting, panel regression, machine learning.\nTools: Git, Quarto, Jupyter, Bloomberg terminal workflow.\n切換至中文版本 | Switch to Chinese"
   },
   {
     "objectID": "en/cv.html#profile",
     "href": "en/cv.html#profile",
     "title": "CV",
     "section": "",
-    "text": "Research analyst specializing in Global Macro and Equity Research, with emphasis on rates, FX, valuation, and systematic market monitoring."
+    "text": "Researcher specializing in Global Macro and Equity Research, with emphasis on rates, FX, valuation, and systematic market monitoring."
   },
   {
     "objectID": "en/cv.html#education",
     "href": "en/cv.html#education",
     "title": "CV",
     "section": "",
-    "text": "2022-2024\n\n\nThesis: Macro Liquidity Regimes and Equity Factor Rotation.\n\n\n\n\n\n2018-2022\n\n\nMinor in Data Science."
-  },
-  {
-    "objectID": "en/cv.html#experience",
-    "href": "en/cv.html#experience",
-    "title": "CV",
-    "section": "",
-    "text": "2024\n\n\nBuilt a daily macro dashboard tracking rates, FX, and sector dispersion.\nProduced thematic notes on Taiwan export cycle and earnings revisions.\n\n\n\n\n\n2023\n\n\nLed labs on time-series modeling and factor regression diagnostics."
+    "text": "2022-2024\n\n\nThesis: The Impacts of Minimum Wage on Workers in Taiwan using Machine Learning Methods."
   },
   {
     "objectID": "en/cv.html#selected-projects",
@@ -60,7 +53,7 @@
     "href": "en/cv.html#skills",
     "title": "CV",
     "section": "",
-    "text": "Languages: Python, SQL, R, Markdown, LaTeX.\nModeling: Time-series forecasting, panel regression, tree ensembles.\nTools: Git, Quarto, Jupyter, Bloomberg terminal workflow."
+    "text": "Programming Languages: Python, SQL, R, Markdown, LaTeX.\nModeling: Time-series forecasting, panel regression, machine learning.\nTools: Git, Quarto, Jupyter, Bloomberg terminal workflow."
   },
   {
     "objectID": "en/projects.html",

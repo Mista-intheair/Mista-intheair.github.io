@@ -6,41 +6,22 @@ title: "CV"
 # Mista
 
 <div class="cv-meta">
-Email: your.email@example.com | GitHub: github.com/your-username | Location: Taiwan
+Email: mista.intheair@gmail.com | GitHub: github.com/Mista-intheair | Location: Taipei
 </div>
 
 ## Profile
 
-Research analyst specializing in Global Macro and Equity Research, with emphasis on rates, FX, valuation, and systematic market monitoring.
+Researcher specializing in Global Macro and Equity Research, with emphasis on rates, FX, valuation, and systematic market monitoring.
 
 ## Education
 
-### M.S. in Finance, Example University
+### M.S. in Economics, Hsinchu
 
 <div class="cv-meta">2022-2024</div>
 
-- Thesis: Macro Liquidity Regimes and Equity Factor Rotation.
+- Thesis: The Impacts of Minimum Wage on Workers in Taiwan using Machine Learning Methods.
 
-### B.A. in Economics, Example University
-
-<div class="cv-meta">2018-2022</div>
-
-- Minor in Data Science.
-
-## Experience
-
-### Research Intern, Example Securities
-
-<div class="cv-meta">2024</div>
-
-- Built a daily macro dashboard tracking rates, FX, and sector dispersion.
-- Produced thematic notes on Taiwan export cycle and earnings revisions.
-
-### Teaching Assistant, Financial Econometrics
-
-<div class="cv-meta">2023</div>
-
-- Led labs on time-series modeling and factor regression diagnostics.
+### B.A. in Economics, Shanghai
 
 ## Selected Projects
 
@@ -49,8 +30,8 @@ Research analyst specializing in Global Macro and Equity Research, with emphasis
 
 ## Skills
 
-- Languages: Python, SQL, R, Markdown, LaTeX.
-- Modeling: Time-series forecasting, panel regression, tree ensembles.
+- Programming Languages: Python, SQL, R, Markdown, LaTeX.
+- Modeling: Time-series forecasting, panel regression, machine learning.
 - Tools: Git, Quarto, Jupyter, Bloomberg terminal workflow.
 :::
 
