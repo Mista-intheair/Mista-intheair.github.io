@@ -6,7 +6,7 @@ title: "個人履歷"
 # Mista
 
 <div class="cv-meta">
-電郵: mista.intheair@gmail.com | GitHub: github.com/Mista-intheair | 地點: 台北
+電郵: [mista.intheair@gmail.com](mailto:mista.intheair@gmail.com) | GitHub: [github.com/Mista-intheair](https://github.com/Mista-intheair) | 地點: 台北
 </div>
 
 ## 簡介
