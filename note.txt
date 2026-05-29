@@ -1,0 +1,19 @@
+# 1️⃣ 生成報告（按您現有流程）
+cd ~/coding/daliy_report/py
+./run_report.sh
+
+# 2️⃣ 編輯LaTeX（可選）
+nano reports/$(date +%Y-%m-%d)/editable/financial_report_*.tex
+
+# 3️⃣ 重新生成PDF（如有編輯）
+python generate_pdf_latex.py
+
+# 4️⃣ 一鍵同步到網站
+./sync_and_publish.sh
+
+# 或同步+重建網站
+./sync_and_publish.sh 2026-05-19 --rebuild
+
+# cd /Users/mista/coding/daliy_report/py && ./run_report.sh   
+
+# cd /Users/mista/coding/daliy_report/py && ./sync_and_publish.sh
