@@ -240,15 +240,15 @@ window.Quarto = {
   <li><a href="#python-原型代碼" id="toc-python-原型代碼" class="nav-link" data-scroll-target="#python-原型代碼">Python 原型代碼</a></li>
   <li><a href="#目前狀態" id="toc-目前狀態" class="nav-link" data-scroll-target="#目前狀態">目前狀態</a></li>
   </ul></li>
-  <li><a href="#backtrader-量化回測系統" id="toc-backtrader-量化回測系統" class="nav-link" data-scroll-target="#backtrader-量化回測系統">Backtrader 量化回測系統</a>
+  <li><a href="#雙均線策略量化研究" id="toc-雙均線策略量化研究" class="nav-link" data-scroll-target="#雙均線策略量化研究">雙均線策略量化研究</a>
   <ul class="collapse">
-  <li><a href="#項目目標" id="toc-項目目標" class="nav-link" data-scroll-target="#項目目標">項目目標</a></li>
-  <li><a href="#核心特性" id="toc-核心特性" class="nav-link" data-scroll-target="#核心特性">核心特性</a></li>
-  <li><a href="#項目結構" id="toc-項目結構" class="nav-link" data-scroll-target="#項目結構">項目結構</a></li>
-  <li><a href="#使用範例" id="toc-使用範例" class="nav-link" data-scroll-target="#使用範例">使用範例</a></li>
-  <li><a href="#快速開始" id="toc-快速開始" class="nav-link" data-scroll-target="#快速開始">快速開始</a></li>
-  <li><a href="#技術實現亮點" id="toc-技術實現亮點" class="nav-link" data-scroll-target="#技術實現亮點">技術實現亮點</a></li>
-  <li><a href="#前置要求" id="toc-前置要求" class="nav-link" data-scroll-target="#前置要求">前置要求</a></li>
+  <li><a href="#策略核心邏輯" id="toc-策略核心邏輯" class="nav-link" data-scroll-target="#策略核心邏輯">策略核心邏輯</a></li>
+  <li><a href="#金融理論基礎" id="toc-金融理論基礎" class="nav-link" data-scroll-target="#金融理論基礎">金融理論基礎</a></li>
+  <li><a href="#回測框架的意義" id="toc-回測框架的意義" class="nav-link" data-scroll-target="#回測框架的意義">回測框架的意義</a></li>
+  <li><a href="#實證分析" id="toc-實證分析" class="nav-link" data-scroll-target="#實證分析">實證分析</a></li>
+  <li><a href="#策略實現要點" id="toc-策略實現要點" class="nav-link" data-scroll-target="#策略實現要點">策略實現要點</a></li>
+  <li><a href="#關鍵研究問題" id="toc-關鍵研究問題" class="nav-link" data-scroll-target="#關鍵研究問題">關鍵研究問題</a></li>
+  <li><a href="#延伸研究方向" id="toc-延伸研究方向" class="nav-link" data-scroll-target="#延伸研究方向">延伸研究方向</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -313,7 +313,7 @@ window.Quarto = {
 </section>
 <section id="python-原型代碼" class="level3">
 <h3 class="anchored" data-anchor-id="python-原型代碼">Python 原型代碼</h3>
-<div id="fd1952c9" class="cell" data-execution_count="1">
+<div id="e8e1171e" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.linear_model <span class="im">import</span> ElasticNet</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -336,93 +336,116 @@ window.Quarto = {
 <hr>
 </section>
 </section>
-<section id="backtrader-量化回測系統" class="level2">
-<h2 class="anchored" data-anchor-id="backtrader-量化回測系統">Backtrader 量化回測系統</h2>
+<section id="雙均線策略量化研究" class="level2">
+<h2 class="anchored" data-anchor-id="雙均線策略量化研究">雙均線策略量化研究</h2>
 <div class="card">
-<p>基於 Backtrader 框架的完整量化交易回測系統，提供雙均線策略與真實交易成本模擬。</p>
+<p>利用技術分析中的移動平均線交叉信號，研究市場趨勢反轉與動能延續的量化交易策略。</p>
 </div>
-<section id="項目目標" class="level3">
-<h3 class="anchored" data-anchor-id="項目目標">項目目標</h3>
-<ul>
-<li>提供完整的量化交易回測框架，用於策略研究與開發。</li>
-<li>實現真實的交易環境模擬，包含手續費與滑點。</li>
-<li>支援多標的同時回測與完整的績效分析。</li>
-</ul>
+<section id="策略核心邏輯" class="level3">
+<h3 class="anchored" data-anchor-id="策略核心邏輯">策略核心邏輯</h3>
+<p>雙均線策略基於技術分析的經典原理：短期移動平均線反映近期市場動能，長期移動平均線代表市場主要趨勢。當短期平均線穿越長期平均線時，代表市場動能變化，形成交易信號。</p>
+<p><strong>買入信號</strong>：20日均線向上穿越60日均線（黃金交叉） <span class="math display">\[MA_{20}(t) &gt; MA_{60}(t) \text{ and } MA_{20}(t-1) \leq MA_{60}(t-1)\]</span></p>
+<p><strong>賣出信號</strong>：20日均線向下穿越60日均線（死亡交叉） <span class="math display">\[MA_{20}(t) &lt; MA_{60}(t) \text{ and } MA_{20}(t-1) \geq MA_{60}(t-1)\]</span></p>
 </section>
-<section id="核心特性" class="level3">
-<h3 class="anchored" data-anchor-id="核心特性">核心特性</h3>
-<ul>
-<li><strong>回測引擎</strong>：基於 Backtrader 1.9.74 的強大回測框架。</li>
-<li><strong>策略實現</strong>：經典的 20日/60日移動平均線交叉策略。</li>
-<li><strong>交易成本</strong>：手續費設定 (0.1%) 和滑點模擬 (0.05%)。</li>
-<li><strong>多股票支持</strong>：同步回測台積電 (2330.TW)、蘋果 (AAPL)、特斯拉 (TSLA)。</li>
-<li><strong>績效指標</strong>：Sharpe 比率、最大回撤、總收益率等完整分析。</li>
-<li><strong>數據管理</strong>：自動化 Yahoo Finance 數據下載與更新機制。</li>
-<li><strong>結果持久化</strong>：JSON 和 CSV 雙格式輸出。</li>
-</ul>
-</section>
-<section id="項目結構" class="level3">
-<h3 class="anchored" data-anchor-id="項目結構">項目結構</h3>
-<pre><code>backtrader-quant/
-├── backtest.py              # 核心回測引擎
-├── quick_backtest.py        # 快速回測腳本
-├── config.py                # 集中配置管理
-├── strategies/              # 策略目錄
-│   └── dual_ma_strategy.py  # 雙均線策略實現
-├── data/                    # 數據目錄
-│   ├── data_manager.py      # Yahoo Finance 數據管理
-│   ├── 2330_TW.csv          # 台積電歷史數據
-│   ├── AAPL.csv             # 蘋果歷史數據
-│   └── TSLA.csv             # 特斯拉歷史數據
-└── results/                 # 回測結果輸出目錄</code></pre>
-</section>
-<section id="使用範例" class="level3">
-<h3 class="anchored" data-anchor-id="使用範例">使用範例</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> backtest <span class="im">import</span> run_backtest</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> strategies.dual_ma_strategy <span class="im">import</span> DualMAStrategy</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 運行雙均線策略回測</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>results <span class="op">=</span> run_backtest(</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    strategy<span class="op">=</span>DualMAStrategy,</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    symbol<span class="op">=</span><span class="st">'2330.TW'</span>,</span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    start_date<span class="op">=</span><span class="st">'2022-01-01'</span>,</span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    end_date<span class="op">=</span><span class="st">'2026-05-31'</span>,</span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    initial_cash<span class="op">=</span><span class="dv">100000</span></span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="co"># 查看績效指標</span></span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Sharpe Ratio: </span><span class="sc">{</span>results[<span class="st">'sharpe_ratio'</span>]<span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Max Drawdown: </span><span class="sc">{</span>results[<span class="st">'max_drawdown'</span>]<span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Total Return: </span><span class="sc">{</span>results[<span class="st">'total_return'</span>]<span class="sc">}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</section>
-<section id="快速開始" class="level3">
-<h3 class="anchored" data-anchor-id="快速開始">快速開始</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 進入項目目錄並運行快速回測</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> path/to/backtrader-quant</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="ex">./run.sh</span> quick_backtest.py</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co"># 查看回測結果</span></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="ex">./run.sh</span> view_results.py</span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="co"># 下載最新數據</span></span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="ex">./run.sh</span> data/data_manager.py</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</section>
-<section id="技術實現亮點" class="level3">
-<h3 class="anchored" data-anchor-id="技術實現亮點">技術實現亮點</h3>
+<section id="金融理論基礎" class="level3">
+<h3 class="anchored" data-anchor-id="金融理論基礎">金融理論基礎</h3>
 <ol type="1">
-<li><strong>配置管理</strong>：集中式配置 (config.py) 便於調整手續費、滑點等參數。</li>
-<li><strong>策略模板</strong>：標準化策略介面，易於擴展新策略。</li>
-<li><strong>虛擬環境隔離</strong>：使用 run.sh 啟動器，自動激活虛擬環境，無污染主系統。</li>
-<li><strong>完整文檔</strong>：提供 GUIDE.md、SETUP.md、RESULTS_GUIDE.md 等 7 份詳細指南。</li>
+<li><p><strong>市場趨勢性</strong>：假設市場存在可識別的趨勢，而非完全隨機遊走。移動平均線作為趨勢過濾器，平滑短期噪聲。</p></li>
+<li><p><strong>動能效應</strong>：研究表明存在短期動能反轉與中期動能延續的現象。雙均線的交叉點捕捉這些轉折。</p></li>
+<li><p><strong>交易成本考量</strong>：真實交易環境中的手續費 (0.1%) 和滑點 (0.05%) 會顯著影響策略績效。納入成本模擬是驗證策略可行性的關鍵。</p></li>
 </ol>
 </section>
-<section id="前置要求" class="level3">
-<h3 class="anchored" data-anchor-id="前置要求">前置要求</h3>
+<section id="回測框架的意義" class="level3">
+<h3 class="anchored" data-anchor-id="回測框架的意義">回測框架的意義</h3>
+<p>回測不是目的，而是驗證策略有效性的方法。通過歷史數據評估：</p>
 <ul>
-<li>Python 3.8+</li>
-<li>macOS 或 Linux 系統</li>
-<li>200MB 磁碟空間</li>
-<li>基本的 Python 與命令行知識</li>
+<li><strong>信號品質</strong>：識別的交叉點是否能抓住實際的趨勢反轉。</li>
+<li><strong>風險調整收益</strong>：策略在風險管理下的真實績效（Sharpe 比率）。</li>
+<li><strong>實踐可行性</strong>：扣除交易成本與滑點後，策略是否仍有超額收益。</li>
+<li><strong>不同市場環境</strong>：策略在不同股票、時期的魯棒性。</li>
+</ul>
+</section>
+<section id="實證分析" class="level3">
+<h3 class="anchored" data-anchor-id="實證分析">實證分析</h3>
+<p>針對三個重要標的進行回測：</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>標的</th>
+<th>數據期間</th>
+<th>關鍵特徵</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>台積電 (2330.TW)</td>
+<td>2024-2026</td>
+<td>科技龍頭，高波動性市場</td>
+</tr>
+<tr class="even">
+<td>蘋果 (AAPL)</td>
+<td>2024-2026</td>
+<td>國際大型股，流動性充足</td>
+</tr>
+<tr class="odd">
+<td>特斯拉 (TSLA)</td>
+<td>2024-2026</td>
+<td>高成長股，波動率較大</td>
+</tr>
+</tbody>
+</table>
+<p>回測結果評估指標：</p>
+<pre><code>績效指標:
+├── 年化收益率 (Annual Return)
+├── 夏普比率 (Sharpe Ratio) - 風險調整的收益度量
+├── 最大回撤 (Max Drawdown) - 最差的虧損幅度
+├── 勝率 (Win Rate) - 盈利交易佔比
+└── 交易次數 - 策略的交易頻率</code></pre>
+</section>
+<section id="策略實現要點" class="level3">
+<h3 class="anchored" data-anchor-id="策略實現要點">策略實現要點</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 策略信號生成的核心邏輯</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> generate_signal(close_prices, short_window<span class="op">=</span><span class="dv">20</span>, long_window<span class="op">=</span><span class="dv">60</span>):</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co">    計算移動平均線交叉信號</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co">    </span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co">    參數:</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co">        close_prices: 歷史收盤價序列</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co">        short_window: 短期均線窗口（天數）</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="co">        long_window: 長期均線窗口（天數）</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="co">    </span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="co">    返回:</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="co">        signal: 1=買入, -1=賣出, 0=無信號</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>    ma_short <span class="op">=</span> close_prices.rolling(window<span class="op">=</span>short_window).mean()</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>    ma_long <span class="op">=</span> close_prices.rolling(window<span class="op">=</span>long_window).mean()</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 識別交叉點</span></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>    crossover <span class="op">=</span> (ma_short <span class="op">&gt;</span> ma_long) <span class="op">&amp;</span> (ma_short.shift(<span class="dv">1</span>) <span class="op">&lt;=</span> ma_long.shift(<span class="dv">1</span>))</span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>    crossunder <span class="op">=</span> (ma_short <span class="op">&lt;</span> ma_long) <span class="op">&amp;</span> (ma_short.shift(<span class="dv">1</span>) <span class="op">&gt;=</span> ma_long.shift(<span class="dv">1</span>))</span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>    signal <span class="op">=</span> pd.Series(<span class="dv">0</span>, index<span class="op">=</span>close_prices.index)</span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>    signal[crossover] <span class="op">=</span> <span class="dv">1</span>   <span class="co"># 黃金交叉</span></span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>    signal[crossunder] <span class="op">=</span> <span class="op">-</span><span class="dv">1</span> <span class="co"># 死亡交叉</span></span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> signal</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="關鍵研究問題" class="level3">
+<h3 class="anchored" data-anchor-id="關鍵研究問題">關鍵研究問題</h3>
+<ol type="1">
+<li><p><strong>參數優化</strong>：20/60 的均線周期組合是否最優？不同標的是否需要調整？</p></li>
+<li><p><strong>風險管理</strong>：在單一策略基礎上，如何加入止損機制或動態頭寸管理？</p></li>
+<li><p><strong>市場適應性</strong>：策略在不同市場狀態（趨勢市 vs 盤整市）的表現差異。</p></li>
+<li><p><strong>交易成本影響</strong>：手續費與滑點對不同交易頻率策略的影響程度。</p></li>
+</ol>
+</section>
+<section id="延伸研究方向" class="level3">
+<h3 class="anchored" data-anchor-id="延伸研究方向">延伸研究方向</h3>
+<ul>
+<li>結合波動率指標（ATR、Bollinger Bands）強化信號。</li>
+<li>多因子模型：加入 RSI、MACD 等動量指標的確認。</li>
+<li>機器學習優化：利用歷史數據找出最優的參數組合。</li>
+<li>風險平價策略：根據不同標的的波動率動態調整頭寸。</li>
 </ul>
 <hr>
 <p><strong><a href="en/projects.html">English Version</a></strong> | <strong><a href="en/projects.html">切換至英文版本</a></strong></p>

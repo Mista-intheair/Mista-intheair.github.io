@@ -240,15 +240,15 @@ window.Quarto = {
   <li><a href="#minimal-python-prototype" id="toc-minimal-python-prototype" class="nav-link" data-scroll-target="#minimal-python-prototype">Minimal Python Prototype</a></li>
   <li><a href="#current-status" id="toc-current-status" class="nav-link" data-scroll-target="#current-status">Current Status</a></li>
   </ul></li>
-  <li><a href="#backtrader-quantitative-backtesting-system" id="toc-backtrader-quantitative-backtesting-system" class="nav-link" data-scroll-target="#backtrader-quantitative-backtesting-system">Backtrader Quantitative Backtesting System</a>
+  <li><a href="#dual-moving-average-strategy-research" id="toc-dual-moving-average-strategy-research" class="nav-link" data-scroll-target="#dual-moving-average-strategy-research">Dual Moving Average Strategy Research</a>
   <ul class="collapse">
-  <li><a href="#project-objective" id="toc-project-objective" class="nav-link" data-scroll-target="#project-objective">Project Objective</a></li>
-  <li><a href="#core-features" id="toc-core-features" class="nav-link" data-scroll-target="#core-features">Core Features</a></li>
-  <li><a href="#project-structure" id="toc-project-structure" class="nav-link" data-scroll-target="#project-structure">Project Structure</a></li>
-  <li><a href="#usage-example" id="toc-usage-example" class="nav-link" data-scroll-target="#usage-example">Usage Example</a></li>
-  <li><a href="#quick-start" id="toc-quick-start" class="nav-link" data-scroll-target="#quick-start">Quick Start</a></li>
-  <li><a href="#technical-implementation-highlights" id="toc-technical-implementation-highlights" class="nav-link" data-scroll-target="#technical-implementation-highlights">Technical Implementation Highlights</a></li>
-  <li><a href="#requirements" id="toc-requirements" class="nav-link" data-scroll-target="#requirements">Requirements</a></li>
+  <li><a href="#strategy-core-logic" id="toc-strategy-core-logic" class="nav-link" data-scroll-target="#strategy-core-logic">Strategy Core Logic</a></li>
+  <li><a href="#financial-theory-foundation" id="toc-financial-theory-foundation" class="nav-link" data-scroll-target="#financial-theory-foundation">Financial Theory Foundation</a></li>
+  <li><a href="#the-purpose-of-backtesting" id="toc-the-purpose-of-backtesting" class="nav-link" data-scroll-target="#the-purpose-of-backtesting">The Purpose of Backtesting</a></li>
+  <li><a href="#empirical-analysis" id="toc-empirical-analysis" class="nav-link" data-scroll-target="#empirical-analysis">Empirical Analysis</a></li>
+  <li><a href="#strategy-implementation-essentials" id="toc-strategy-implementation-essentials" class="nav-link" data-scroll-target="#strategy-implementation-essentials">Strategy Implementation Essentials</a></li>
+  <li><a href="#key-research-questions" id="toc-key-research-questions" class="nav-link" data-scroll-target="#key-research-questions">Key Research Questions</a></li>
+  <li><a href="#future-research-directions" id="toc-future-research-directions" class="nav-link" data-scroll-target="#future-research-directions">Future Research Directions</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -313,7 +313,7 @@ window.Quarto = {
 </section>
 <section id="minimal-python-prototype" class="level3">
 <h3 class="anchored" data-anchor-id="minimal-python-prototype">Minimal Python Prototype</h3>
-<div id="06b0f437" class="cell" data-execution_count="1">
+<div id="02753584" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.linear_model <span class="im">import</span> ElasticNet</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -336,93 +336,121 @@ window.Quarto = {
 <hr>
 </section>
 </section>
-<section id="backtrader-quantitative-backtesting-system" class="level2">
-<h2 class="anchored" data-anchor-id="backtrader-quantitative-backtesting-system">Backtrader Quantitative Backtesting System</h2>
+<section id="dual-moving-average-strategy-research" class="level2">
+<h2 class="anchored" data-anchor-id="dual-moving-average-strategy-research">Dual Moving Average Strategy Research</h2>
 <div class="card">
-<p>A comprehensive quantitative trading backtesting system built on Backtrader framework, featuring dual moving average strategy with realistic trading cost simulation.</p>
+<p>Quantitative research on trading signals from moving average crossovers, exploring trend reversals and momentum continuation in financial markets.</p>
 </div>
-<section id="project-objective" class="level3">
-<h3 class="anchored" data-anchor-id="project-objective">Project Objective</h3>
-<ul>
-<li>Provide a complete quantitative trading backtesting framework for strategy research and development.</li>
-<li>Simulate realistic trading environments including commissions and slippage.</li>
-<li>Support multi-asset backtesting with comprehensive performance analytics.</li>
-</ul>
+<section id="strategy-core-logic" class="level3">
+<h3 class="anchored" data-anchor-id="strategy-core-logic">Strategy Core Logic</h3>
+<p>The dual moving average strategy is rooted in classical technical analysis: the short-term moving average captures recent market momentum, while the long-term moving average represents the primary market trend. When the short-term average crosses the long-term average, it signals a change in market momentum, generating a trading signal.</p>
+<p><strong>Buy Signal</strong>: 20-day MA crosses above 60-day MA (Golden Cross) <span class="math display">\[MA_{20}(t) &gt; MA_{60}(t) \text{ and } MA_{20}(t-1) \leq MA_{60}(t-1)\]</span></p>
+<p><strong>Sell Signal</strong>: 20-day MA crosses below 60-day MA (Death Cross) <span class="math display">\[MA_{20}(t) &lt; MA_{60}(t) \text{ and } MA_{20}(t-1) \geq MA_{60}(t-1)\]</span></p>
 </section>
-<section id="core-features" class="level3">
-<h3 class="anchored" data-anchor-id="core-features">Core Features</h3>
-<ul>
-<li><strong>Backtesting Engine</strong>: Powerful framework based on Backtrader 1.9.74.</li>
-<li><strong>Strategy Implementation</strong>: Classic 20-day/60-day moving average crossover strategy.</li>
-<li><strong>Trading Costs</strong>: Commission (0.1%) and slippage (0.05%) simulation.</li>
-<li><strong>Multi-Asset Support</strong>: Simultaneous backtesting of TSMC (2330.TW), Apple (AAPL), Tesla (TSLA).</li>
-<li><strong>Performance Metrics</strong>: Complete analysis with Sharpe ratio, max drawdown, total return.</li>
-<li><strong>Data Management</strong>: Automated Yahoo Finance data download and update mechanism.</li>
-<li><strong>Result Output</strong>: Dual JSON and CSV format persistence.</li>
-</ul>
-</section>
-<section id="project-structure" class="level3">
-<h3 class="anchored" data-anchor-id="project-structure">Project Structure</h3>
-<pre><code>backtrader-quant/
-├── backtest.py              # Core backtesting engine
-├── quick_backtest.py        # Quick backtest script
-├── config.py                # Centralized configuration
-├── strategies/              # Strategy directory
-│   └── dual_ma_strategy.py  # Dual moving average strategy
-├── data/                    # Data directory
-│   ├── data_manager.py      # Yahoo Finance data management
-│   ├── 2330_TW.csv          # TSMC historical data
-│   ├── AAPL.csv             # Apple historical data
-│   └── TSLA.csv             # Tesla historical data
-└── results/                 # Backtest results output</code></pre>
-</section>
-<section id="usage-example" class="level3">
-<h3 class="anchored" data-anchor-id="usage-example">Usage Example</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> backtest <span class="im">import</span> run_backtest</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> strategies.dual_ma_strategy <span class="im">import</span> DualMAStrategy</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Run dual moving average strategy backtest</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>results <span class="op">=</span> run_backtest(</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    strategy<span class="op">=</span>DualMAStrategy,</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    symbol<span class="op">=</span><span class="st">'2330.TW'</span>,</span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    start_date<span class="op">=</span><span class="st">'2022-01-01'</span>,</span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    end_date<span class="op">=</span><span class="st">'2026-05-31'</span>,</span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    initial_cash<span class="op">=</span><span class="dv">100000</span></span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="co"># View performance metrics</span></span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Sharpe Ratio: </span><span class="sc">{</span>results[<span class="st">'sharpe_ratio'</span>]<span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Max Drawdown: </span><span class="sc">{</span>results[<span class="st">'max_drawdown'</span>]<span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Total Return: </span><span class="sc">{</span>results[<span class="st">'total_return'</span>]<span class="sc">}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</section>
-<section id="quick-start" class="level3">
-<h3 class="anchored" data-anchor-id="quick-start">Quick Start</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Enter project directory and run quick backtest</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> path/to/backtrader-quant</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="ex">./run.sh</span> quick_backtest.py</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co"># View backtest results</span></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="ex">./run.sh</span> view_results.py</span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Download latest data</span></span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="ex">./run.sh</span> data/data_manager.py</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</section>
-<section id="technical-implementation-highlights" class="level3">
-<h3 class="anchored" data-anchor-id="technical-implementation-highlights">Technical Implementation Highlights</h3>
+<section id="financial-theory-foundation" class="level3">
+<h3 class="anchored" data-anchor-id="financial-theory-foundation">Financial Theory Foundation</h3>
 <ol type="1">
-<li><strong>Configuration Management</strong>: Centralized config.py for easy parameter adjustment.</li>
-<li><strong>Strategy Template</strong>: Standardized strategy interface for easy extension.</li>
-<li><strong>Virtual Environment Isolation</strong>: run.sh launcher automatically activates virtual environment without system pollution.</li>
-<li><strong>Comprehensive Documentation</strong>: 7 detailed guides including GUIDE.md, SETUP.md, RESULTS_GUIDE.md.</li>
+<li><p><strong>Market Trend Hypothesis</strong>: Markets exhibit identifiable trends rather than pure random walks. Moving averages serve as trend filters, smoothing short-term noise.</p></li>
+<li><p><strong>Momentum Effects</strong>: Empirical research shows both short-term momentum reversals and medium-term momentum continuation. Moving average crossovers capture these inflection points.</p></li>
+<li><p><strong>Transaction Cost Realism</strong>: Real trading incurs commissions (0.1%) and slippage (0.05%). Incorporating these costs is essential for validating practical viability.</p></li>
 </ol>
 </section>
-<section id="requirements" class="level3">
-<h3 class="anchored" data-anchor-id="requirements">Requirements</h3>
+<section id="the-purpose-of-backtesting" class="level3">
+<h3 class="anchored" data-anchor-id="the-purpose-of-backtesting">The Purpose of Backtesting</h3>
+<p>Backtesting is not an end goal but a method to validate strategy effectiveness. Historical evaluation addresses:</p>
 <ul>
-<li>Python 3.8+</li>
-<li>macOS or Linux system</li>
-<li>200MB disk space</li>
-<li>Basic Python and command-line knowledge</li>
+<li><strong>Signal Quality</strong>: Do identified crossovers capture actual trend reversals?</li>
+<li><strong>Risk-Adjusted Returns</strong>: True performance under risk management constraints (Sharpe ratio).</li>
+<li><strong>Practical Feasibility</strong>: Do excess returns persist after deducting trading costs?</li>
+<li><strong>Robustness Across Markets</strong>: How does strategy perform across different assets and periods?</li>
+</ul>
+</section>
+<section id="empirical-analysis" class="level3">
+<h3 class="anchored" data-anchor-id="empirical-analysis">Empirical Analysis</h3>
+<p>Backtesting on three key assets:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 21%">
+<col style="width: 25%">
+<col style="width: 53%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Asset</th>
+<th>Period</th>
+<th>Characteristics</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>TSMC (2330.TW)</td>
+<td>2024-2026</td>
+<td>Tech leader, high volatility</td>
+</tr>
+<tr class="even">
+<td>Apple (AAPL)</td>
+<td>2024-2026</td>
+<td>Large-cap international, excellent liquidity</td>
+</tr>
+<tr class="odd">
+<td>Tesla (TSLA)</td>
+<td>2024-2026</td>
+<td>High-growth stock, elevated volatility</td>
+</tr>
+</tbody>
+</table>
+<p>Performance metrics evaluated:</p>
+<pre><code>Performance Indicators:
+├── Annual Return
+├── Sharpe Ratio - Risk-adjusted return measurement
+├── Maximum Drawdown - Worst loss magnitude
+├── Win Rate - Proportion of profitable trades
+└── Trade Frequency - Strategy trading frequency</code></pre>
+</section>
+<section id="strategy-implementation-essentials" class="level3">
+<h3 class="anchored" data-anchor-id="strategy-implementation-essentials">Strategy Implementation Essentials</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Core logic for moving average crossover signals</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> generate_signal(close_prices, short_window<span class="op">=</span><span class="dv">20</span>, long_window<span class="op">=</span><span class="dv">60</span>):</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co">    Generate moving average crossover signals.</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co">    </span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co">    Parameters:</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co">        close_prices: Historical closing price series</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co">        short_window: Short-term MA period (days)</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="co">        long_window: Long-term MA period (days)</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="co">    </span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="co">    Returns:</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="co">        signal: 1=Buy, -1=Sell, 0=No signal</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>    ma_short <span class="op">=</span> close_prices.rolling(window<span class="op">=</span>short_window).mean()</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>    ma_long <span class="op">=</span> close_prices.rolling(window<span class="op">=</span>long_window).mean()</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Identify crossover points</span></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>    crossover <span class="op">=</span> (ma_short <span class="op">&gt;</span> ma_long) <span class="op">&amp;</span> (ma_short.shift(<span class="dv">1</span>) <span class="op">&lt;=</span> ma_long.shift(<span class="dv">1</span>))</span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>    crossunder <span class="op">=</span> (ma_short <span class="op">&lt;</span> ma_long) <span class="op">&amp;</span> (ma_short.shift(<span class="dv">1</span>) <span class="op">&gt;=</span> ma_long.shift(<span class="dv">1</span>))</span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>    signal <span class="op">=</span> pd.Series(<span class="dv">0</span>, index<span class="op">=</span>close_prices.index)</span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>    signal[crossover] <span class="op">=</span> <span class="dv">1</span>    <span class="co"># Golden cross</span></span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>    signal[crossunder] <span class="op">=</span> <span class="op">-</span><span class="dv">1</span>  <span class="co"># Death cross</span></span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> signal</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="key-research-questions" class="level3">
+<h3 class="anchored" data-anchor-id="key-research-questions">Key Research Questions</h3>
+<ol type="1">
+<li><p><strong>Parameter Optimization</strong>: Is the 20/60 period combination optimal? Should different assets use different periods?</p></li>
+<li><p><strong>Risk Management</strong>: How can stop-loss mechanisms or dynamic position sizing enhance the basic strategy?</p></li>
+<li><p><strong>Market Adaptation</strong>: How does strategy performance differ across trend-following vs.&nbsp;range-bound markets?</p></li>
+<li><p><strong>Cost Impact</strong>: How significantly do commissions and slippage affect strategies with different trade frequencies?</p></li>
+</ol>
+</section>
+<section id="future-research-directions" class="level3">
+<h3 class="anchored" data-anchor-id="future-research-directions">Future Research Directions</h3>
+<ul>
+<li>Combining volatility indicators (ATR, Bollinger Bands) to strengthen signals.</li>
+<li>Multi-factor models: Incorporating momentum indicators (RSI, MACD) for confirmation.</li>
+<li>Machine learning optimization: Finding optimal parameter combinations through historical data.</li>
+<li>Risk parity approaches: Dynamic position sizing based on asset-specific volatility.</li>
 </ul>
 <hr>
 <p><strong><a href="../projects.html">切換至中文版本</a></strong> | <strong><a href="../projects.html">Switch to Chinese</a></strong></p>

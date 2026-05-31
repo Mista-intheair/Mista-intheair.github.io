@@ -58,93 +58,106 @@ def fit_baseline(df: pd.DataFrame):
 
 ---
 
-## Backtrader 量化回測系統
+## 雙均線策略量化研究
 
 ::: {.card}
-基於 Backtrader 框架的完整量化交易回測系統，提供雙均線策略與真實交易成本模擬。
+利用技術分析中的移動平均線交叉信號，研究市場趨勢反轉與動能延續的量化交易策略。
 :::
 
-### 項目目標
+### 策略核心邏輯
 
-- 提供完整的量化交易回測框架，用於策略研究與開發。
-- 實現真實的交易環境模擬，包含手續費與滑點。
-- 支援多標的同時回測與完整的績效分析。
+雙均線策略基於技術分析的經典原理：短期移動平均線反映近期市場動能，長期移動平均線代表市場主要趨勢。當短期平均線穿越長期平均線時，代表市場動能變化，形成交易信號。
 
-### 核心特性
+**買入信號**：20日均線向上穿越60日均線（黃金交叉）
+$$MA_{20}(t) > MA_{60}(t) \text{ and } MA_{20}(t-1) \leq MA_{60}(t-1)$$
 
-- **回測引擎**：基於 Backtrader 1.9.74 的強大回測框架。
-- **策略實現**：經典的 20日/60日移動平均線交叉策略。
-- **交易成本**：手續費設定 (0.1%) 和滑點模擬 (0.05%)。
-- **多股票支持**：同步回測台積電 (2330.TW)、蘋果 (AAPL)、特斯拉 (TSLA)。
-- **績效指標**：Sharpe 比率、最大回撤、總收益率等完整分析。
-- **數據管理**：自動化 Yahoo Finance 數據下載與更新機制。
-- **結果持久化**：JSON 和 CSV 雙格式輸出。
+**賣出信號**：20日均線向下穿越60日均線（死亡交叉）
+$$MA_{20}(t) < MA_{60}(t) \text{ and } MA_{20}(t-1) \geq MA_{60}(t-1)$$
 
-### 項目結構
+### 金融理論基礎
+
+1. **市場趨勢性**：假設市場存在可識別的趨勢，而非完全隨機遊走。移動平均線作為趨勢過濾器，平滑短期噪聲。
+   
+2. **動能效應**：研究表明存在短期動能反轉與中期動能延續的現象。雙均線的交叉點捕捉這些轉折。
+
+3. **交易成本考量**：真實交易環境中的手續費 (0.1%) 和滑點 (0.05%) 會顯著影響策略績效。納入成本模擬是驗證策略可行性的關鍵。
+
+### 回測框架的意義
+
+回測不是目的，而是驗證策略有效性的方法。通過歷史數據評估：
+
+- **信號品質**：識別的交叉點是否能抓住實際的趨勢反轉。
+- **風險調整收益**：策略在風險管理下的真實績效（Sharpe 比率）。
+- **實踐可行性**：扣除交易成本與滑點後，策略是否仍有超額收益。
+- **不同市場環境**：策略在不同股票、時期的魯棒性。
+
+### 實證分析
+
+針對三個重要標的進行回測：
+
+| 標的 | 數據期間 | 關鍵特徵 |
+|------|---------|---------|
+| 台積電 (2330.TW) | 2024-2026 | 科技龍頭，高波動性市場 |
+| 蘋果 (AAPL) | 2024-2026 | 國際大型股，流動性充足 |
+| 特斯拉 (TSLA) | 2024-2026 | 高成長股，波動率較大 |
+
+回測結果評估指標：
 
 ```
-backtrader-quant/
-├── backtest.py              # 核心回測引擎
-├── quick_backtest.py        # 快速回測腳本
-├── config.py                # 集中配置管理
-├── strategies/              # 策略目錄
-│   └── dual_ma_strategy.py  # 雙均線策略實現
-├── data/                    # 數據目錄
-│   ├── data_manager.py      # Yahoo Finance 數據管理
-│   ├── 2330_TW.csv          # 台積電歷史數據
-│   ├── AAPL.csv             # 蘋果歷史數據
-│   └── TSLA.csv             # 特斯拉歷史數據
-└── results/                 # 回測結果輸出目錄
+績效指標:
+├── 年化收益率 (Annual Return)
+├── 夏普比率 (Sharpe Ratio) - 風險調整的收益度量
+├── 最大回撤 (Max Drawdown) - 最差的虧損幅度
+├── 勝率 (Win Rate) - 盈利交易佔比
+└── 交易次數 - 策略的交易頻率
 ```
 
-### 使用範例
+### 策略實現要點
 
 ```python
-from backtest import run_backtest
-from strategies.dual_ma_strategy import DualMAStrategy
-
-# 運行雙均線策略回測
-results = run_backtest(
-    strategy=DualMAStrategy,
-    symbol='2330.TW',
-    start_date='2022-01-01',
-    end_date='2026-05-31',
-    initial_cash=100000
-)
-
-# 查看績效指標
-print(f"Sharpe Ratio: {results['sharpe_ratio']}")
-print(f"Max Drawdown: {results['max_drawdown']}")
-print(f"Total Return: {results['total_return']}")
+# 策略信號生成的核心邏輯
+def generate_signal(close_prices, short_window=20, long_window=60):
+    """
+    計算移動平均線交叉信號
+    
+    參數:
+        close_prices: 歷史收盤價序列
+        short_window: 短期均線窗口（天數）
+        long_window: 長期均線窗口（天數）
+    
+    返回:
+        signal: 1=買入, -1=賣出, 0=無信號
+    """
+    ma_short = close_prices.rolling(window=short_window).mean()
+    ma_long = close_prices.rolling(window=long_window).mean()
+    
+    # 識別交叉點
+    crossover = (ma_short > ma_long) & (ma_short.shift(1) <= ma_long.shift(1))
+    crossunder = (ma_short < ma_long) & (ma_short.shift(1) >= ma_long.shift(1))
+    
+    signal = pd.Series(0, index=close_prices.index)
+    signal[crossover] = 1   # 黃金交叉
+    signal[crossunder] = -1 # 死亡交叉
+    
+    return signal
 ```
 
-### 快速開始
+### 關鍵研究問題
 
-```bash
-# 進入項目目錄並運行快速回測
-cd path/to/backtrader-quant
-./run.sh quick_backtest.py
+1. **參數優化**：20/60 的均線周期組合是否最優？不同標的是否需要調整？
 
-# 查看回測結果
-./run.sh view_results.py
+2. **風險管理**：在單一策略基礎上，如何加入止損機制或動態頭寸管理？
 
-# 下載最新數據
-./run.sh data/data_manager.py
-```
+3. **市場適應性**：策略在不同市場狀態（趨勢市 vs 盤整市）的表現差異。
 
-### 技術實現亮點
+4. **交易成本影響**：手續費與滑點對不同交易頻率策略的影響程度。
 
-1. **配置管理**：集中式配置 (config.py) 便於調整手續費、滑點等參數。
-2. **策略模板**：標準化策略介面，易於擴展新策略。
-3. **虛擬環境隔離**：使用 run.sh 啟動器，自動激活虛擬環境，無污染主系統。
-4. **完整文檔**：提供 GUIDE.md、SETUP.md、RESULTS_GUIDE.md 等 7 份詳細指南。
+### 延伸研究方向
 
-### 前置要求
-
-- Python 3.8+
-- macOS 或 Linux 系統
-- 200MB 磁碟空間
-- 基本的 Python 與命令行知識
+- 結合波動率指標（ATR、Bollinger Bands）強化信號。
+- 多因子模型：加入 RSI、MACD 等動量指標的確認。
+- 機器學習優化：利用歷史數據找出最優的參數組合。
+- 風險平價策略：根據不同標的的波動率動態調整頭寸。
 
 ---
 

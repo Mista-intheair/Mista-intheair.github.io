@@ -58,93 +58,106 @@ def fit_baseline(df: pd.DataFrame):
 
 ---
 
-## Backtrader Quantitative Backtesting System
+## Dual Moving Average Strategy Research
 
 ::: {.card}
-A comprehensive quantitative trading backtesting system built on Backtrader framework, featuring dual moving average strategy with realistic trading cost simulation.
+Quantitative research on trading signals from moving average crossovers, exploring trend reversals and momentum continuation in financial markets.
 :::
 
-### Project Objective
+### Strategy Core Logic
 
-- Provide a complete quantitative trading backtesting framework for strategy research and development.
-- Simulate realistic trading environments including commissions and slippage.
-- Support multi-asset backtesting with comprehensive performance analytics.
+The dual moving average strategy is rooted in classical technical analysis: the short-term moving average captures recent market momentum, while the long-term moving average represents the primary market trend. When the short-term average crosses the long-term average, it signals a change in market momentum, generating a trading signal.
 
-### Core Features
+**Buy Signal**: 20-day MA crosses above 60-day MA (Golden Cross)
+$$MA_{20}(t) > MA_{60}(t) \text{ and } MA_{20}(t-1) \leq MA_{60}(t-1)$$
 
-- **Backtesting Engine**: Powerful framework based on Backtrader 1.9.74.
-- **Strategy Implementation**: Classic 20-day/60-day moving average crossover strategy.
-- **Trading Costs**: Commission (0.1%) and slippage (0.05%) simulation.
-- **Multi-Asset Support**: Simultaneous backtesting of TSMC (2330.TW), Apple (AAPL), Tesla (TSLA).
-- **Performance Metrics**: Complete analysis with Sharpe ratio, max drawdown, total return.
-- **Data Management**: Automated Yahoo Finance data download and update mechanism.
-- **Result Output**: Dual JSON and CSV format persistence.
+**Sell Signal**: 20-day MA crosses below 60-day MA (Death Cross)
+$$MA_{20}(t) < MA_{60}(t) \text{ and } MA_{20}(t-1) \geq MA_{60}(t-1)$$
 
-### Project Structure
+### Financial Theory Foundation
+
+1. **Market Trend Hypothesis**: Markets exhibit identifiable trends rather than pure random walks. Moving averages serve as trend filters, smoothing short-term noise.
+
+2. **Momentum Effects**: Empirical research shows both short-term momentum reversals and medium-term momentum continuation. Moving average crossovers capture these inflection points.
+
+3. **Transaction Cost Realism**: Real trading incurs commissions (0.1%) and slippage (0.05%). Incorporating these costs is essential for validating practical viability.
+
+### The Purpose of Backtesting
+
+Backtesting is not an end goal but a method to validate strategy effectiveness. Historical evaluation addresses:
+
+- **Signal Quality**: Do identified crossovers capture actual trend reversals?
+- **Risk-Adjusted Returns**: True performance under risk management constraints (Sharpe ratio).
+- **Practical Feasibility**: Do excess returns persist after deducting trading costs?
+- **Robustness Across Markets**: How does strategy perform across different assets and periods?
+
+### Empirical Analysis
+
+Backtesting on three key assets:
+
+| Asset | Period | Characteristics |
+|-------|--------|-----------------|
+| TSMC (2330.TW) | 2024-2026 | Tech leader, high volatility |
+| Apple (AAPL) | 2024-2026 | Large-cap international, excellent liquidity |
+| Tesla (TSLA) | 2024-2026 | High-growth stock, elevated volatility |
+
+Performance metrics evaluated:
 
 ```
-backtrader-quant/
-├── backtest.py              # Core backtesting engine
-├── quick_backtest.py        # Quick backtest script
-├── config.py                # Centralized configuration
-├── strategies/              # Strategy directory
-│   └── dual_ma_strategy.py  # Dual moving average strategy
-├── data/                    # Data directory
-│   ├── data_manager.py      # Yahoo Finance data management
-│   ├── 2330_TW.csv          # TSMC historical data
-│   ├── AAPL.csv             # Apple historical data
-│   └── TSLA.csv             # Tesla historical data
-└── results/                 # Backtest results output
+Performance Indicators:
+├── Annual Return
+├── Sharpe Ratio - Risk-adjusted return measurement
+├── Maximum Drawdown - Worst loss magnitude
+├── Win Rate - Proportion of profitable trades
+└── Trade Frequency - Strategy trading frequency
 ```
 
-### Usage Example
+### Strategy Implementation Essentials
 
 ```python
-from backtest import run_backtest
-from strategies.dual_ma_strategy import DualMAStrategy
-
-# Run dual moving average strategy backtest
-results = run_backtest(
-    strategy=DualMAStrategy,
-    symbol='2330.TW',
-    start_date='2022-01-01',
-    end_date='2026-05-31',
-    initial_cash=100000
-)
-
-# View performance metrics
-print(f"Sharpe Ratio: {results['sharpe_ratio']}")
-print(f"Max Drawdown: {results['max_drawdown']}")
-print(f"Total Return: {results['total_return']}")
+# Core logic for moving average crossover signals
+def generate_signal(close_prices, short_window=20, long_window=60):
+    """
+    Generate moving average crossover signals.
+    
+    Parameters:
+        close_prices: Historical closing price series
+        short_window: Short-term MA period (days)
+        long_window: Long-term MA period (days)
+    
+    Returns:
+        signal: 1=Buy, -1=Sell, 0=No signal
+    """
+    ma_short = close_prices.rolling(window=short_window).mean()
+    ma_long = close_prices.rolling(window=long_window).mean()
+    
+    # Identify crossover points
+    crossover = (ma_short > ma_long) & (ma_short.shift(1) <= ma_long.shift(1))
+    crossunder = (ma_short < ma_long) & (ma_short.shift(1) >= ma_long.shift(1))
+    
+    signal = pd.Series(0, index=close_prices.index)
+    signal[crossover] = 1    # Golden cross
+    signal[crossunder] = -1  # Death cross
+    
+    return signal
 ```
 
-### Quick Start
+### Key Research Questions
 
-```bash
-# Enter project directory and run quick backtest
-cd path/to/backtrader-quant
-./run.sh quick_backtest.py
+1. **Parameter Optimization**: Is the 20/60 period combination optimal? Should different assets use different periods?
 
-# View backtest results
-./run.sh view_results.py
+2. **Risk Management**: How can stop-loss mechanisms or dynamic position sizing enhance the basic strategy?
 
-# Download latest data
-./run.sh data/data_manager.py
-```
+3. **Market Adaptation**: How does strategy performance differ across trend-following vs. range-bound markets?
 
-### Technical Implementation Highlights
+4. **Cost Impact**: How significantly do commissions and slippage affect strategies with different trade frequencies?
 
-1. **Configuration Management**: Centralized config.py for easy parameter adjustment.
-2. **Strategy Template**: Standardized strategy interface for easy extension.
-3. **Virtual Environment Isolation**: run.sh launcher automatically activates virtual environment without system pollution.
-4. **Comprehensive Documentation**: 7 detailed guides including GUIDE.md, SETUP.md, RESULTS_GUIDE.md.
+### Future Research Directions
 
-### Requirements
-
-- Python 3.8+
-- macOS or Linux system
-- 200MB disk space
-- Basic Python and command-line knowledge
+- Combining volatility indicators (ATR, Bollinger Bands) to strengthen signals.
+- Multi-factor models: Incorporating momentum indicators (RSI, MACD) for confirmation.
+- Machine learning optimization: Finding optimal parameter combinations through historical data.
+- Risk parity approaches: Dynamic position sizing based on asset-specific volatility.
 
 ---
 
