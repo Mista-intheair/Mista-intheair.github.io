@@ -250,6 +250,17 @@ window.Quarto = {
   <li><a href="#key-research-questions" id="toc-key-research-questions" class="nav-link" data-scroll-target="#key-research-questions">Key Research Questions</a></li>
   <li><a href="#future-research-directions" id="toc-future-research-directions" class="nav-link" data-scroll-target="#future-research-directions">Future Research Directions</a></li>
   </ul></li>
+  <li><a href="#quantitative-investing-asset-pricing-model" id="toc-quantitative-investing-asset-pricing-model" class="nav-link" data-scroll-target="#quantitative-investing-asset-pricing-model">Quantitative Investing &amp; Asset Pricing Model</a>
+  <ul class="collapse">
+  <li><a href="#core-objectives" id="toc-core-objectives" class="nav-link" data-scroll-target="#core-objectives">Core Objectives</a></li>
+  <li><a href="#modeling-framework" id="toc-modeling-framework" class="nav-link" data-scroll-target="#modeling-framework">Modeling Framework</a></li>
+  <li><a href="#data-inputs-1" id="toc-data-inputs-1" class="nav-link" data-scroll-target="#data-inputs-1">Data Inputs</a></li>
+  <li><a href="#empirical-analysis-1" id="toc-empirical-analysis-1" class="nav-link" data-scroll-target="#empirical-analysis-1">Empirical Analysis</a></li>
+  <li><a href="#output-metrics" id="toc-output-metrics" class="nav-link" data-scroll-target="#output-metrics">Output Metrics</a></li>
+  <li><a href="#strategy-implementation-logic" id="toc-strategy-implementation-logic" class="nav-link" data-scroll-target="#strategy-implementation-logic">Strategy Implementation Logic</a></li>
+  <li><a href="#key-research-questions-1" id="toc-key-research-questions-1" class="nav-link" data-scroll-target="#key-research-questions-1">Key Research Questions</a></li>
+  <li><a href="#future-research-directions-1" id="toc-future-research-directions-1" class="nav-link" data-scroll-target="#future-research-directions-1">Future Research Directions</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -313,7 +324,7 @@ window.Quarto = {
 </section>
 <section id="minimal-python-prototype" class="level3">
 <h3 class="anchored" data-anchor-id="minimal-python-prototype">Minimal Python Prototype</h3>
-<div id="02753584" class="cell" data-execution_count="1">
+<div id="bfe084d2" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.linear_model <span class="im">import</span> ElasticNet</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -451,6 +462,236 @@ window.Quarto = {
 <li>Multi-factor models: Incorporating momentum indicators (RSI, MACD) for confirmation.</li>
 <li>Machine learning optimization: Finding optimal parameter combinations through historical data.</li>
 <li>Risk parity approaches: Dynamic position sizing based on asset-specific volatility.</li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="quantitative-investing-asset-pricing-model" class="level2">
+<h2 class="anchored" data-anchor-id="quantitative-investing-asset-pricing-model">Quantitative Investing &amp; Asset Pricing Model</h2>
+<div class="card">
+<p>Build a rigorous asset pricing framework for large-cap tech stocks (semiconductor leaders, global market cap titans), conducting deep valuation analysis and momentum trading strategies.</p>
+</div>
+<section id="core-objectives" class="level3">
+<h3 class="anchored" data-anchor-id="core-objectives">Core Objectives</h3>
+<p>Construct a multi-layered asset evaluation framework that combines financial theory with data-driven methods, providing principled entry/exit decisions for systematic traders and investment analysts.</p>
+</section>
+<section id="modeling-framework" class="level3">
+<h3 class="anchored" data-anchor-id="modeling-framework">Modeling Framework</h3>
+<section id="relative-valuation-layer" class="level4">
+<h4 class="anchored" data-anchor-id="relative-valuation-layer">1. Relative Valuation Layer</h4>
+<p><strong>Bond-Stock Relative Value</strong>:</p>
+<p>Compute fair equity price under risk-free rates using duration-based methods to compare debt and equity returns:</p>
+<p><span class="math display">\[P_{fair} = \frac{EPS \times (1 + g)}{r - g}\]</span></p>
+<p>where: - <span class="math inline">\(EPS\)</span> = Earnings Per Share - <span class="math inline">\(g\)</span> = Long-term growth rate - <span class="math inline">\(r\)</span> = Required rate of return</p>
+<p><strong>Internal Rate of Return (IRR) Analysis</strong>:</p>
+<p>Derive intrinsic company value from historical cash flows to identify overvalued or undervalued assets:</p>
+<p><span class="math display">\[\sum_{t=1}^{T} \frac{CF_t}{(1+IRR)^t} = P_0\]</span></p>
+<p>where <span class="math inline">\(CF_t\)</span> is the cash flow in period <span class="math inline">\(t\)</span> and <span class="math inline">\(P_0\)</span> is the current stock price.</p>
+</section>
+<section id="factor-model-decomposition-layer" class="level4">
+<h4 class="anchored" data-anchor-id="factor-model-decomposition-layer">2. Factor Model Decomposition Layer</h4>
+<p><strong>Fama-French Three-Factor Model</strong>:</p>
+<p><span class="math display">\[R_i - R_f = \alpha + \beta_m (R_m - R_f) + \beta_s SMB + \beta_v HML + \epsilon_i\]</span></p>
+<p>Factor Definitions: - <span class="math inline">\(R_m - R_f\)</span> = Market risk premium - <span class="math inline">\(SMB\)</span> = Size factor (small-cap minus large-cap) - <span class="math inline">\(HML\)</span> = Value factor (high B/P minus low B/P)</p>
+<p><strong>Momentum Factor</strong>:</p>
+<p>Identify time windows where price trends persist or revert, used to predict short-term excess returns:</p>
+<p><span class="math display">\[MOM_t = \sum_{j=1}^{J} w_j \times R_{t-j}\]</span></p>
+</section>
+<section id="monte-carlo-simulation-layer" class="level4">
+<h4 class="anchored" data-anchor-id="monte-carlo-simulation-layer">3. Monte Carlo Simulation Layer</h4>
+<p>Use stochastic models to simulate stock price trajectories, assess extreme scenario risks and opportunities:</p>
+<p><span class="math display">\[S_t = S_{t-1} \exp\left(\left(\mu - \frac{\sigma^2}{2}\right)\Delta t + \sigma \sqrt{\Delta t} Z_t\right)\]</span></p>
+<p>where <span class="math inline">\(Z_t \sim N(0,1)\)</span> is a random normal variable, running 10,000+ path simulations.</p>
+</section>
+<section id="deep-financial-statement-analysis" class="level4">
+<h4 class="anchored" data-anchor-id="deep-financial-statement-analysis">4. Deep Financial Statement Analysis</h4>
+<p><strong>Multi-Year Trend Analysis</strong>: - Revenue Compound Annual Growth Rate (CAGR) - Gross margin / Operating margin trends - Free cash flow growth and quality</p>
+<p><strong>DuPont Analysis</strong> (ROE Decomposition):</p>
+<p><span class="math display">\[ROE = \frac{Net\ Income}{Sales} \times \frac{Sales}{Total\ Assets} \times \frac{Total\ Assets}{Shareholders'\ Equity}\]</span></p>
+</section>
+</section>
+<section id="data-inputs-1" class="level3">
+<h3 class="anchored" data-anchor-id="data-inputs-1">Data Inputs</h3>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Category</th>
+<th>Data Source</th>
+<th>Update Frequency</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Market Prices</td>
+<td>Yahoo Finance, Bloomberg</td>
+<td>Real-time</td>
+</tr>
+<tr class="even">
+<td>Financial Statements</td>
+<td>SEC EDGAR, Exchange</td>
+<td>Quarterly/Annual</td>
+</tr>
+<tr class="odd">
+<td>Macro Indicators</td>
+<td>FRED, Central Banks</td>
+<td>Monthly/Quarterly</td>
+</tr>
+<tr class="even">
+<td>Industry Data</td>
+<td>FactSet, Bloomberg</td>
+<td>Daily</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="empirical-analysis-1" class="level3">
+<h3 class="anchored" data-anchor-id="empirical-analysis-1">Empirical Analysis</h3>
+<p>Analysis of global large-cap tech stocks:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 24%">
+<col style="width: 24%">
+<col style="width: 51%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Ticker</th>
+<th>Sector</th>
+<th>Analysis Focus</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>TSMC (2330.TW)</td>
+<td>Semiconductor Mfg</td>
+<td>Mature cash flows, ROIC</td>
+</tr>
+<tr class="even">
+<td>Apple (AAPL)</td>
+<td>Consumer Electronics</td>
+<td>Brand premium, ecosystem stickiness</td>
+</tr>
+<tr class="odd">
+<td>NVIDIA (NVDA)</td>
+<td>AI Chips</td>
+<td>High growth, market leadership</td>
+</tr>
+<tr class="even">
+<td>Microsoft (MSFT)</td>
+<td>Enterprise Software</td>
+<td>Stable cash flows, cloud growth</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="output-metrics" class="level3">
+<h3 class="anchored" data-anchor-id="output-metrics">Output Metrics</h3>
+<pre><code>Valuation Results:
+├── Intrinsic Value (Fair Value)
+├── Target Price (6/12 month)
+├── Risk Premium Assessment
+├── Value Driver Attribution
+└── Scenario Analysis (Bear/Base/Bull)
+
+Risk Indicators:
+├── Beta Coefficient &amp; Volatility
+├── VaR / CVaR
+├── Stress Test Results
+└── Correlation Matrix
+
+Trading Signals:
+├── Buy / Hold / Sell Rating
+├── Position Sizing Recommendation
+├── Stop Loss / Take Profit Levels
+└── Trigger Points for Rebalancing</code></pre>
+</section>
+<section id="strategy-implementation-logic" class="level3">
+<h3 class="anchored" data-anchor-id="strategy-implementation-logic">Strategy Implementation Logic</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> QuantitativeValuationModel:</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Quantitative Asset Pricing Model"""</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, ticker: <span class="bu">str</span>, lookback_years: <span class="bu">int</span> <span class="op">=</span> <span class="dv">5</span>):</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.ticker <span class="op">=</span> ticker</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.lookback_years <span class="op">=</span> lookback_years</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.financials <span class="op">=</span> <span class="va">None</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.prices <span class="op">=</span> <span class="va">None</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> compute_intrinsic_value(<span class="va">self</span>) <span class="op">-&gt;</span> <span class="bu">dict</span>:</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>        <span class="co">"""</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="co">        Calculate intrinsic value (multiple approaches)</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="co">        </span></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="co">        Methods:</span></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a><span class="co">        1. DCF (Discounted Cash Flow)</span></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a><span class="co">        2. P/E Relative valuation</span></span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a><span class="co">        3. P/B (Price-to-Book)</span></span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a><span class="co">        4. PEG (Growth-adjusted)</span></span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a><span class="co">        """</span></span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>        dcf_value <span class="op">=</span> <span class="va">self</span>.discounted_cash_flow()</span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>        pe_value <span class="op">=</span> <span class="va">self</span>.relative_valuation()</span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> {</span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>            <span class="st">'dcf'</span>: dcf_value,</span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>            <span class="st">'relative'</span>: pe_value,</span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a>            <span class="st">'fair_value'</span>: (dcf_value <span class="op">+</span> pe_value) <span class="op">/</span> <span class="dv">2</span></span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a>        }</span>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> factor_decomposition(<span class="va">self</span>) <span class="op">-&gt;</span> pd.DataFrame:</span>
+<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a>        <span class="co">"""Factor attribution analysis"""</span></span>
+<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a>        factors <span class="op">=</span> pd.DataFrame({</span>
+<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a>            <span class="st">'market_beta'</span>: <span class="va">self</span>.calculate_beta(),</span>
+<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a>            <span class="st">'size_factor'</span>: <span class="va">self</span>.calculate_smb(),</span>
+<span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a>            <span class="st">'value_factor'</span>: <span class="va">self</span>.calculate_hml(),</span>
+<span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a>            <span class="st">'momentum'</span>: <span class="va">self</span>.calculate_momentum()</span>
+<span id="cb5-36"><a href="#cb5-36" aria-hidden="true" tabindex="-1"></a>        })</span>
+<span id="cb5-37"><a href="#cb5-37" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> factors</span>
+<span id="cb5-38"><a href="#cb5-38" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb5-39"><a href="#cb5-39" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> monte_carlo_simulation(<span class="va">self</span>, </span>
+<span id="cb5-40"><a href="#cb5-40" aria-hidden="true" tabindex="-1"></a>                             n_simulations: <span class="bu">int</span> <span class="op">=</span> <span class="dv">10000</span>,</span>
+<span id="cb5-41"><a href="#cb5-41" aria-hidden="true" tabindex="-1"></a>                             periods: <span class="bu">int</span> <span class="op">=</span> <span class="dv">252</span>) <span class="op">-&gt;</span> np.ndarray:</span>
+<span id="cb5-42"><a href="#cb5-42" aria-hidden="true" tabindex="-1"></a>        <span class="co">"""Monte Carlo path simulation"""</span></span>
+<span id="cb5-43"><a href="#cb5-43" aria-hidden="true" tabindex="-1"></a>        S <span class="op">=</span> np.zeros((n_simulations, periods))</span>
+<span id="cb5-44"><a href="#cb5-44" aria-hidden="true" tabindex="-1"></a>        S[:, <span class="dv">0</span>] <span class="op">=</span> <span class="va">self</span>.current_price</span>
+<span id="cb5-45"><a href="#cb5-45" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb5-46"><a href="#cb5-46" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> t <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, periods):</span>
+<span id="cb5-47"><a href="#cb5-47" aria-hidden="true" tabindex="-1"></a>            Z <span class="op">=</span> np.random.standard_normal(n_simulations)</span>
+<span id="cb5-48"><a href="#cb5-48" aria-hidden="true" tabindex="-1"></a>            S[:, t] <span class="op">=</span> S[:, t<span class="op">-</span><span class="dv">1</span>] <span class="op">*</span> np.exp(</span>
+<span id="cb5-49"><a href="#cb5-49" aria-hidden="true" tabindex="-1"></a>                (<span class="va">self</span>.mu <span class="op">-</span> <span class="va">self</span>.sigma<span class="op">**</span><span class="dv">2</span> <span class="op">/</span> <span class="dv">2</span>) <span class="op">/</span> <span class="dv">252</span> <span class="op">+</span> </span>
+<span id="cb5-50"><a href="#cb5-50" aria-hidden="true" tabindex="-1"></a>                <span class="va">self</span>.sigma <span class="op">*</span> np.sqrt(<span class="dv">1</span><span class="op">/</span><span class="dv">252</span>) <span class="op">*</span> Z</span>
+<span id="cb5-51"><a href="#cb5-51" aria-hidden="true" tabindex="-1"></a>            )</span>
+<span id="cb5-52"><a href="#cb5-52" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb5-53"><a href="#cb5-53" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> S</span>
+<span id="cb5-54"><a href="#cb5-54" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb5-55"><a href="#cb5-55" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> generate_signal(<span class="va">self</span>) <span class="op">-&gt;</span> <span class="bu">str</span>:</span>
+<span id="cb5-56"><a href="#cb5-56" aria-hidden="true" tabindex="-1"></a>        <span class="co">"""Generate trading signal"""</span></span>
+<span id="cb5-57"><a href="#cb5-57" aria-hidden="true" tabindex="-1"></a>        current_price <span class="op">=</span> <span class="va">self</span>.prices[<span class="op">-</span><span class="dv">1</span>]</span>
+<span id="cb5-58"><a href="#cb5-58" aria-hidden="true" tabindex="-1"></a>        fair_value <span class="op">=</span> <span class="va">self</span>.compute_intrinsic_value()[<span class="st">'fair_value'</span>]</span>
+<span id="cb5-59"><a href="#cb5-59" aria-hidden="true" tabindex="-1"></a>        margin_of_safety <span class="op">=</span> <span class="fl">0.15</span>  <span class="co"># 15% margin of safety</span></span>
+<span id="cb5-60"><a href="#cb5-60" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb5-61"><a href="#cb5-61" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> current_price <span class="op">&lt;</span> fair_value <span class="op">*</span> (<span class="dv">1</span> <span class="op">-</span> margin_of_safety):</span>
+<span id="cb5-62"><a href="#cb5-62" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> <span class="st">'BUY'</span></span>
+<span id="cb5-63"><a href="#cb5-63" aria-hidden="true" tabindex="-1"></a>        <span class="cf">elif</span> current_price <span class="op">&gt;</span> fair_value <span class="op">*</span> (<span class="dv">1</span> <span class="op">+</span> margin_of_safety):</span>
+<span id="cb5-64"><a href="#cb5-64" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> <span class="st">'SELL'</span></span>
+<span id="cb5-65"><a href="#cb5-65" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span>:</span>
+<span id="cb5-66"><a href="#cb5-66" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> <span class="st">'HOLD'</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="key-research-questions-1" class="level3">
+<h3 class="anchored" data-anchor-id="key-research-questions-1">Key Research Questions</h3>
+<ol type="1">
+<li><p><strong>Valuation Method Comparison</strong>: Which approach (DCF vs.&nbsp;relative valuation vs.&nbsp;analogies) is most accurate for tech stocks?</p></li>
+<li><p><strong>Growth Rate Assumptions</strong>: How to adjust long-term growth expectations based on industry cycles and technological progress?</p></li>
+<li><p><strong>Risk Premium</strong>: How should discount rates be adjusted for tech stocks?</p></li>
+<li><p><strong>Market Efficiency</strong>: Lag between model signals and actual market responses?</p></li>
+<li><p><strong>Multi-Asset Linkage</strong>: Coordination mechanisms between single-stock valuation and portfolio construction.</p></li>
+</ol>
+</section>
+<section id="future-research-directions-1" class="level3">
+<h3 class="anchored" data-anchor-id="future-research-directions-1">Future Research Directions</h3>
+<ul>
+<li><strong>Real-time Monitoring System</strong>: Build a dashboard with auto-updated valuations and signals</li>
+<li><strong>Portfolio Optimization</strong>: MVO optimization based on asset pricing models</li>
+<li><strong>Hedging Strategies</strong>: Pairs trading and statistical arbitrage signals</li>
+<li><strong>Scenario Analysis</strong>: Impact of geopolitics, policy, and tech innovation on valuations</li>
+<li><strong>ML Enhancement</strong>: XGBoost, neural networks for parameter optimization</li>
 </ul>
 <hr>
 <p><strong><a href="../projects.html">切換至中文版本</a></strong> | <strong><a href="../projects.html">Switch to Chinese</a></strong></p>

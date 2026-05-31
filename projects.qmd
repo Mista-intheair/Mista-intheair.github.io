@@ -161,4 +161,209 @@ def generate_signal(close_prices, short_window=20, long_window=60):
 
 ---
 
+## 量化投資與資產定價模型
+
+::: {.card}
+為大型科技股（半導體龍頭、全球市值前段班企業）構建嚴謹的資產定價模型，進行深度估值分析與動量交易策略。
+:::
+
+### 核心目標
+
+構建一個多層次的資產評估框架，將金融理論與數據驅動方法結合，為系統性交易員與投資分析師提供有原則的進出場決策。
+
+### 建模框架
+
+#### 1. 相對價值評估層
+
+**債券-股票相對價值**：
+
+計算無風險收益率下的公平股價，使用持續期（Duration）方法比較債權與股權收益：
+
+$$P_{fair} = \frac{EPS \times (1 + g)}{r - g}$$
+
+其中：
+- $EPS$ = 每股盈餘
+- $g$ = 長期成長率
+- $r$ = 必要回報率
+
+**內部收益率（IRR）分析**：
+
+基於歷史現金流推導公司內在價值，用於識別被高估或低估的資產：
+
+$$\sum_{t=1}^{T} \frac{CF_t}{(1+IRR)^t} = P_0$$
+
+其中 $CF_t$ 是第 $t$ 期現金流，$P_0$ 是當前股價。
+
+#### 2. 因子模型分解層
+
+**Fama-French 三因子模型**：
+
+$$R_i - R_f = \alpha + \beta_m (R_m - R_f) + \beta_s SMB + \beta_v HML + \epsilon_i$$
+
+因子定義：
+- $R_m - R_f$ = 市場風險溢價
+- $SMB$ = 規模因子（小公司 - 大公司）
+- $HML$ = 價值因子（高 B/P - 低 B/P）
+
+**動量因子**：
+
+識別股價走勢延續或反轉的時間窗口，用於預測短期超額收益：
+
+$$MOM_t = \sum_{j=1}^{J} w_j \times R_{t-j}$$
+
+#### 3. 蒙地卡羅模擬層
+
+使用隨機模型模擬股價軌跡，評估極端情景下的風險與機會：
+
+$$S_t = S_{t-1} \exp\left(\left(\mu - \frac{\sigma^2}{2}\right)\Delta t + \sigma \sqrt{\Delta t} Z_t\right)$$
+
+其中 $Z_t \sim N(0,1)$ 為隨機正態變數，進行 10,000+ 路徑模擬。
+
+#### 4. 財務報表深度分析
+
+**多年期趨勢分析**：
+- 營收複合增長率 (CAGR)
+- 毛利率 / 營業利率變化趨勢
+- 自由現金流成長與品質
+
+**杜邦分析**（ROE 拆解）：
+
+$$ROE = \frac{淨利潤}{銷售收入} \times \frac{銷售收入}{總資產} \times \frac{總資產}{股東權益}$$
+
+### 數據輸入
+
+| 類別 | 數據源 | 更新頻率 |
+|------|--------|---------|
+| 市場價格 | Yahoo Finance, Bloomberg | 實時 |
+| 財務報表 | SEC EDGAR, 交易所 | 季度/年度 |
+| 宏觀指標 | FRED, 央行 | 月度/季度 |
+| 行業數據 | FactSet, 彭博 | 每日 |
+
+### 實證分析
+
+針對全球市值前段班科技股進行分析：
+
+| 標的 | 行業 | 分析重點 |
+|------|------|---------|
+| 台積電 (2330.TW) | 半導體製造 | 成熟期現金流、資本回報率 |
+| 蘋果 (AAPL) | 消費電子 | 品牌溢價、生態系黏著性 |
+| NVIDIA (NVDA) | AI 芯片 | 高成長、市場領導地位 |
+| 微軟 (MSFT) | 企業軟件 | 穩定現金流、雲計算增長 |
+
+### 輸出指標
+
+```
+估值結果:
+├── 內在價值 (Fair Value)
+├── 目標價格（6/12個月）
+├── 風險溢價評估
+├── 價值驅動因子歸因
+└── 情景分析（熊/基/牛）
+
+風險指標:
+├── Beta 係數與波動率
+├── VaR / CVaR
+├── 壓力測試結果
+└── 相關性矩陣
+
+交易信號:
+├── 買入 / 持有 / 賣出 評級
+├── 位置規模建議
+├── 止損 / 止盈 水位
+└── 轉換觸發點
+```
+
+### 策略實現邏輯
+
+```python
+class QuantitativeValuationModel:
+    """量化資產定價模型"""
+    
+    def __init__(self, ticker: str, lookback_years: int = 5):
+        self.ticker = ticker
+        self.lookback_years = lookback_years
+        self.financials = None
+        self.prices = None
+    
+    def compute_intrinsic_value(self) -> dict:
+        """
+        計算內在價值 (多種方法)
+        
+        方法：
+        1. DCF 貼現現金流
+        2. P/E 相對估值
+        3. P/B 價淨比
+        4. PEG 成長調整
+        """
+        dcf_value = self.discounted_cash_flow()
+        pe_value = self.relative_valuation()
+        
+        return {
+            'dcf': dcf_value,
+            'relative': pe_value,
+            'fair_value': (dcf_value + pe_value) / 2
+        }
+    
+    def factor_decomposition(self) -> pd.DataFrame:
+        """因子歸因分析"""
+        factors = pd.DataFrame({
+            'market_beta': self.calculate_beta(),
+            'size_factor': self.calculate_smb(),
+            'value_factor': self.calculate_hml(),
+            'momentum': self.calculate_momentum()
+        })
+        return factors
+    
+    def monte_carlo_simulation(self, 
+                             n_simulations: int = 10000,
+                             periods: int = 252) -> np.ndarray:
+        """蒙地卡羅路徑模擬"""
+        S = np.zeros((n_simulations, periods))
+        S[:, 0] = self.current_price
+        
+        for t in range(1, periods):
+            Z = np.random.standard_normal(n_simulations)
+            S[:, t] = S[:, t-1] * np.exp(
+                (self.mu - self.sigma**2 / 2) / 252 + 
+                self.sigma * np.sqrt(1/252) * Z
+            )
+        
+        return S
+    
+    def generate_signal(self) -> str:
+        """生成交易信號"""
+        current_price = self.prices[-1]
+        fair_value = self.compute_intrinsic_value()['fair_value']
+        margin_of_safety = 0.15  # 15% 安全邊際
+        
+        if current_price < fair_value * (1 - margin_of_safety):
+            return 'BUY'
+        elif current_price > fair_value * (1 + margin_of_safety):
+            return 'SELL'
+        else:
+            return 'HOLD'
+```
+
+### 關鍵研究問題
+
+1. **估值方法對比**：DCF vs 相對估值 vs 類比法，哪種在科技股領域最準確？
+
+2. **成長率假設**：如何根據行業週期與技術進展調整長期成長預期？
+
+3. **風險溢價**：科技股應如何調整必要回報率（Discount Rate）？
+
+4. **市場效率**：模型信號與實際市場反應之間的滯後時間？
+
+5. **多資產聯動**：單一股票估值與投資組合構建的協調機制。
+
+### 延伸研究方向
+
+- **實時監控系統**：構建儀表板，自動更新估值與信號
+- **投資組合優化**：基於資產定價模型的 MVO 優化
+- **對沖策略**：配對交易與統計套利信號
+- **情景分析**：地緣政治、利率政策、技術革新對估值的影響
+- **機器學習增強**：結合 XGBoost、神經網路進行參數優化
+
+---
+
 **[English Version](en/projects.html)** | **[切換至英文版本](en/projects.html)**

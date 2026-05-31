@@ -250,6 +250,17 @@ window.Quarto = {
   <li><a href="#關鍵研究問題" id="toc-關鍵研究問題" class="nav-link" data-scroll-target="#關鍵研究問題">關鍵研究問題</a></li>
   <li><a href="#延伸研究方向" id="toc-延伸研究方向" class="nav-link" data-scroll-target="#延伸研究方向">延伸研究方向</a></li>
   </ul></li>
+  <li><a href="#量化投資與資產定價模型" id="toc-量化投資與資產定價模型" class="nav-link" data-scroll-target="#量化投資與資產定價模型">量化投資與資產定價模型</a>
+  <ul class="collapse">
+  <li><a href="#核心目標" id="toc-核心目標" class="nav-link" data-scroll-target="#核心目標">核心目標</a></li>
+  <li><a href="#建模框架" id="toc-建模框架" class="nav-link" data-scroll-target="#建模框架">建模框架</a></li>
+  <li><a href="#數據輸入-1" id="toc-數據輸入-1" class="nav-link" data-scroll-target="#數據輸入-1">數據輸入</a></li>
+  <li><a href="#實證分析-1" id="toc-實證分析-1" class="nav-link" data-scroll-target="#實證分析-1">實證分析</a></li>
+  <li><a href="#輸出指標" id="toc-輸出指標" class="nav-link" data-scroll-target="#輸出指標">輸出指標</a></li>
+  <li><a href="#策略實現邏輯" id="toc-策略實現邏輯" class="nav-link" data-scroll-target="#策略實現邏輯">策略實現邏輯</a></li>
+  <li><a href="#關鍵研究問題-1" id="toc-關鍵研究問題-1" class="nav-link" data-scroll-target="#關鍵研究問題-1">關鍵研究問題</a></li>
+  <li><a href="#延伸研究方向-1" id="toc-延伸研究方向-1" class="nav-link" data-scroll-target="#延伸研究方向-1">延伸研究方向</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -313,7 +324,7 @@ window.Quarto = {
 </section>
 <section id="python-原型代碼" class="level3">
 <h3 class="anchored" data-anchor-id="python-原型代碼">Python 原型代碼</h3>
-<div id="e8e1171e" class="cell" data-execution_count="1">
+<div id="062b0163" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.linear_model <span class="im">import</span> ElasticNet</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -446,6 +457,231 @@ window.Quarto = {
 <li>多因子模型：加入 RSI、MACD 等動量指標的確認。</li>
 <li>機器學習優化：利用歷史數據找出最優的參數組合。</li>
 <li>風險平價策略：根據不同標的的波動率動態調整頭寸。</li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="量化投資與資產定價模型" class="level2">
+<h2 class="anchored" data-anchor-id="量化投資與資產定價模型">量化投資與資產定價模型</h2>
+<div class="card">
+<p>為大型科技股（半導體龍頭、全球市值前段班企業）構建嚴謹的資產定價模型，進行深度估值分析與動量交易策略。</p>
+</div>
+<section id="核心目標" class="level3">
+<h3 class="anchored" data-anchor-id="核心目標">核心目標</h3>
+<p>構建一個多層次的資產評估框架，將金融理論與數據驅動方法結合，為系統性交易員與投資分析師提供有原則的進出場決策。</p>
+</section>
+<section id="建模框架" class="level3">
+<h3 class="anchored" data-anchor-id="建模框架">建模框架</h3>
+<section id="相對價值評估層" class="level4">
+<h4 class="anchored" data-anchor-id="相對價值評估層">1. 相對價值評估層</h4>
+<p><strong>債券-股票相對價值</strong>：</p>
+<p>計算無風險收益率下的公平股價，使用持續期（Duration）方法比較債權與股權收益：</p>
+<p><span class="math display">\[P_{fair} = \frac{EPS \times (1 + g)}{r - g}\]</span></p>
+<p>其中： - <span class="math inline">\(EPS\)</span> = 每股盈餘 - <span class="math inline">\(g\)</span> = 長期成長率 - <span class="math inline">\(r\)</span> = 必要回報率</p>
+<p><strong>內部收益率（IRR）分析</strong>：</p>
+<p>基於歷史現金流推導公司內在價值，用於識別被高估或低估的資產：</p>
+<p><span class="math display">\[\sum_{t=1}^{T} \frac{CF_t}{(1+IRR)^t} = P_0\]</span></p>
+<p>其中 <span class="math inline">\(CF_t\)</span> 是第 <span class="math inline">\(t\)</span> 期現金流，<span class="math inline">\(P_0\)</span> 是當前股價。</p>
+</section>
+<section id="因子模型分解層" class="level4">
+<h4 class="anchored" data-anchor-id="因子模型分解層">2. 因子模型分解層</h4>
+<p><strong>Fama-French 三因子模型</strong>：</p>
+<p><span class="math display">\[R_i - R_f = \alpha + \beta_m (R_m - R_f) + \beta_s SMB + \beta_v HML + \epsilon_i\]</span></p>
+<p>因子定義： - <span class="math inline">\(R_m - R_f\)</span> = 市場風險溢價 - <span class="math inline">\(SMB\)</span> = 規模因子（小公司 - 大公司） - <span class="math inline">\(HML\)</span> = 價值因子（高 B/P - 低 B/P）</p>
+<p><strong>動量因子</strong>：</p>
+<p>識別股價走勢延續或反轉的時間窗口，用於預測短期超額收益：</p>
+<p><span class="math display">\[MOM_t = \sum_{j=1}^{J} w_j \times R_{t-j}\]</span></p>
+</section>
+<section id="蒙地卡羅模擬層" class="level4">
+<h4 class="anchored" data-anchor-id="蒙地卡羅模擬層">3. 蒙地卡羅模擬層</h4>
+<p>使用隨機模型模擬股價軌跡，評估極端情景下的風險與機會：</p>
+<p><span class="math display">\[S_t = S_{t-1} \exp\left(\left(\mu - \frac{\sigma^2}{2}\right)\Delta t + \sigma \sqrt{\Delta t} Z_t\right)\]</span></p>
+<p>其中 <span class="math inline">\(Z_t \sim N(0,1)\)</span> 為隨機正態變數，進行 10,000+ 路徑模擬。</p>
+</section>
+<section id="財務報表深度分析" class="level4">
+<h4 class="anchored" data-anchor-id="財務報表深度分析">4. 財務報表深度分析</h4>
+<p><strong>多年期趨勢分析</strong>： - 營收複合增長率 (CAGR) - 毛利率 / 營業利率變化趨勢 - 自由現金流成長與品質</p>
+<p><strong>杜邦分析</strong>（ROE 拆解）：</p>
+<p><span class="math display">\[ROE = \frac{淨利潤}{銷售收入} \times \frac{銷售收入}{總資產} \times \frac{總資產}{股東權益}\]</span></p>
+</section>
+</section>
+<section id="數據輸入-1" class="level3">
+<h3 class="anchored" data-anchor-id="數據輸入-1">數據輸入</h3>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>類別</th>
+<th>數據源</th>
+<th>更新頻率</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>市場價格</td>
+<td>Yahoo Finance, Bloomberg</td>
+<td>實時</td>
+</tr>
+<tr class="even">
+<td>財務報表</td>
+<td>SEC EDGAR, 交易所</td>
+<td>季度/年度</td>
+</tr>
+<tr class="odd">
+<td>宏觀指標</td>
+<td>FRED, 央行</td>
+<td>月度/季度</td>
+</tr>
+<tr class="even">
+<td>行業數據</td>
+<td>FactSet, 彭博</td>
+<td>每日</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="實證分析-1" class="level3">
+<h3 class="anchored" data-anchor-id="實證分析-1">實證分析</h3>
+<p>針對全球市值前段班科技股進行分析：</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>標的</th>
+<th>行業</th>
+<th>分析重點</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>台積電 (2330.TW)</td>
+<td>半導體製造</td>
+<td>成熟期現金流、資本回報率</td>
+</tr>
+<tr class="even">
+<td>蘋果 (AAPL)</td>
+<td>消費電子</td>
+<td>品牌溢價、生態系黏著性</td>
+</tr>
+<tr class="odd">
+<td>NVIDIA (NVDA)</td>
+<td>AI 芯片</td>
+<td>高成長、市場領導地位</td>
+</tr>
+<tr class="even">
+<td>微軟 (MSFT)</td>
+<td>企業軟件</td>
+<td>穩定現金流、雲計算增長</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="輸出指標" class="level3">
+<h3 class="anchored" data-anchor-id="輸出指標">輸出指標</h3>
+<pre><code>估值結果:
+├── 內在價值 (Fair Value)
+├── 目標價格（6/12個月）
+├── 風險溢價評估
+├── 價值驅動因子歸因
+└── 情景分析（熊/基/牛）
+
+風險指標:
+├── Beta 係數與波動率
+├── VaR / CVaR
+├── 壓力測試結果
+└── 相關性矩陣
+
+交易信號:
+├── 買入 / 持有 / 賣出 評級
+├── 位置規模建議
+├── 止損 / 止盈 水位
+└── 轉換觸發點</code></pre>
+</section>
+<section id="策略實現邏輯" class="level3">
+<h3 class="anchored" data-anchor-id="策略實現邏輯">策略實現邏輯</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> QuantitativeValuationModel:</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""量化資產定價模型"""</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, ticker: <span class="bu">str</span>, lookback_years: <span class="bu">int</span> <span class="op">=</span> <span class="dv">5</span>):</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.ticker <span class="op">=</span> ticker</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.lookback_years <span class="op">=</span> lookback_years</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.financials <span class="op">=</span> <span class="va">None</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.prices <span class="op">=</span> <span class="va">None</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> compute_intrinsic_value(<span class="va">self</span>) <span class="op">-&gt;</span> <span class="bu">dict</span>:</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>        <span class="co">"""</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="co">        計算內在價值 (多種方法)</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="co">        </span></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="co">        方法：</span></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a><span class="co">        1. DCF 貼現現金流</span></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a><span class="co">        2. P/E 相對估值</span></span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a><span class="co">        3. P/B 價淨比</span></span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a><span class="co">        4. PEG 成長調整</span></span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a><span class="co">        """</span></span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>        dcf_value <span class="op">=</span> <span class="va">self</span>.discounted_cash_flow()</span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>        pe_value <span class="op">=</span> <span class="va">self</span>.relative_valuation()</span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> {</span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>            <span class="st">'dcf'</span>: dcf_value,</span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>            <span class="st">'relative'</span>: pe_value,</span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a>            <span class="st">'fair_value'</span>: (dcf_value <span class="op">+</span> pe_value) <span class="op">/</span> <span class="dv">2</span></span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a>        }</span>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> factor_decomposition(<span class="va">self</span>) <span class="op">-&gt;</span> pd.DataFrame:</span>
+<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a>        <span class="co">"""因子歸因分析"""</span></span>
+<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a>        factors <span class="op">=</span> pd.DataFrame({</span>
+<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a>            <span class="st">'market_beta'</span>: <span class="va">self</span>.calculate_beta(),</span>
+<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a>            <span class="st">'size_factor'</span>: <span class="va">self</span>.calculate_smb(),</span>
+<span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a>            <span class="st">'value_factor'</span>: <span class="va">self</span>.calculate_hml(),</span>
+<span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a>            <span class="st">'momentum'</span>: <span class="va">self</span>.calculate_momentum()</span>
+<span id="cb5-36"><a href="#cb5-36" aria-hidden="true" tabindex="-1"></a>        })</span>
+<span id="cb5-37"><a href="#cb5-37" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> factors</span>
+<span id="cb5-38"><a href="#cb5-38" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb5-39"><a href="#cb5-39" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> monte_carlo_simulation(<span class="va">self</span>, </span>
+<span id="cb5-40"><a href="#cb5-40" aria-hidden="true" tabindex="-1"></a>                             n_simulations: <span class="bu">int</span> <span class="op">=</span> <span class="dv">10000</span>,</span>
+<span id="cb5-41"><a href="#cb5-41" aria-hidden="true" tabindex="-1"></a>                             periods: <span class="bu">int</span> <span class="op">=</span> <span class="dv">252</span>) <span class="op">-&gt;</span> np.ndarray:</span>
+<span id="cb5-42"><a href="#cb5-42" aria-hidden="true" tabindex="-1"></a>        <span class="co">"""蒙地卡羅路徑模擬"""</span></span>
+<span id="cb5-43"><a href="#cb5-43" aria-hidden="true" tabindex="-1"></a>        S <span class="op">=</span> np.zeros((n_simulations, periods))</span>
+<span id="cb5-44"><a href="#cb5-44" aria-hidden="true" tabindex="-1"></a>        S[:, <span class="dv">0</span>] <span class="op">=</span> <span class="va">self</span>.current_price</span>
+<span id="cb5-45"><a href="#cb5-45" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb5-46"><a href="#cb5-46" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> t <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, periods):</span>
+<span id="cb5-47"><a href="#cb5-47" aria-hidden="true" tabindex="-1"></a>            Z <span class="op">=</span> np.random.standard_normal(n_simulations)</span>
+<span id="cb5-48"><a href="#cb5-48" aria-hidden="true" tabindex="-1"></a>            S[:, t] <span class="op">=</span> S[:, t<span class="op">-</span><span class="dv">1</span>] <span class="op">*</span> np.exp(</span>
+<span id="cb5-49"><a href="#cb5-49" aria-hidden="true" tabindex="-1"></a>                (<span class="va">self</span>.mu <span class="op">-</span> <span class="va">self</span>.sigma<span class="op">**</span><span class="dv">2</span> <span class="op">/</span> <span class="dv">2</span>) <span class="op">/</span> <span class="dv">252</span> <span class="op">+</span> </span>
+<span id="cb5-50"><a href="#cb5-50" aria-hidden="true" tabindex="-1"></a>                <span class="va">self</span>.sigma <span class="op">*</span> np.sqrt(<span class="dv">1</span><span class="op">/</span><span class="dv">252</span>) <span class="op">*</span> Z</span>
+<span id="cb5-51"><a href="#cb5-51" aria-hidden="true" tabindex="-1"></a>            )</span>
+<span id="cb5-52"><a href="#cb5-52" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb5-53"><a href="#cb5-53" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> S</span>
+<span id="cb5-54"><a href="#cb5-54" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb5-55"><a href="#cb5-55" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> generate_signal(<span class="va">self</span>) <span class="op">-&gt;</span> <span class="bu">str</span>:</span>
+<span id="cb5-56"><a href="#cb5-56" aria-hidden="true" tabindex="-1"></a>        <span class="co">"""生成交易信號"""</span></span>
+<span id="cb5-57"><a href="#cb5-57" aria-hidden="true" tabindex="-1"></a>        current_price <span class="op">=</span> <span class="va">self</span>.prices[<span class="op">-</span><span class="dv">1</span>]</span>
+<span id="cb5-58"><a href="#cb5-58" aria-hidden="true" tabindex="-1"></a>        fair_value <span class="op">=</span> <span class="va">self</span>.compute_intrinsic_value()[<span class="st">'fair_value'</span>]</span>
+<span id="cb5-59"><a href="#cb5-59" aria-hidden="true" tabindex="-1"></a>        margin_of_safety <span class="op">=</span> <span class="fl">0.15</span>  <span class="co"># 15% 安全邊際</span></span>
+<span id="cb5-60"><a href="#cb5-60" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb5-61"><a href="#cb5-61" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> current_price <span class="op">&lt;</span> fair_value <span class="op">*</span> (<span class="dv">1</span> <span class="op">-</span> margin_of_safety):</span>
+<span id="cb5-62"><a href="#cb5-62" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> <span class="st">'BUY'</span></span>
+<span id="cb5-63"><a href="#cb5-63" aria-hidden="true" tabindex="-1"></a>        <span class="cf">elif</span> current_price <span class="op">&gt;</span> fair_value <span class="op">*</span> (<span class="dv">1</span> <span class="op">+</span> margin_of_safety):</span>
+<span id="cb5-64"><a href="#cb5-64" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> <span class="st">'SELL'</span></span>
+<span id="cb5-65"><a href="#cb5-65" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span>:</span>
+<span id="cb5-66"><a href="#cb5-66" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> <span class="st">'HOLD'</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="關鍵研究問題-1" class="level3">
+<h3 class="anchored" data-anchor-id="關鍵研究問題-1">關鍵研究問題</h3>
+<ol type="1">
+<li><p><strong>估值方法對比</strong>：DCF vs 相對估值 vs 類比法，哪種在科技股領域最準確？</p></li>
+<li><p><strong>成長率假設</strong>：如何根據行業週期與技術進展調整長期成長預期？</p></li>
+<li><p><strong>風險溢價</strong>：科技股應如何調整必要回報率（Discount Rate）？</p></li>
+<li><p><strong>市場效率</strong>：模型信號與實際市場反應之間的滯後時間？</p></li>
+<li><p><strong>多資產聯動</strong>：單一股票估值與投資組合構建的協調機制。</p></li>
+</ol>
+</section>
+<section id="延伸研究方向-1" class="level3">
+<h3 class="anchored" data-anchor-id="延伸研究方向-1">延伸研究方向</h3>
+<ul>
+<li><strong>實時監控系統</strong>：構建儀表板，自動更新估值與信號</li>
+<li><strong>投資組合優化</strong>：基於資產定價模型的 MVO 優化</li>
+<li><strong>對沖策略</strong>：配對交易與統計套利信號</li>
+<li><strong>情景分析</strong>：地緣政治、利率政策、技術革新對估值的影響</li>
+<li><strong>機器學習增強</strong>：結合 XGBoost、神經網路進行參數優化</li>
 </ul>
 <hr>
 <p><strong><a href="en/projects.html">English Version</a></strong> | <strong><a href="en/projects.html">切換至英文版本</a></strong></p>
