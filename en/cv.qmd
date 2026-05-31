@@ -6,7 +6,7 @@ title: "CV"
 # Mista
 
 <div class="cv-meta">
-Email: mista.intheair@gmail.com | GitHub: github.com/Mista-intheair | Location: Taipei
+Email: [mista.intheair@gmail.com](mailto:mista.intheair@gmail.com) | GitHub: [github.com/Mista-intheair](https://github.com/Mista-intheair) | Location: Taipei
 </div>
 
 ## Profile
