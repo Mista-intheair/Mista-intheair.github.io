@@ -161,4 +161,4 @@ title: "MISTA"
 
 ---
 
-**[英文版本](en/index.html)** | **[中文首頁](index.html)**
+**[English Version](en/index.html)** | **[切換至英文版本](en/index.html)**
