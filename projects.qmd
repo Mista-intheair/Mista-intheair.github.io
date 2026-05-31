@@ -58,4 +58,94 @@ def fit_baseline(df: pd.DataFrame):
 
 ---
 
+## Backtrader 量化回測系統
+
+::: {.card}
+基於 Backtrader 框架的完整量化交易回測系統，提供雙均線策略與真實交易成本模擬。
+:::
+
+### 項目目標
+
+- 提供完整的量化交易回測框架，用於策略研究與開發。
+- 實現真實的交易環境模擬，包含手續費與滑點。
+- 支援多標的同時回測與完整的績效分析。
+
+### 核心特性
+
+- **回測引擎**：基於 Backtrader 1.9.74 的強大回測框架。
+- **策略實現**：經典的 20日/60日移動平均線交叉策略。
+- **交易成本**：手續費設定 (0.1%) 和滑點模擬 (0.05%)。
+- **多股票支持**：同步回測台積電 (2330.TW)、蘋果 (AAPL)、特斯拉 (TSLA)。
+- **績效指標**：Sharpe 比率、最大回撤、總收益率等完整分析。
+- **數據管理**：自動化 Yahoo Finance 數據下載與更新機制。
+- **結果持久化**：JSON 和 CSV 雙格式輸出。
+
+### 項目結構
+
+```
+backtrader-quant/
+├── backtest.py              # 核心回測引擎
+├── quick_backtest.py        # 快速回測腳本
+├── config.py                # 集中配置管理
+├── strategies/              # 策略目錄
+│   └── dual_ma_strategy.py  # 雙均線策略實現
+├── data/                    # 數據目錄
+│   ├── data_manager.py      # Yahoo Finance 數據管理
+│   ├── 2330_TW.csv          # 台積電歷史數據
+│   ├── AAPL.csv             # 蘋果歷史數據
+│   └── TSLA.csv             # 特斯拉歷史數據
+└── results/                 # 回測結果輸出目錄
+```
+
+### 使用範例
+
+```python
+from backtest import run_backtest
+from strategies.dual_ma_strategy import DualMAStrategy
+
+# 運行雙均線策略回測
+results = run_backtest(
+    strategy=DualMAStrategy,
+    symbol='2330.TW',
+    start_date='2022-01-01',
+    end_date='2026-05-31',
+    initial_cash=100000
+)
+
+# 查看績效指標
+print(f"Sharpe Ratio: {results['sharpe_ratio']}")
+print(f"Max Drawdown: {results['max_drawdown']}")
+print(f"Total Return: {results['total_return']}")
+```
+
+### 快速開始
+
+```bash
+# 進入項目目錄並運行快速回測
+cd path/to/backtrader-quant
+./run.sh quick_backtest.py
+
+# 查看回測結果
+./run.sh view_results.py
+
+# 下載最新數據
+./run.sh data/data_manager.py
+```
+
+### 技術實現亮點
+
+1. **配置管理**：集中式配置 (config.py) 便於調整手續費、滑點等參數。
+2. **策略模板**：標準化策略介面，易於擴展新策略。
+3. **虛擬環境隔離**：使用 run.sh 啟動器，自動激活虛擬環境，無污染主系統。
+4. **完整文檔**：提供 GUIDE.md、SETUP.md、RESULTS_GUIDE.md 等 7 份詳細指南。
+
+### 前置要求
+
+- Python 3.8+
+- macOS 或 Linux 系統
+- 200MB 磁碟空間
+- 基本的 Python 與命令行知識
+
+---
+
 **[English Version](en/projects.html)** | **[切換至英文版本](en/projects.html)**
