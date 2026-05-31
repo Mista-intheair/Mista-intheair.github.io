@@ -161,4 +161,5 @@ Reach out via email or explore my work on GitHub:
 
 ---
 
-**[Switch to Chinese](../index.html)** | **[切換至中文版本](../index.html)**
+**[切換至中文版本](../index.html)** | **[Switch to Chinese](../index.html)**
+
