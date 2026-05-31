@@ -23,6 +23,10 @@ Researcher specializing in Global Macro and Equity Research, with emphasis on ra
 
 ### B.A. in Economics, Shanghai
 
+<div class="cv-meta">2022-2024</div>
+
+- Thesis: Mining Rights Reform Promotes the Production of Mineral Products? —— Based on the Empirical Analysis of the 2017 "Mining Right Transfer Reform"
+
 ## Selected Projects
 
 - USD/TWD forecasting model with regime-aware features.
